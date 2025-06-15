@@ -7,6 +7,63 @@
   <meta name="description" content="About Vizorion – Learn more about our mission and vision for the future of data education.">
   <title>Vizorion – About</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-hero {
+      position: relative;
+      background: linear-gradient(to right, rgba(30,58,138,0.9), rgba(99,102,241,0.9)),
+                  url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 6rem 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 4rem 1rem;
+      background: #f4f6fa;
+    }
+
+    .about-card {
+      background: #ffffff;
+      padding: 2.5rem;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    }
+
+    .about-card p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111827;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,9 +78,13 @@
     </nav>
   </header>
 
+  <section class="about-hero">
+    <h1>Our Vision for 2025 and Beyond</h1>
+    <p>Where learning meets data. Evolved, personalized, and always one step ahead.</p>
+  </section>
+
   <main class="about-wrapper">
-    <section class="about-card">
-      <h1>Our Vision for 2025 and Beyond</h1>
+    <div class="about-card">
       <p>
         At Vizorion, we're redefining how individuals and teams upskill in Excel, data visualization, and dashboard storytelling.
         We're not just offering downloads — we're crafting a world-class, interactive platform where anyone, from student to professional, can learn by doing.
@@ -38,7 +99,7 @@
       <p>
         We're building for the future — and you're invited. 🚀
       </p>
-    </section>
+    </div>
   </main>
 
   <footer>
@@ -46,33 +107,3 @@
   </footer>
 </body>
 </html>
-
-
-.about-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 4rem 1rem;
-  background: #f4f6fa;
-}
-
-.about-card {
-  background: #ffffff;
-  padding: 2.5rem;
-  max-width: 800px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.05);
-}
-
-.about-card h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #1e3a8a;
-}
-
-.about-card p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
