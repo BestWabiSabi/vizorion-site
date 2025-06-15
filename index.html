@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +39,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .hero {
-  background: linear-gradient(to right, rgba(205, 234, 192, 0.65), rgba(205, 234, 192, 0.65)),
-            url('images/background.jpg') center/cover no-repeat;
-color: #1e3a8a;
-  text-align: center;
-  padding: 8rem 2rem;
-}
+  background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('images/background.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
   padding: 8rem 2rem;
@@ -61,22 +58,20 @@ color: #1e3a8a;
       line-height: 1.7;
     }
 
-  .button {
-  background: linear-gradient(to right, #a0d995, #cdeac0);
-  color: #1e3a8a;
-  padding: 0.85rem 1.7rem;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
+    .button {
+      background: #3b82f6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .button:hover {
+      background: #2563eb;
+    }
+
     .features {
       padding: 4rem 2rem;
       max-width: 1000px;
@@ -96,23 +91,26 @@ color: #1e3a8a;
     }
 
     .feature {
-  background: #f7fdf5; /* very light green */
-  border: 1px solid #cdeac0;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.feature h3 {
-  color: #1e3a8a;
-}
-.feature p {
-  color: #333;
-}
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .feature h3 {
+      margin-bottom: 1rem;
+      color: #1e3a8a;
+    }
+
+    .feature p {
+      color: #444;
+      font-size: 0.95rem;
+    }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background: #6C9A8B;
+      background: #111827;
       color: white;
       margin-top: 4rem;
     }
