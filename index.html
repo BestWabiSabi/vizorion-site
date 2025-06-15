@@ -2,20 +2,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4ZD0NCFLY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z4ZD0NCFLY');
-</script>
   <meta charset="UTF-8" />
+  <title>Vizorion – Practice Excel & Dashboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Vizorion – Hands-on Excel and Dashboard Practice Platform">
-  <title>Vizorion – Excel & Dashboard Practice</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero {
+      background: linear-gradient(to right, rgba(30, 58, 138, 0.9), rgba(99, 102, 241, 0.9)),
+        url('https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .button {
+      background: #3b82f6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .button:hover {
+      background: #2563eb;
+    }
+
+    .features {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .feature h3 {
+      margin-bottom: 1rem;
+      color: #1e3a8a;
+    }
+
+    .feature p {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111827;
+      color: white;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -28,12 +98,32 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <div class="hero">
-      <h1>Welcome to Vizorion</h1>
-      <p>We are currently working on providing you with high-quality Excel, Dashboard, and Looker Studio practice resources — tailored to your learning path.</p>
-      <a href="downloads.html" class="button">Coming Soon: Practice Hub</a>
-    </div>
   </header>
+
+  <section class="hero">
+    <h1>Welcome to Vizorion</h1>
+    <p>Your modern hub for Excel, Looker Studio & Dashboard practice. Learn by doing, guided by real data cases and hands-on tools — for beginners, analysts & professionals.</p>
+    <a href="downloads.html" class="button">Explore Downloads</a>
+  </section>
+
+  <section class="features">
+    <h2>Why Vizorion?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>📊 Real-World Data</h3>
+        <p>All files are built from actual scenarios to help you gain skills that matter in the job market.</p>
+      </div>
+      <div class="feature">
+        <h3>🎯 Learning by Doing</h3>
+        <p>Practice instead of passively reading. Engage with formulas, dashboards, and visuals hands-on.</p>
+      </div>
+      <div class="feature">
+        <h3>🚀 Free & Growing</h3>
+        <p>Our resource library is always expanding. Stay tuned for more data challenges and tools.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>© 2025 Vizorion. All rights reserved.</p>
   </footer>
