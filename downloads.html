@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Downloads – Vizorion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .downloads-hero {
+      background: linear-gradient(to right, #1e3a8a, #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .downloads-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .downloads-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .download-section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .download-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .download-card h3 {
+      margin-bottom: 0.5rem;
+      color: #1e3a8a;
+    }
+
+    .download-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .download-card a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111827;
+      color: white;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">Vizorion</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html" class="active">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="downloads-hero">
+    <h1>📦 Downloads Hub</h1>
+    <p>Your personal toolbox of practice files, templates, and dashboards.</p>
+  </section>
+
+  <main class="download-section">
+    <div class="download-grid">
+      <div class="download-card">
+        <h3>Excel Practice File 1</h3>
+        <p>Contains SUM, COUNTIF, and Pivot Table exercises.</p>
+        <a href="#">Download</a>
+      </div>
+      <div class="download-card">
+        <h3>Dashboard Template</h3>
+        <p>A clean Excel dashboard UI to get started on your own KPIs.</p>
+        <a href="#">Download</a>
+      </div>
+      <div class="download-card">
+        <h3>Data Cleaning Worksheet</h3>
+        <p>Raw vs cleaned version of a customer data spreadsheet.</p>
+        <a href="#">Download</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Vizorion. All rights reserved.</p>
+  </footer>
+</body>
+</html>
