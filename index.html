@@ -61,22 +61,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
   .button {
-  background: linear-gradient(to right, #a0d995, #cdeac0); /* soft green gradient */
-  color: #1e3a8a; /* deep navy text for contrast */
+  background: linear-gradient(to right, #a0d995, #cdeac0);
+  color: #1e3a8a;
   padding: 0.85rem 1.7rem;
   border: none;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  background: linear-gradient(to right, #cdeac0, #a0d995);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
     .features {
       padding: 4rem 2rem;
