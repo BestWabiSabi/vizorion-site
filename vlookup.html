@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VLOOKUP Formula – Vizorion</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: #f4f5f4;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    header { background: #224ba0; color: #fff; width: 100vw; position: sticky; top: 0; z-index: 100; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2rem; max-width: 1600px; margin: 0 auto; }
+    .logo a { color: #fff; font-size: 1.7rem; text-decoration: none; font-weight: 800; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 1.3rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: #fff; text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.3rem 0.8rem; border-radius: 6px; transition: background 0.18s; }
+    .nav-links a:hover, .nav-links a.active { background: #375ac3; }
+    .excel-sidebar { width: 210px; background: #173f2e; color: #fff; min-height: 100vh; position: fixed; top: 60px; left: 0; padding: 2rem 1rem 1rem 1rem; display: flex; flex-direction: column; gap: 1rem; z-index: 10; border-right: 1px solid #e2e8f0; }
+    .excel-sidebar a { color: #fff; text-decoration: none; padding: 0.7rem 1rem; border-radius: 8px; background: #218c5c; font-weight: 600; margin-bottom: 0.3rem; transition: background 0.15s; font-size: 1.08rem; letter-spacing: 0.03em; box-shadow: 0 2px 6px rgba(20, 50, 40, 0.08); text-align: left; border: none; outline: none; display: block; }
+    .excel-sidebar a:hover, .excel-sidebar a:focus { background: #16a34a; }
+    .excel-sidebar a.active { background: #fff; color: #173f2e; font-weight: bold; border: 2px solid #218c5c; }
+    .excel-content { margin-left: 270px; margin-top: 75px; padding: 3.5rem 2rem 2rem 2rem; min-height: 90vh; background: none; display: flex; flex-direction: column; align-items: flex-start; }
+    .excel-card { background: #fff; border-radius: 18px; box-shadow: 0 6px 24px rgba(70,90,120,0.07); padding: 2.2rem 2.5rem 2.5rem 2.5rem; max-width: 960px; width: 100%; margin: 0 auto; min-height: 400px; margin-bottom: 2rem; }
+    .excel-card h1 { margin-top: 0; font-weight: 800; color: #183042; font-size: 2.2rem; }
+    .excel-card p { color: #23313b; font-size: 1.15rem; line-height: 1.7; }
+    .syntax { background: #e7f3fa; border-left: 4px solid #3498db; padding: 1rem 1.2rem; margin-bottom: 1.5rem; border-radius: 10px; font-size: 1.08rem; color: #1e4e6c; }
+    .excel-card code { background: #f3f3f3; padding: 2px 8px; border-radius: 4px; font-size: 1.06em; }
+    @media (max-width: 900px) {
+      .excel-sidebar { position: static; width: 100vw; min-height: unset; flex-direction: row; gap: 0.2rem; padding: 1rem; top: unset; border-right: none; border-bottom: 1px solid #e2e8f0; }
+      .excel-content { margin: 0; padding: 1.2rem 0.4rem 2rem 0.4rem; }
+      .excel-card { border-radius: 12px; padding: 1.2rem 1rem; min-height: 250px; }
+    }
+    @media (max-width: 600px) {
+      .excel-card { padding: 1rem 0.6rem; }
+      .navbar { flex-direction: column; align-items: flex-start; padding: 0.6rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">Vizorion</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="excel-sidebar">
+    <a href="excel-welcome.html">Welcome</a>
+    <a href="if-formula.html">IF Formula</a>
+    <a href="vlookup.html" class="active">VLOOKUP</a>
+    <a href="index-match.html">INDEX-MATCH</a>
+    <a href="sumifs.html">SUMIFS</a>
+    <a href="countif.html">COUNTIF</a>
+    <a href="countifs.html">COUNTIFS</a>
+    <a href="xlookup.html">XLOOKUP</a>
+    <a href="averageif.html">AVERAGEIF</a>
+    <a href="averageifs.html">AVERAGEIFS</a>
+    <a href="left.html">LEFT</a>
+    <a href="right.html">RIGHT</a>
+    <a href="mid.html">MID</a>
+    <a href="concatenate.html">CONCATENATE</a>
+    <a href="textjoin.html">TEXTJOIN</a>
+    <a href="unique.html">UNIQUE</a>
+    <a href="filter.html">FILTER</a>
+    <a href="sort.html">SORT</a>
+    <a href="transpose.html">TRANSPOSE</a>
+    <a href="date.html">DATE</a>
+    <a href="today.html">TODAY</a>
+    <a href="sum.html">SUM</a>
+    <a href="min.html">MIN</a>
+    <a href="max.html">MAX</a>
+    <!-- Add more as needed -->
+  </div>
+  <main class="excel-content">
+    <div class="excel-card">
+      <h1>VLOOKUP Formula</h1>
+      <div class="syntax">
+        <strong>Syntax:</strong><br>
+        <code>=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>
+        <ul>
+          <li><b>lookup_value</b> – The value to search for in the first column of the table.</li>
+          <li><b>table_array</b> – The range of cells containing the data table.</li>
+          <li><b>col_index_num</b> – The column number in the table from which to return the value.</li>
+          <li><b>range_lookup</b> – Optional. Use <code>FALSE</code> for exact match, <code>TRUE</code> for approximate match (usually <code>FALSE</code> is safest).</li>
+        </ul>
+        <b>Example:</b><br>
+        <code>=VLOOKUP("Apple", A2:C10, 3, FALSE)</code>
+      </div>
+      <p>
+        The <b>VLOOKUP</b> function allows you to search for a value in the first column of a table and return a value from another column in the same row.<br><br>
+        <strong>Task:</strong> Use the embedded Excel sheet below. Try to fill in the <b>Product Price</b> using a <b>VLOOKUP</b> formula to find the correct price for each product code.
+        <ul>
+          <li>Match the <b>Product Code</b> with the codes in the lookup table and return the <b>Price</b>.</li>
+        </ul>
+        <strong>Tip:</strong> Open in Excel Online for hands-on practice and to see instant feedback!
+      </p>
+      <iframe width="500" height="300" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQR_M-CfqVo5SIv8_eJBW_9PAUNcBzelt3EohAtb9G75FVA?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!B2&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+    </div>
+  </main>
+</body>
+</html>
