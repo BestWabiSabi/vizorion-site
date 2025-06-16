@@ -99,7 +99,6 @@
       min-height: 90vh;
       background: none;
       transition: margin 0.3s;
-      /* Use a centered card style */
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -109,22 +108,17 @@
       border-radius: 18px;
       box-shadow: 0 6px 24px rgba(70,90,120,0.07);
       padding: 2.2rem 2.5rem 2.5rem 2.5rem;
-      max-width: 960px;
+      max-width: 640px;
       width: 100%;
       margin: 0 auto;
-      min-height: 400px;
+      min-height: 200px;
       margin-bottom: 2rem;
       transition: box-shadow 0.2s;
     }
-    .excel-card h1, .excel-card h2 {
+    .excel-card h1 {
       margin-top: 0;
       font-weight: 800;
       color: #183042;
-    }
-    .excel-card h2 {
-      font-size: 1.7rem;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
     }
     .excel-card p {
       color: #23313b;
@@ -150,7 +144,7 @@
       .excel-card {
         border-radius: 12px;
         padding: 1.2rem 1rem;
-        min-height: 250px;
+        min-height: 120px;
       }
     }
     @media (max-width: 600px) {
@@ -177,33 +171,21 @@
       </ul>
     </nav>
   </header>
- <div class="excel-sidebar">
-  <a href="excel-welcome.html">Welcome</a>
-  <a href="if-formula.html">IF Formula</a>
-  <a href="vlookup.html">VLOOKUP</a>
-  <a href="index-match.html">INDEX-MATCH</a>
-  <a href="sumifs.html">SUMIFS</a>
-</div>
+  <div class="excel-sidebar">
+    <a href="excel-welcome.html">Welcome</a>
+    <a href="if-formula.html">IF Formula</a>
+    <a href="vlookup.html">VLOOKUP</a>
+    <a href="index-match.html">INDEX-MATCH</a>
+    <a href="sumifs.html">SUMIFS</a>
+  </div>
   <main class="excel-content">
     <div class="excel-card" id="welcome">
       <h1>Welcome to Excel at Vizorion!</h1>
       <p>
         To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.<br><br>
-        Please select a formula on the left to get started. Good luck!
+        <b>Please select a formula on the left to get started.</b>  
+        <br>Good luck!
       </p>
-    </div>
-  
-    <div class="excel-card" id="vlookup">
-      <h2>VLOOKUP</h2>
-      <p>Coming soon…</p>
-    </div>
-    <div class="excel-card" id="index-match">
-      <h2>INDEX-MATCH</h2>
-      <p>Coming soon…</p>
-    </div>
-    <div class="excel-card" id="sumifs">
-      <h2>SUMIFS</h2>
-      <p>Coming soon…</p>
     </div>
   </main>
 </body>
