@@ -80,6 +80,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   main { margin-left: 250px; }
   .hamburger { display: none; }
 }
+  @media (min-width: 769px) {
+  .sidebar button[aria-label="Close"] {
+    display: none !important;
+  }
+}
+  @media (min-width: 769px) {
+  #sidebarOverlay {
+    display: none !important;
+  }
+}
     .hero {
   background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
               url('images/background.jpg') center/cover no-repeat;
