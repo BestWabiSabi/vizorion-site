@@ -41,51 +41,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .sidebar {
-  height: 100%;
-  width: 240px;
+   .sidebar {
   position: fixed;
   top: 0;
-  left: 0;
-  background-color: #1e3a8a;
-  padding-top: 20px;
-  overflow-x: hidden;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #1e3a8a;
   color: white;
-  font-family: sans-serif;
+  padding: 1rem;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
 }
-
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-.sidebar a, .sidebar button.collapsible {
-  padding: 10px 20px;
-  display: block;
-  border: none;
+.sidebar.show { left: 0; }
+.sidebar h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.sidebar a, .sidebar button.dropdown {
+  color: white;
   background: none;
-  text-align: left;
-  color: white;
-  text-decoration: none;
+  border: none;
+  padding: 0.5rem 0;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   cursor: pointer;
 }
-
-.sidebar a:hover, .sidebar button.collapsible:hover {
-  background-color: #2f4eb2;
+.sidebar a:hover, .sidebar button:hover { background: #2f4eb2; }
+.submenu { display: none; padding-left: 1rem; }
+.submenu.show { display: block; }
+.hamburger {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
 }
-
-.sidebar .content {
-  display: none;
-  padding-left: 20px;
+@media (min-width: 769px) {
+  .sidebar { left: 0; }
+  main { margin-left: 250px; }
+  .hamburger { display: none; }
 }
-
-.sidebar .active {
-  background-color: #3b82f6;
-}
-
 /* Push main content to the right */
 body {
   margin-left: 240px;
@@ -169,24 +162,23 @@ body {
   </style>
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
   <h2>Practice Hub</h2>
-
-  <button class="collapsible">Excel Practice</button>
-  <div class="content">
+  <button class="dropdown" onclick="toggleDropdown(this, 'submenu-excel')">Excel Practice ▼</button>
+  <div class="submenu" id="submenu-excel">
     <a href="#">IF Formula</a>
     <a href="#">VLOOKUP</a>
     <a href="#">INDEX-MATCH</a>
   </div>
 
-  <button class="collapsible">Looker Studio</button>
-  <div class="content">
+  <button class="dropdown" onclick="toggleDropdown(this, 'submenu-looker')">Looker Studio ▼</button>
+  <div class="submenu" id="submenu-looker">
     <a href="#">Intro to Looker</a>
     <a href="#">Visual Tips</a>
   </div>
 
-  <button class="collapsible">SQL</button>
-  <div class="content">
+  <button class="dropdown" onclick="toggleDropdown(this, 'submenu-sql')">SQL ▼</button>
+  <div class="submenu" id="submenu-sql">
     <a href="#">Select Basics</a>
     <a href="#">Joins</a>
   </div>
@@ -195,8 +187,12 @@ body {
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </div>
+
   
+  
+
   <header>
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
     <nav class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
       <ul class="nav-links">
@@ -235,16 +231,17 @@ body {
   <footer>
     <p>© 2025 Vizorion. All rights reserved.</p>
   </footer>
-
 <script>
-  const collapsibles = document.querySelectorAll('.collapsible');
-  collapsibles.forEach(button => {
-    button.addEventListener('click', () => {
-      button.classList.toggle('active');
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
-  });
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("show");
+  }
+  function toggleDropdown(button, id) {
+    const submenu = document.getElementById(id);
+    submenu.classList.toggle("show");
+    button.textContent = button.textContent.includes('▲')
+      ? button.textContent.replace('▲', '▼')
+      : button.textContent.replace('▼', '▲');
+  }
 </script>
 </body>
   <!-- Google Tag Manager (noscript) -->
