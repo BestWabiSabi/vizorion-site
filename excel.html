@@ -80,22 +80,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       z-index: 10;
       border-right: 1px solid #e2e8f0;
     }
-    .excel-sidebar {
-  width: 210px;
-  background: #173f2e;
-  color: #fff;
-  position: fixed;
-  top: 60px; /* same as header height */
-  left: 0;
-  padding: 2rem 1rem 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 10;
-  border-right: 1px solid #e2e8f0;
-  height: calc(100vh - 60px);   /* << add this line */
-  overflow-y: auto;             /* << add this line */
-}
+    .excel-sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      background: #218c5c;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      transition: background 0.15s;
+      font-size: 1.08rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 2px 6px rgba(20, 50, 40, 0.08);
+      text-align: left;
+      border: none;
+      outline: none;
+      display: block;
+    }
     .excel-sidebar a:hover, .excel-sidebar a:focus {
       background: #16a34a;
     }
@@ -182,7 +183,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </nav>
   </header>
-  <div id="sidebar-placeholder"></div>
+  <div class="excel-sidebar">
+    <a href="excel-welcome.html">Welcome</a>
+    <a href="if-formula.html">IF Formula</a>
+    <a href="vlookup.html">VLOOKUP</a>
+    <a href="index-match.html">INDEX-MATCH</a>
+    <a href="sumifs.html">SUMIFS</a>
+  </div>
   <main class="excel-content">
     <div class="excel-card" id="welcome">
       <h1>Welcome to Excel at Vizorion!</h1>
@@ -193,22 +200,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
     </div>
   </main>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    fetch('excel-sidebar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('sidebar-placeholder').innerHTML = html;
-        // Optionally, highlight active link:
-        var path = window.location.pathname.split('/').pop();
-        var links = document.querySelectorAll('.excel-sidebar a');
-        links.forEach(function(link){
-          if (link.getAttribute('href') === path) {
-            link.classList.add('active');
-          }
-        });
-      });
-  });
-</script>
 </body>
 </html>
