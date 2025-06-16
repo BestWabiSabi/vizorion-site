@@ -47,12 +47,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   left: -250px;
   width: 250px;
   height: 100%;
-  background: #1e3a8a;
+  background: rgba(30,58,138,0.97); /* 0.97 = slightly transparent */
   color: white;
   padding: 1rem;
   overflow-y: auto;
-  transition: left 0.3s ease;
-  z-index: 1000;
+  transition: left 0.3s cubic-bezier(.4,0,.2,1);
+  z-index: 2000; /* Make sure it sits above other content */
+  box-shadow: 2px 0 12px rgba(0,0,0,0.1);
 }
 .sidebar.show { left: 0; }
 .sidebar h2 { font-size: 1.4rem; margin-bottom: 1rem; }
@@ -78,10 +79,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .sidebar { left: 0; }
   main { margin-left: 250px; }
   .hamburger { display: none; }
-}
-/* Push main content to the right */
-body {
-  margin-left: 240px;
 }
     .hero {
   background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
@@ -162,6 +159,7 @@ body {
   </style>
 </head>
 <body>
+  <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div class="sidebar" id="sidebar">
   <h2>Practice Hub</h2>
   <button class="dropdown" onclick="toggleDropdown(this, 'submenu-excel')">Excel Practice ▼</button>
@@ -233,8 +231,12 @@ body {
   </footer>
 <script>
   function toggleSidebar() {
-    document.getElementById("sidebar").classList.toggle("show");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    const isOpen = sidebar.classList.toggle("show");
+    overlay.style.display = isOpen ? "block" : "none";
   }
+
   function toggleDropdown(button, id) {
     const submenu = document.getElementById(id);
     submenu.classList.toggle("show");
@@ -242,6 +244,15 @@ body {
       ? button.textContent.replace('▲', '▼')
       : button.textContent.replace('▼', '▲');
   }
+
+  // Optional: Close sidebar when clicking on overlay
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('sidebarOverlay');
+    overlay.addEventListener('click', function() {
+      document.getElementById('sidebar').classList.remove('show');
+      overlay.style.display = 'none';
+    });
+  });
 </script>
 </body>
   <!-- Google Tag Manager (noscript) -->
