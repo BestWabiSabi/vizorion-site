@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Excel Practice – Vizorion</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .excel-sidebar {
+      width: 210px;
+      background: #173f2e;
+      color: #fff;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 2rem 1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .excel-sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      background: #218c5c;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      transition: background 0.15s;
+    }
+    .excel-sidebar a:hover {
+      background: #16a34a;
+    }
+    .excel-content {
+      margin-left: 230px;
+      padding: 2rem;
+    }
+    @media (max-width: 768px) {
+      .excel-sidebar {
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.4rem;
+      }
+      .excel-content {
+        margin-left: 0;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="excel-sidebar">
+    <a href="#welcome">Welcome</a>
+    <a href="#if-formula">IF Formula</a>
+    <a href="#vlookup">VLOOKUP</a>
+    <a href="#index-match">INDEX-MATCH</a>
+    <a href="#sumifs">SUMIFS</a>
+    <!-- Add more formulas as you wish -->
+  </div>
+  <div class="excel-content">
+    <section id="welcome">
+      <h1>Welcome to Excel at Vizorion!</h1>
+      <p>
+        To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.
+        <br /><br />
+        Please select a formula on the left to get started. Good luck!
+      </p>
+    </section>
+    <section id="if-formula">
+      <h2>IF Formula</h2>
+      <p>Coming soon… (You can put your sample or guide here.)</p>
+    </section>
+    <section id="vlookup">
+      <h2>VLOOKUP</h2>
+      <p>Coming soon…</p>
+    </section>
+    <!-- More sections for each formula -->
+  </div>
+</body>
+</html>
