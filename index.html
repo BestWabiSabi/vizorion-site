@@ -161,6 +161,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div class="sidebar" id="sidebar">
+    <button 
+  aria-label="Close" 
+  onclick="toggleSidebar()" 
+  style="background:none;border:none;font-size:2rem;position:absolute;top:10px;right:10px;color:white;z-index:2100;display:block;"
+>
+  ×
+</button>
   <h2>Practice Hub</h2>
   <button class="dropdown" onclick="toggleDropdown(this, 'submenu-excel')">Excel Practice ▼</button>
   <div class="submenu" id="submenu-excel">
