@@ -42,49 +42,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="css/style.css" />
   <style>
 
-    .category-buttons,
+  .category-buttons,
 .sidebar-categories {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* horizontal center of all children */
+  align-items: center;
   gap: 1.2rem;
   margin-bottom: 2rem;
   margin-top: 2.2rem;
   width: 100%;
 }
 
-/* Center each button, make width smaller and add padding */
 .category {
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  font-size: 1.25rem;
   font-weight: bold;
   text-align: center;
-  border-radius: 12px;
-  padding: 0.7rem 2.3rem;   /* more horizontal padding for a “pill” look */
+  border-radius: 16px;
+  padding: 0.85rem 0;
   color: white;
   text-decoration: none;
   letter-spacing: 1px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.13);
-  transition: transform 0.12s, box-shadow 0.12s;
-  width: auto;             /* not 80% */
+  box-shadow: none;         /* remove vignette/shadow */
+  background: none;         /* Remove background here, set below */
+  width: 95%;               /* or 100% for edge-to-edge */
   min-width: 120px;
-  max-width: 210px;
+  max-width: 300px;
   margin: 0 auto;
-  display: block;
-}
-.category:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.13);
+  transition: background 0.15s, transform 0.12s;
 }
 
-/* Category Colors */
+.category:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.08);
+}
+
+/* Category Colors: FLAT gradient, no vignette */
 .category.excel {
-  background: linear-gradient(90deg, #21c05b 60%, #0d5c33 100%);
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
 }
 .category.looker {
-  background: linear-gradient(90deg, #4285F4 60%, #8a5de9 100%);
+  background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
 }
 .category.sql {
-  background: linear-gradient(90deg, #f47521 60%, #de355c 100%);
+  background: linear-gradient(90deg, #f97316 0%, #ef4444 100%);
 }
 
   @media (min-width: 769px) {
