@@ -1,36 +1,47 @@
 <style>
-  .site-footer {
+  footer {
     background: #111827;
-    padding: 1rem 1rem 0.7rem;
     color: white;
+    padding: 1rem 1rem;
     text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
     margin-top: 4rem;
   }
 
-  .site-footer a {
+  .footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
     color: white;
     text-decoration: none;
-    margin: 0 0.6rem;
-    font-weight: 500;
   }
 
-  .site-footer a:hover {
+  .footer-links a:hover {
     text-decoration: underline;
-  }
-
-  .site-footer p {
-    margin: 0.25rem 0;
   }
 </style>
 
-<div class="site-footer">
-  <p>© 2025 Vizorion. All rights reserved.</p>
-  <p>
-    <a href="terms.html">Terms</a> |
-    <a href="privacy-policy.html">Privacy</a> |
-    <a href="disclaimer.html">Disclaimer</a> |
-    <a href="cookie-policy.html">Cookies</a>
-  </p>
-</div>
+<footer>
+  <div class="footer-inner">
+    <p>© 2025 Vizorion. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="terms.html">Terms</a>
+      <span>|</span>
+      <a href="privacy.html">Privacy</a>
+      <span>|</span>
+      <a href="disclaimer.html">Disclaimer</a>
+      <span>|</span>
+      <a href="cookie-policy.html">Cookies</a>
+    </div>
+  </div>
+</footer>
