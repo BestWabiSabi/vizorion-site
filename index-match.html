@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
-
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Index & Match Formula – Vizorion</title>
+  <title>Excel Practice – Vizorion</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
@@ -22,6 +22,8 @@
     header {
       background: #224ba0;
       color: #fff;
+      padding: 0;
+      margin: 0;
       width: 100vw;
       position: sticky;
       top: 0;
@@ -63,25 +65,22 @@
       background: #375ac3;
     }
 
-    /* Sidebar styles */
-    #sidebar-placeholder {
-      position: fixed;
-      top: 60px; /* height of header */
-      left: 0;
-      width: 240px;
-      min-height: 100vh;
+    .excel-sidebar {
+      width: 210px;
       background: #173f2e;
+      color: #fff;
+      min-height: 100vh;
+      position: fixed;
+      top: 60px; /* header height */
+      left: 0;
+      padding: 2rem 1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       z-index: 10;
       border-right: 1px solid #e2e8f0;
       overflow-y: auto;
       max-height: 100vh;
-    }
-    .excel-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 2rem 1rem 1rem 1rem;
-      color: #fff;
     }
     .excel-sidebar a {
       color: #fff;
@@ -103,19 +102,13 @@
     .excel-sidebar a:hover, .excel-sidebar a:focus {
       background: #16a34a;
     }
-    .excel-sidebar a.active {
-      background: #fff;
-      color: #173f2e;
-      font-weight: bold;
-      border: 2px solid #218c5c;
-    }
-
-    /* Content styling */
     .excel-content {
-      margin-left: 260px;
-      margin-top: 5px;
+      margin-left: 270px;
+      margin-top: 75px;
       padding: 3.5rem 2rem 2rem 2rem;
       min-height: 90vh;
+      background: none;
+      transition: margin 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -124,61 +117,35 @@
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.5rem 2.7rem 2.7rem 2.7rem;
-      max-width: 990px;
+      padding: 2.2rem 2.5rem 2.5rem 2.5rem;
+      max-width: 640px;
       width: 100%;
       margin: 0 auto;
-      min-height: 410px;
+      min-height: 200px;
       margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
     }
     .excel-card h1 {
       margin-top: 0;
       font-weight: 800;
       color: #183042;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
     }
-    .excel-card .syntax-box {
-      background: #e6faf0;
-      border-left: 6px solid #16a34a;
-      padding: 1rem 1.2rem;
-      margin: 1.1rem 0 2.1rem 0;
-      font-family: 'Fira Mono', 'Consolas', monospace;
-      font-size: 1.08rem;
-      color: #0b4d2a;
-      border-radius: 8px;
-      word-break: break-all;
-      box-shadow: 0 2px 12px rgba(34,197,94,0.07);
-    }
-    .excel-card ul {
-      margin-top: 0.8rem;
-      margin-bottom: 1.2rem;
-      padding-left: 1.2rem;
-    }
-    .excel-card li {
-      font-size: 1.08rem;
-      margin-bottom: 0.3rem;
-    }
-    .excel-card iframe {
-      margin-top: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid #eee;
-      box-shadow: 0 2px 10px rgba(40,80,100,0.05);
-      background: #fafafa;
+    .excel-card p {
+      color: #23313b;
+      font-size: 1.15rem;
+      line-height: 1.7;
     }
     @media (max-width: 900px) {
-      #sidebar-placeholder {
+      .excel-sidebar {
         position: static;
         width: 100vw;
         min-height: unset;
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
-        max-height: 220px;
-      }
-      .excel-sidebar {
         flex-direction: row;
         gap: 0.2rem;
         padding: 1rem;
+        top: unset;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
       }
       .excel-content {
         margin: 0;
@@ -187,7 +154,7 @@
       .excel-card {
         border-radius: 12px;
         padding: 1.2rem 1rem;
-        min-height: 250px;
+        min-height: 120px;
       }
     }
     @media (max-width: 600px) {
@@ -199,22 +166,14 @@
         align-items: flex-start;
         padding: 0.6rem 0.5rem;
       }
-      .ad-box {
-  margin: 1.5rem 0;
-  text-align: center;
-  background: #fff;
-  padding: 0.8rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-}
     }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <header>
     <nav class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
@@ -226,77 +185,31 @@
       </ul>
     </nav>
   </header>
-
   <div id="sidebar-placeholder"></div>
   <main class="excel-content">
-  <div class="excel-card">
-    <h1>INDEX & MATCH Formula</h1>
-    <div class="syntax-box">
-      =INDEX(<span style="color:#0d9488;">return_range</span>, MATCH(<span style="color:#16a34a;">lookup_value</span>, <span style="color:#eab308;">lookup_range</span>, 0))
-    </div>
-    <p>
-      The <b>INDEX & MATCH</b> combination is a powerful alternative to VLOOKUP. It looks for a value in a range and returns a result from another column or row, with more flexibility and better performance.
-    </p>
-    <ul>
-      <li><b>Syntax:</b>
-        <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-          =INDEX(return_range, MATCH(lookup_value, lookup_range, 0))  
-          /return_range: The range to return the value from.  
-          /lookup_value: The value to search for.  
-          /lookup_range: The range to search within.  
-          /0: Stands for exact match.
-        </span>
-      </li>
-      <li>
-        <b>Example:</b>
-        <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-          =INDEX(B2:B6, MATCH("Keyboard", A2:A6, 0))
-        </span>
-        <br>
-        This searches for <b>"Keyboard"</b> in the range A2:A6, and returns the corresponding value from the same row in B2:B6.<br>
-        <span style="font-family:'Fira Mono',monospace; background:#e6e6e6; color:#183042; border-radius:4px; padding:0.06em 0.36em;">0</span> ensures an exact match.
-      </li>
-    </ul>
-   <!-- Ad Placement: Above Task -->
-<div id="content-ad-placeholder"></div>
-
-<hr style="margin: 2rem 0 1.5rem 0;">
-    <hr style="margin: 2rem 0 1.5rem 0;">
-    <ul>
-      <li><b>Task:</b> Try the embedded Excel Online sheet below.</li>
-      <li>Use <b>INDEX & MATCH</b> to find the price of each product based on its name.</li>
-    </ul>
-    <p>
-      Hint: Combine the flexibility of <code>MATCH</code> to locate the position, and <code>INDEX</code> to extract the value.
-    </p>
-    <iframe width="600" height="300" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQSNY45agyY3QZd1Qu_joNoDAb0ra7HfHik8-56XPF9kE7I?em=2&AllowTyping=True&ActiveCell='Test%20Sheet'!A1&wdInConfigurator=True&wdInConfigurator=True"></iframe>
-  </div>
-</main>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Load the sidebar
-    fetch('excel-sidebar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('sidebar-placeholder').innerHTML = html;
-
-        // Highlight the current link in the sidebar
-        var path = window.location.pathname.split('/').pop();
-        var links = document.querySelectorAll('.excel-sidebar a');
-        links.forEach(function(link){
-          if (link.getAttribute('href') === path) {
-            link.classList.add('active');
-          }
+    <div class="excel-card" id="coming-soon">
+  <h1>🙌 Stay Tuned!</h1>
+  <p>
+    This page is still under construction – but good things are coming!<br><br>
+    Grab a coffee ☕ and check back a little later. 😉
+  </p>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('excel-sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('sidebar-placeholder').innerHTML = html;
+          // Highlight current link in sidebar
+          var path = window.location.pathname.split('/').pop();
+          var links = document.querySelectorAll('.excel-sidebar a');
+          links.forEach(function(link){
+            if (link.getAttribute('href') === path) {
+              link.classList.add('active');
+            }
+          });
         });
-      });
-
-    // Load the ad content
-    fetch('content-ad.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('content-ad-placeholder').innerHTML = html;
-      });
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
