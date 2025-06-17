@@ -257,12 +257,8 @@
         <span style="font-family:'Fira Mono',monospace; background:#e6e6e6; color:#183042; border-radius:4px; padding:0.06em 0.36em;">0</span> ensures an exact match.
       </li>
     </ul>
-    <!-- Ad Placement: Above Task -->
-<div class="ad-box">
-  <!-- Your ad code (e.g., AdSense) goes here -->
-  <p style="font-size: 0.95rem; color: #888; margin-bottom: 0.2rem;">Advertisement</p>
-  <img src="ads/sample-ad.png" alt="Sample Ad" style="width:100%; max-width:600px; border-radius:8px;">
-</div>
+   <!-- Ad Placement: Above Task -->
+<div id="content-ad-placeholder"></div>
 
 <hr style="margin: 2rem 0 1.5rem 0;">
     <hr style="margin: 2rem 0 1.5rem 0;">
@@ -276,22 +272,31 @@
     <iframe width="600" height="400" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQNHq8oxx2ljZh1HKoFut8Z5AaJ-pJSBdD1-IEU7CXP02UQ?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!C2&wdInConfigurator=True&wdInConfigurator=True"></iframe>
   </div>
 </main>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('sidebar-placeholder').innerHTML = html;
-          // Highlight current link in sidebar
-          var path = window.location.pathname.split('/').pop();
-          var links = document.querySelectorAll('.excel-sidebar a');
-          links.forEach(function(link){
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Load the sidebar
+    fetch('excel-sidebar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('sidebar-placeholder').innerHTML = html;
+
+        // Highlight the current link in the sidebar
+        var path = window.location.pathname.split('/').pop();
+        var links = document.querySelectorAll('.excel-sidebar a');
+        links.forEach(function(link){
+          if (link.getAttribute('href') === path) {
+            link.classList.add('active');
+          }
         });
-    });
-  </script>
+      });
+
+    // Load the ad content
+    fetch('content-ad.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('content-ad-placeholder').innerHTML = html;
+      });
+  });
+</script>
 </body>
 </html>
