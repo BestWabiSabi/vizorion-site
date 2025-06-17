@@ -302,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </main>
 
   <footer>
-    <p>© 2025 Vizorion. All rights reserved.</p>
+    <div id="footer-placeholder"></div>
   </footer>
 <script>
   function toggleSidebar() {
@@ -327,6 +327,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.getElementById('sidebar').classList.remove('show');
       overlay.style.display = 'none';
     });
+      // Load footer
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
   });
 </script>
 </body>
