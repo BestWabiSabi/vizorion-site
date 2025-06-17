@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-<!-- End Google Tag Manager -->
-  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Excel Practice – Vizorion</title>
@@ -64,15 +64,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-links a.active {
       background: #375ac3;
     }
-
-   
+    .excel-content {
+      margin: 75px auto 2rem auto;
+      padding: 3.5rem 2rem 2rem 2rem;
+      max-width: 740px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .excel-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
+      padding: 2.2rem 2.5rem 2.5rem 2.5rem;
+      width: 100%;
+      min-height: 200px;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .excel-card h1 {
+      margin-top: 0;
+      font-weight: 800;
+      color: #183042;
+    }
+    .excel-card p {
+      color: #23313b;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .excel-content {
+        padding: 1.2rem 0.4rem 2rem 0.4rem;
+        margin: 0 auto;
+      }
+      .excel-card {
+        border-radius: 12px;
+        padding: 1.2rem 1rem;
+        min-height: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .excel-card {
+        padding: 1rem 0.6rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.6rem 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header>
     <nav class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
@@ -84,31 +132,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </nav>
   </header>
-  <div id="sidebar-placeholder"></div>
+
   <main class="excel-content">
     <div class="excel-card" id="coming-soon">
-  <h1>🙌 Stay Tuned!</h1>
-  <p>
-    This page is still under construction – but good things are coming!<br><br>
-    Grab a coffee ☕ and check back a little later. 😉
-  </p>
+      <h1>🙌 Stay Tuned!</h1>
+      <p>
+        This page is still under construction – but good things are coming!<br><br>
+        Grab a coffee ☕ and check back a little later. 😉
+      </p>
+    </div>
   </main>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('sidebar-placeholder').innerHTML = html;
-          // Highlight current link in sidebar
-          var path = window.location.pathname.split('/').pop();
-          var links = document.querySelectorAll('.excel-sidebar a');
-          links.forEach(function(link){
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
-        });
-    });
-  </script>
 </body>
 </html>
