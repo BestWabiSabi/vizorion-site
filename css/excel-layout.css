@@ -63,7 +63,7 @@ header {
   min-height: 100vh;
   position: fixed;
   top: 0;
-  height:100vh;
+  height: 100vh;
   left: 0;
   padding: 2rem 1rem 1rem 1rem;
   display: flex;
@@ -111,7 +111,7 @@ main {
 .excel-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(70,90,120,0.07);
+  box-shadow: 0 6px 24px rgba(70, 90, 120, 0.07);
   padding: 2.2rem 2.5rem;
   max-width: 640px;
   width: 100%;
@@ -128,6 +128,8 @@ main {
   font-size: 1.15rem;
   line-height: 1.7;
 }
+
+/* Mobile & Tablet Layout */
 @media (max-width: 900px) {
   .excel-sidebar {
     position: relative;
@@ -175,6 +177,7 @@ main {
     border-radius: 12px;
   }
 }
+
 @media (max-width: 600px) {
   .excel-card {
     padding: 1rem 0.6rem;
@@ -185,8 +188,12 @@ main {
     padding: 0.6rem 0.5rem;
   }
 }
-header,
-main,
-#footer-placeholder {
-  margin-left: 210px;
+
+/* Desktop-only margins */
+@media (min-width: 901px) {
+  header,
+  main,
+  #footer-placeholder {
+    margin-left: 210px;
+  }
 }
