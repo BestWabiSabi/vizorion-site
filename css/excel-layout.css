@@ -130,29 +130,31 @@ main {
 }
 @media (max-width: 900px) {
   .excel-sidebar {
-    position: static;
-    width: 100%;
+    position: relative;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 0.4rem;
-    padding: 1rem;
     overflow-x: auto;
+    width: 100%;
+    padding: 1rem 0.5rem;
     border-bottom: 1px solid #e2e8f0;
+    background: #173f2e;
     scrollbar-width: thin;
   }
 
   .excel-sidebar::-webkit-scrollbar {
-    height: 6px;
+    height: 5px;
   }
 
   .excel-sidebar::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
+    background: #999;
+    border-radius: 8px;
   }
 
   .excel-sidebar a {
-    flex: 0 0 auto; /* Prevent stretching */
-    min-width: 160px;
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+    min-width: 140px;
     text-align: center;
     white-space: nowrap;
   }
@@ -160,17 +162,17 @@ main {
   header,
   main,
   #footer-placeholder {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .excel-content {
     margin: 0;
-    padding: 1.2rem 0.4rem 2rem 0.4rem;
+    padding: 1.2rem 0.6rem 2rem 0.6rem;
   }
 
   .excel-card {
-    border-radius: 12px;
     padding: 1.2rem 1rem;
+    border-radius: 12px;
   }
 }
 @media (max-width: 600px) {
