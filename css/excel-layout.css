@@ -1,26 +1,27 @@
 html, body {
   height: 100%;
-}
-body {
-  background: #f4f5f4;
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
+  background: #f4f5f4;
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 header {
   background: #224ba0;
   color: #fff;
-  padding: 0;
-  margin: 0;
-  width: 100vw;
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -28,21 +29,25 @@ header {
   padding: 0.8rem 2rem;
   max-width: 1600px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
+
 .logo a {
   color: #fff;
   font-size: 1.7rem;
   text-decoration: none;
   font-weight: 800;
-  letter-spacing: 1px;
 }
+
 .nav-links {
   display: flex;
   gap: 1.3rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
+
 .nav-links a {
   color: #fff;
   text-decoration: none;
@@ -52,10 +57,13 @@ header {
   border-radius: 6px;
   transition: background 0.18s;
 }
+
 .nav-links a:hover,
 .nav-links a.active {
   background: #375ac3;
 }
+
+/* SIDEBAR */
 .excel-sidebar {
   width: 210px;
   background: #173f2e;
@@ -63,7 +71,6 @@ header {
   min-height: 100vh;
   position: fixed;
   top: 0;
-  height: 100vh;
   left: 0;
   padding: 2rem 1rem 1rem 1rem;
   display: flex;
@@ -72,128 +79,130 @@ header {
   z-index: 10;
   border-right: 1px solid #e2e8f0;
   overflow-y: auto;
-  max-height: 100vh;
 }
+
 .excel-sidebar a {
   color: #fff;
   text-decoration: none;
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 8px;
   background: #218c5c;
   font-weight: 600;
-  margin-bottom: 0.3rem;
-  transition: background 0.15s;
-  font-size: 1.08rem;
-  letter-spacing: 0.03em;
+  font-size: 0.95rem;
   box-shadow: 0 2px 6px rgba(20, 50, 40, 0.08);
-  text-align: left;
-  border: none;
-  outline: none;
+  text-align: center;
+  white-space: nowrap;
   display: block;
 }
-.excel-sidebar a:hover, .excel-sidebar a:focus {
-  background: #16a34a;
-}
+
+/* MAIN CONTENT */
 main {
   flex: 1;
 }
+
 .excel-content {
-  margin-left: 270px;
+  margin-left: 230px;
   margin-top: 75px;
-  padding: 3.5rem 2rem 2rem 2rem;
+  padding: 2rem;
   min-height: 90vh;
-  background: none;
-  transition: margin 0.3s;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .excel-card {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 6px 24px rgba(70, 90, 120, 0.07);
-  padding: 2.2rem 2.5rem;
+  padding: 2rem;
   max-width: 640px;
   width: 100%;
-  margin: 0 auto 2rem auto;
-  transition: box-shadow 0.2s;
+  margin: 0 auto 2rem;
 }
+
 .excel-card h1 {
   margin-top: 0;
   font-weight: 800;
   color: #183042;
 }
+
 .excel-card p {
   color: #23313b;
   font-size: 1.15rem;
   line-height: 1.7;
 }
 
-/* Mobile & Tablet Layout */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .excel-sidebar {
     position: relative;
-    display: flex;
+    width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 100%;
     padding: 1rem 0.5rem;
+    border-right: none;
     border-bottom: 1px solid #e2e8f0;
     background: #173f2e;
-    scrollbar-width: thin;
+    max-height: none;
   }
 
   .excel-sidebar::-webkit-scrollbar {
-    height: 5px;
+    height: 4px;
   }
 
   .excel-sidebar::-webkit-scrollbar-thumb {
-    background: #999;
-    border-radius: 8px;
+    background: #aaa;
+    border-radius: 4px;
   }
 
   .excel-sidebar a {
     flex: 0 0 auto;
     margin-right: 0.5rem;
-    min-width: 140px;
-    text-align: center;
-    white-space: nowrap;
+    min-width: 120px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
   }
 
   header,
   main,
   #footer-placeholder {
-    margin-left: 0 !important;
+    margin-left: 0;
   }
 
   .excel-content {
     margin: 0;
-    padding: 1.2rem 0.6rem 2rem 0.6rem;
+    padding: 1rem;
   }
 
   .excel-card {
-    padding: 1.2rem 1rem;
-    border-radius: 12px;
+    padding: 1rem;
   }
 }
 
 @media (max-width: 600px) {
   .excel-card {
-    padding: 1rem 0.6rem;
+    padding: 0.8rem;
   }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.6rem 0.5rem;
+    padding: 0.5rem;
   }
 }
 
-/* Desktop-only margins */
-@media (min-width: 901px) {
+/* RESET LEFT MARGIN FOR WRAPPER ELEMENTS */
+header,
+main,
+#footer-placeholder {
+  margin-left: 210px;
+}
+
+@media (max-width: 900px) {
   header,
   main,
   #footer-placeholder {
-    margin-left: 210px;
+    margin-left: 0;
   }
 }
