@@ -17,10 +17,8 @@
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="wrapper">
     <header>
@@ -53,7 +51,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Load sidebar
       fetch('excel-sidebar.html')
         .then(res => res.text())
         .then(html => {
@@ -67,7 +64,6 @@
           });
         });
 
-      // Load footer
       fetch('footer.html')
         .then(res => res.text())
         .then(html => {
