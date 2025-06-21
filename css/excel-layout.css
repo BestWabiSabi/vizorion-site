@@ -1,223 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Excel Practice – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/excel-layout.css" />
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: #f4f5f4;
-    }
+/* css/excel-layout.css */
 
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f4f5f4;
+}
 
-    header {
-      background: #224ba0;
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-    }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
+header {
+  background: #224ba0;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
 
-    .logo a {
-      color: #fff;
-      font-size: 1.7rem;
-      text-decoration: none;
-      font-weight: 800;
-    }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.3rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
+.logo a {
+  color: #fff;
+  font-size: 1.7rem;
+  text-decoration: none;
+  font-weight: 800;
+}
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.18s;
-    }
+.nav-links {
+  display: flex;
+  gap: 1.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: #375ac3;
-    }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.18s;
+}
 
-    .excel-content {
-      margin-left: 270px;
-      margin-top: 75px;
-      padding: 3.5rem 2rem 2rem 2rem;
-      min-height: 90vh;
-      transition: margin 0.3s;
-    }
+.nav-links a:hover,
+.nav-links a.active {
+  background: #375ac3;
+}
 
-    .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.2rem 2.5rem;
-      max-width: 640px;
-      width: 100%;
-      margin: 0 auto 2rem auto;
-    }
+.excel-content {
+  margin-left: 270px;
+  margin-top: 75px;
+  padding: 3.5rem 2rem 2rem 2rem;
+  min-height: 90vh;
+  transition: margin 0.3s;
+}
 
-    .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-    }
+.excel-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(70,90,120,0.07);
+  padding: 2.2rem 2.5rem;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto 2rem auto;
+}
 
-    .excel-card p {
-      color: #23313b;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
+.excel-card h1 {
+  margin-top: 0;
+  font-weight: 800;
+  color: #183042;
+}
 
-    @media (max-width: 900px) {
-      .excel-content {
-        margin-left: 0;
-        padding: 1.2rem;
-      }
+.excel-card p {
+  color: #23313b;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
 
-      .excel-card {
-        padding: 1.2rem 1rem;
-        border-radius: 12px;
-      }
+@media (max-width: 900px) {
+  .excel-content {
+    margin-left: 0;
+    padding: 1.2rem;
+  }
 
-      header,
-      main,
-      #footer-placeholder {
-        margin-left: 0 !important;
-      }
+  .excel-card {
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+  }
 
-      .excel-sidebar {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 1rem;
-        background: #173f2e;
-        border-bottom: 1px solid #e2e8f0;
-        gap: 0.5rem;
-        scrollbar-width: thin;
-      }
+  header,
+  main,
+  #footer-placeholder {
+    margin-left: 0 !important;
+  }
 
-      .excel-sidebar a {
-        flex: 0 0 auto;
-        min-width: 130px;
-        white-space: nowrap;
-        text-align: center;
-      }
+  .excel-sidebar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.8rem;
+    background: #173f2e;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 0.5rem;
+    scrollbar-width: thin;
+  }
 
-      .excel-sidebar::-webkit-scrollbar {
-        height: 5px;
-      }
+  .excel-sidebar a {
+    flex: 0 0 auto;
+    min-width: 130px;
+    white-space: nowrap;
+    text-align: center;
+    color: #fff;
+    background: #218c5c;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
 
-      .excel-sidebar::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 6px;
-      }
-    }
+  .excel-sidebar::-webkit-scrollbar {
+    height: 5px;
+  }
 
-    @media (max-width: 600px) {
-      .excel-card {
-        padding: 1rem 0.6rem;
-      }
+  .excel-sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+  }
+}
 
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 0.5rem;
-      }
-    }
+@media (max-width: 600px) {
+  .excel-card {
+    padding: 1rem 0.6rem;
+  }
 
-    header,
-    main,
-    #footer-placeholder {
-      margin-left: 210px;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <header>
-      <nav class="navbar">
-        <div class="logo"><a href="index.html">Vizorion</a></div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="downloads.html">Downloads</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.6rem 0.5rem;
+  }
+}
 
-    <div id="sidebar-placeholder"></div>
-
-    <main class="excel-content">
-      <div class="excel-card" id="welcome">
-        <h1>Welcome to Excel at Vizorion!</h1>
-        <p>
-          To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.<br><br>
-          <b>Please select a formula on the left to get started.</b><br>
-          Good luck!
-        </p>
-      </div>
-    </main>
-
-    <div id="footer-placeholder"></div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('sidebar-placeholder').innerHTML = html;
-          const path = window.location.pathname.split('/').pop();
-          const links = document.querySelectorAll('.excel-sidebar a');
-          links.forEach(function (link) {
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
-        });
-
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        });
-    });
-  </script>
-</body>
-</html>
+header,
+main,
+#footer-placeholder {
+  margin-left: 210px;
+}
