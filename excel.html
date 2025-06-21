@@ -12,13 +12,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Excel Practice – Vizorion</title>
+
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/excel-layout.css" />
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
   <div class="wrapper">
     <header>
@@ -57,7 +60,7 @@
           document.getElementById('sidebar-placeholder').innerHTML = html;
           const path = window.location.pathname.split('/').pop();
           const links = document.querySelectorAll('.excel-sidebar a');
-          links.forEach(function (link) {
+          links.forEach(link => {
             if (link.getAttribute('href') === path) {
               link.classList.add('active');
             }
