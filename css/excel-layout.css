@@ -128,18 +128,22 @@ header {
     display: block;
   }
 
-  .excel-sidebar {
-    display: none;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: 0.5rem 1rem;
-    background: #173f2e;
-    border-bottom: 1px solid #e2e8f0;
-  }
+ .excel-sidebar {
+  display: none; /* hide by default */
+  position: fixed;
+  top: 60px; /* adjust below navbar */
+  left: 0;
+  width: 100%;
+  background: #173f2e;
+  overflow-x: auto;
+  padding: 1rem;
+  z-index: 99;
+  flex-wrap: nowrap;
+}
 
-  .excel-sidebar.open {
-    display: flex;
-  }
+.excel-sidebar.open {
+  display: flex;
+}
 
   .excel-sidebar a {
     flex: 0 0 auto;
