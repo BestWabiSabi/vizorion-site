@@ -133,19 +133,28 @@ main {
     position: static;
     width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.4rem;
     padding: 1rem;
-    top: unset;
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
     overflow-x: auto;
+    border-bottom: 1px solid #e2e8f0;
+    scrollbar-width: thin;
+  }
+
+  .excel-sidebar::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .excel-sidebar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
   }
 
   .excel-sidebar a {
-    flex: 1 1 calc(50% - 0.4rem); /* 2 items per row */
-    min-width: 130px;
+    flex: 0 0 auto; /* Prevent stretching */
+    min-width: 160px;
     text-align: center;
+    white-space: nowrap;
   }
 
   header,
