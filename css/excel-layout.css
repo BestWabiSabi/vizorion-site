@@ -1,4 +1,4 @@
-/* css/excel-layout.css */
+/* excel-layout.css */
 
 html, body {
   height: 100%;
@@ -93,6 +93,20 @@ header {
   line-height: 1.7;
 }
 
+.sidebar-toggle {
+  display: none;
+  background: #173f2e;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
 @media (max-width: 900px) {
   .excel-content {
     margin-left: 0;
@@ -110,18 +124,21 @@ header {
     margin-left: 0 !important;
   }
 
+  .sidebar-toggle {
+    display: block;
+  }
+
   .excel-sidebar {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0.8rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
     background: #173f2e;
     border-bottom: 1px solid #e2e8f0;
-    gap: 0.5rem;
-    scrollbar-width: thin;
+  }
+
+  .excel-sidebar.open {
+    display: flex;
   }
 
   .excel-sidebar a {
@@ -129,13 +146,8 @@ header {
     min-width: 130px;
     white-space: nowrap;
     text-align: center;
-    color: #fff;
-    background: #218c5c;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
   }
 
   .excel-sidebar::-webkit-scrollbar {
