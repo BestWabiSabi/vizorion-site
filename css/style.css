@@ -212,12 +212,12 @@ body {
 footer {
   flex-shrink: 0;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem; /* <-- Match .navbar */
   background: #111827;
   color: white;
   z-index: 100;
   width: 100%;
-  margin-left: 0; /* default: no offset for mobile */
+  margin-left: 0;
 }
 
 /* RESPONSIVE LAYOUTS */
