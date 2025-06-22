@@ -89,7 +89,6 @@ footer {
   color: white;
   position: relative;
   z-index: 100;
-  margin-left: 250px;
 }
 
 /* Contact Page */
@@ -182,7 +181,7 @@ footer {
   text-align: center;
 }
 
-/* Remove special coloring from first items */
+/* Remove forced overrides */
 .sidebar-categories a:nth-child(1),
 .sidebar-categories a:nth-child(2),
 .sidebar-categories a:nth-child(3) {
@@ -194,6 +193,7 @@ footer {
   display: none;
 }
 
+/* === Responsive Layouts === */
 @media (max-width: 900px) {
   .hamburger {
     display: block;
@@ -217,7 +217,8 @@ footer {
 
   header,
   main,
-  #footer-placeholder {
+  #footer-placeholder,
+  footer {
     margin-left: 0 !important;
   }
 }
