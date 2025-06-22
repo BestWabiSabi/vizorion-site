@@ -260,3 +260,20 @@ footer {
     display: none !important;
   }
 }
+.close-btn-icon {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  z-index: 2100;
+  display: none; /* Hidden by default */
+}
+
+@media (max-width: 900px) {
+  .close-btn-icon {
+    display: block; /* Only show on mobile */
+  }
+}
