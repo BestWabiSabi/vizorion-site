@@ -9,7 +9,7 @@
 <body>
   <!-- Sidebar stays OUTSIDE the wrapper (fixed position) -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
-  <div id="sidebar-placeholder"></div>
+  <div id="sidebar-placeholder" class="sidebar"></div>
 
   <!-- Everything else INSIDE the wrapper -->
   <div class="wrapper">
@@ -54,7 +54,7 @@
         .then(html => {
           const sidebar = document.getElementById('sidebar-placeholder');
           sidebar.innerHTML = html;
-          sidebar.classList.add('sidebar');
+          // Do NOT add .sidebar here, already present!
           // Highlight current page
           const path = window.location.pathname.split('/').pop();
           const links = sidebar.querySelectorAll('a');
