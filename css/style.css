@@ -277,3 +277,16 @@ footer {
     display: block; /* Only show on mobile */
   }
 }
+/* Force hiding close icon on large screens */
+@media (min-width: 901px) {
+  .sidebar .close-btn-icon {
+    display: none !important;
+  }
+}
+
+/* Show close icon only on mobile */
+@media (max-width: 900px) {
+  .sidebar .close-btn-icon {
+    display: block !important;
+  }
+}
