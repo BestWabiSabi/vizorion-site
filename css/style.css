@@ -137,7 +137,7 @@ footer {
   left: -250px;
   width: 250px;
   height: 100%;
-  background: rgba(30,58,138,0.90);
+  background: #1e293b;  /* slate-800 */
   backdrop-filter: blur(3px);
   color: white;
   padding: 1rem;
@@ -155,10 +155,6 @@ footer {
 
 /* Desktop layout: Push content to right */
 @media (min-width: 901px) {
-  .sidebar {
-    left: 0;
-  }
-
   header,
   main,
   #footer-placeholder {
