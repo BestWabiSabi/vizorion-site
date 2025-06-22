@@ -217,6 +217,7 @@ footer {
   color: white;
   z-index: 100;
   width: 100%;
+  margin-left: 0; /* default: no offset for mobile */
 }
 
 /* RESPONSIVE LAYOUTS */
@@ -224,7 +225,20 @@ footer {
 .close-btn-icon {
   display: none;
 }
+
 @media (max-width: 900px) {
+  .wrapper, .page-wrapper,
+  footer {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show {
+    left: 0;
+  }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -243,20 +257,21 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper, .page-wrapper,
-  footer {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-  .sidebar {
-    left: -250px;
-    transition: left 0.3s;
-  }
-  .sidebar.show {
-    left: 0;
-  }
 }
 
+@media (min-width: 901px) {
+  .wrapper, .page-wrapper {
+    margin-left: 250px;
+  }
+  footer {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+  }
+  .hamburger,
+  .close-btn-icon {
+    display: none !important;
+  }
+}
 /* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
   .wrapper, .page-wrapper {
