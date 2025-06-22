@@ -292,3 +292,54 @@ footer {
 .page-wrapper main {
   flex: 1 0 auto;
 }
+
+footer {
+  background: #111827;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: 0;
+  /* On desktop, shift right to align with header and content */
+}
+.footer-inner {
+  max-width: 1200px;  /* Change this to match your hero/card max-width */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.footer-links {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #cfd8dc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer-links span {
+  color: #475569;
+  user-select: none;
+}
+
+/* Align footer with content/sidebar on desktop */
+@media (min-width: 901px) {
+  footer {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+  }
+}
+
+/* On mobile, no sidebar offset */
+@media (max-width: 900px) {
+  footer {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
