@@ -239,16 +239,15 @@ footer {
   .close-btn-icon {
     display: none !important;
   }
-
   header,
+  .navbar,
   main,
   #footer-placeholder,
-  .page-wrapper {
-    margin-left: 250px;
-  }
-
+  .page-wrapper,
   footer {
     margin-left: 250px;
+  }
+  footer {
     width: calc(100% - 250px);
   }
 }
