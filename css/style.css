@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,7 @@ body {
   color: #333;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -46,6 +48,7 @@ body {
   border-radius: 4px;
 }
 
+/* Hero */
 .hero {
   padding: 4rem 2rem;
   background: linear-gradient(to right, #4f46e5, #6366f1);
@@ -83,7 +86,7 @@ footer {
   color: white;
 }
 
-/* ---------- CONTACT PAGE ---------- */
+/* Contact Page */
 .contact-wrapper {
   display: flex;
   justify-content: center;
@@ -145,7 +148,7 @@ footer {
   background: #2563eb;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -161,7 +164,8 @@ footer {
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  gap: 0.75rem;
 }
 
 .sidebar.show {
@@ -171,6 +175,7 @@ footer {
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }
+
 .sidebar::-webkit-scrollbar-thumb {
   background: #999;
   border-radius: 3px;
@@ -178,51 +183,42 @@ footer {
 
 .sidebar a {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #22c55e, #16a34a); /* Excel default */
-  color: white;
+  align-items: center;
+  height: 50px;
+  text-align: center;
   text-decoration: none;
-  padding: 0.7rem 1rem;
-  margin: 0.5rem 0;
-  border-radius: 12px;
+  color: white;
   font-weight: bold;
   font-size: 1.05rem;
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-  text-align: center;
+  padding: 0 1rem;
+  transition: transform 0.2s ease;
 }
 
 .sidebar a:nth-child(2) {
-  background: linear-gradient(to right, #6366f1, #3b82f6); /* Looker Studio */
+  background: linear-gradient(to right, #22c55e, #16a34a);
 }
+
 .sidebar a:nth-child(3) {
-  background: linear-gradient(to right, #f97316, #ef4444); /* SQL */
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+}
+
+.sidebar a:nth-child(4) {
+  background: linear-gradient(to right, #f97316, #ef4444);
 }
 
 .sidebar a:hover {
   transform: scale(1.02);
 }
 
-/* ---------- Hamburger + Close Button ---------- */
+/* Hamburger + Close Button */
 .hamburger,
 .close-btn {
   display: none;
 }
 
-.close-btn-icon {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  z-index: 2100;
-  display: none;
-}
-
-/* ---------- Responsive Styling ---------- */
 @media (max-width: 900px) {
   .sidebar-categories {
     flex-direction: column;
@@ -241,9 +237,14 @@ footer {
     margin-left: 1rem;
   }
 
-  .close-btn,
-  .close-btn-icon {
+  .close-btn {
     display: block;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
   }
 
   header,
@@ -269,8 +270,25 @@ footer {
   }
 
   .hamburger,
-  .close-btn,
-  .close-btn-icon {
+  .close-btn {
     display: none !important;
+  }
+}
+
+.close-btn-icon {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  z-index: 2100;
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .close-btn-icon {
+    display: block;
   }
 }
