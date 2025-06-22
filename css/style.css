@@ -14,13 +14,20 @@ body {
   min-height: 100vh;
 }
 
+/* Main Wrapper for content (except sidebar) */
+.wrapper, .page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   background: #2c3e91;
   padding: 1rem 0.5rem;
   overflow-y: auto;
@@ -48,18 +55,12 @@ body {
 .sidebar-categories a:hover {
   filter: brightness(1.1);
 }
+
+/* Remove forced coloring on first items */
 .sidebar-categories a:nth-child(1),
 .sidebar-categories a:nth-child(2),
 .sidebar-categories a:nth-child(3) {
   background: linear-gradient(to right, #34d399, #059669);
-}
-
-/* CONTENT WRAPPER for pages */
-.wrapper, .page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
 }
 
 /* NAVBAR */
@@ -96,14 +97,7 @@ body {
   border-radius: 4px;
 }
 
-/* MAIN CONTENT: */
-main {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Padding left removed, as margin-left on .wrapper handles sidebar space */
-}
+/* HERO (Landing) */
 .hero {
   padding: 4rem 2rem;
   background: linear-gradient(to right, #4f46e5, #6366f1);
@@ -130,7 +124,7 @@ main {
   background: #2563eb;
 }
 
-/* EXCEL CARD CENTERED */
+/* EXCEL PAGE CARD */
 .excel-content {
   display: flex;
   flex-direction: column;
@@ -216,19 +210,13 @@ main {
 
 /* FOOTER */
 footer {
+  flex-shrink: 0;
   text-align: center;
   padding: 1rem;
   background: #111827;
   color: white;
   z-index: 100;
   width: 100%;
-  margin-left: 0;
-  flex-shrink: 0;
-  /* Don't set fixed position */
-}
-.wrapper > #footer-placeholder,
-.page-wrapper > #footer-placeholder {
-  margin-top: auto; /* Push footer to bottom */
 }
 
 /* RESPONSIVE LAYOUTS */
@@ -237,13 +225,6 @@ footer {
   display: none;
 }
 @media (max-width: 900px) {
-  .sidebar {
-    left: -250px;
-    transition: left 0.3s;
-  }
-  .sidebar.show {
-    left: 0;
-  }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -262,15 +243,21 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper, .page-wrapper {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
+  .wrapper, .page-wrapper,
   footer {
     margin-left: 0 !important;
     width: 100% !important;
   }
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show {
+    left: 0;
+  }
 }
+
+/* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
@@ -283,4 +270,10 @@ footer {
   .close-btn-icon {
     display: none !important;
   }
+}
+
+/* FLEX FIX FOR STICKY FOOTER */
+.wrapper main,
+.page-wrapper main {
+  flex: 1 0 auto;
 }
