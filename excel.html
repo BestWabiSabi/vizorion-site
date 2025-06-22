@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Excel Practice – Vizorion</title>
@@ -17,23 +9,19 @@
     html, body {
       height: 100%;
     }
-
     body {
       background: #f4f5f4;
       margin: 0;
       font-family: 'Inter', Arial, sans-serif;
     }
-
     .wrapper {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     main {
       flex: 1;
     }
-
     .excel-content {
       margin-top: 75px;
       padding: 3.5rem 2rem 2rem 2rem;
@@ -44,7 +32,6 @@
       flex-direction: column;
       align-items: flex-start;
     }
-
     .excel-card {
       background: #fff;
       border-radius: 18px;
@@ -55,32 +42,20 @@
       margin: 0 auto 2rem auto;
       transition: box-shadow 0.2s;
     }
-
     .excel-card h1 {
       margin-top: 0;
       font-weight: 800;
       color: #183042;
     }
-
     .excel-card p {
       color: #23313b;
       font-size: 1.15rem;
       line-height: 1.7;
     }
-
-    @media (min-width: 901px) {
-      header,
-      main,
-      #footer-placeholder {
-        margin-left: 250px;
-      }
-    }
-
     @media (max-width: 600px) {
       .excel-card {
         padding: 1rem 0.6rem;
       }
-
       .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -90,17 +65,13 @@
   </style>
 </head>
 <body>
-  <!-- Overlay and Sidebar container -->
+  <!-- Overlay and Sidebar -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div id="sidebar-placeholder"></div>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <div class="wrapper">
     <header>
-      <span class="hamburger" onclick="toggleSidebar()" style="font-size:1.5rem;cursor:pointer;padding-left:1rem;">☰</span>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <nav class="navbar">
         <div class="logo"><a href="index.html">Vizorion</a></div>
         <ul class="nav-links">
@@ -126,7 +97,7 @@
     <div id="footer-placeholder"></div>
   </div>
 
-  <!-- Sidebar + Footer JS -->
+  <!-- Sidebar and Footer Script -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar-placeholder");
@@ -136,6 +107,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      // Load sidebar
       fetch('excel-sidebar.html')
         .then(res => res.text())
         .then(html => {
@@ -143,7 +115,7 @@
           sidebar.innerHTML = html;
           sidebar.classList.add('sidebar');
 
-          // Mark current page link as active
+          // Highlight current page
           const path = window.location.pathname.split('/').pop();
           const links = sidebar.querySelectorAll('a');
           links.forEach(link => {
@@ -153,11 +125,13 @@
           });
         });
 
+      // Handle overlay click
       document.getElementById('sidebarOverlay').addEventListener('click', () => {
         document.getElementById('sidebar-placeholder').classList.remove('show');
         document.getElementById('sidebarOverlay').style.display = 'none';
       });
 
+      // Load footer
       fetch('footer.html')
         .then(res => res.text())
         .then(html => {
