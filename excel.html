@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NXHZSNTX');
-  </script>
-  <!-- End Google Tag Manager -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Excel Practice – Vizorion</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: #f4f5f4;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .excel-content {
+      margin-top: 75px;
+      padding: 3.5rem 2rem 2rem 2rem;
+      min-height: 90vh;
+      background: none;
+      transition: margin 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .excel-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
+      padding: 2.2rem 2.5rem;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto 2rem auto;
+      transition: box-shadow 0.2s;
+    }
+
+    .excel-card h1 {
+      margin-top: 0;
+      font-weight: 800;
+      color: #183042;
+    }
+
+    .excel-card p {
+      color: #23313b;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .excel-card {
+        padding: 1rem 0.6rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.6rem 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Overlay and Sidebar -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div id="sidebar-placeholder"></div>
 
-  <div class="wrapper">
+  <div class="page-wrapper">
     <header>
       <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <nav class="navbar">
