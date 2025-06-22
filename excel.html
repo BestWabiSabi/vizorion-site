@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Sidebar OUTSIDE wrapper -->
+  <!-- Sidebar stays OUTSIDE the wrapper (fixed position) -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div id="sidebar-placeholder"></div>
 
-  <!-- Everything else inside wrapper -->
+  <!-- Everything else INSIDE the wrapper -->
   <div class="wrapper">
     <header>
       <span class="hamburger" onclick="toggleSidebar()">☰</span>
@@ -25,7 +25,6 @@
         </ul>
       </nav>
     </header>
-
     <main>
       <div class="excel-card" id="welcome">
         <h1>Welcome to Excel at Vizorion!</h1>
@@ -36,7 +35,6 @@
         </p>
       </div>
     </main>
-
     <div id="footer-placeholder"></div>
   </div>
 
@@ -57,7 +55,6 @@
           const sidebar = document.getElementById('sidebar-placeholder');
           sidebar.innerHTML = html;
           sidebar.classList.add('sidebar');
-
           // Highlight current page
           const path = window.location.pathname.split('/').pop();
           const links = sidebar.querySelectorAll('a');
