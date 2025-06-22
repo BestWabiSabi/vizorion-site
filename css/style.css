@@ -1,12 +1,6 @@
 /* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   font-family: 'Arial', sans-serif;
   background: #f9fafb;
@@ -52,14 +46,8 @@ body {
   transition: background 0.15s;
 }
 .sidebar-categories a.active,
-.sidebar-categories a:hover {
-  filter: brightness(1.1);
-}
-
-/* Remove forced coloring on first items */
-.sidebar-categories a:nth-child(1),
-.sidebar-categories a:nth-child(2),
-.sidebar-categories a:nth-child(3) {
+.sidebar-categories a:hover { filter: brightness(1.1); }
+.sidebar-categories a:nth-child(-n+3) {
   background: linear-gradient(to right, #34d399, #059669);
 }
 
@@ -73,29 +61,16 @@ body {
   position: relative;
   z-index: 1000;
 }
-.logo a {
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-.nav-links li {
-  margin-left: 1rem;
-}
+.logo a { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin-left: 1rem; }
 .nav-links li a {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem;
 }
 .nav-links li a.active,
-.nav-links li a:hover {
-  background: #3b82f6;
-  border-radius: 4px;
-}
+.nav-links li a:hover { background: #3b82f6; border-radius: 4px; }
 
 /* HERO (Landing) */
 .hero {
@@ -104,15 +79,8 @@ body {
   color: white;
   text-align: center;
 }
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-}
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; }
 .button {
   background: #3b82f6;
   color: white;
@@ -120,9 +88,7 @@ body {
   text-decoration: none;
   border-radius: 5px;
 }
-.button:hover {
-  background: #2563eb;
-}
+.button:hover { background: #2563eb; }
 
 /* EXCEL PAGE CARD */
 .excel-content {
@@ -145,16 +111,8 @@ body {
   margin: 0 auto 2rem auto;
   transition: box-shadow 0.2s;
 }
-.excel-card h1 {
-  margin-top: 0;
-  font-weight: 800;
-  color: #183042;
-}
-.excel-card p {
-  color: #23313b;
-  font-size: 1.15rem;
-  line-height: 1.7;
-}
+.excel-card h1 { margin-top: 0; font-weight: 800; color: #183042; }
+.excel-card p { color: #23313b; font-size: 1.15rem; line-height: 1.7; }
 
 /* CONTACT PAGE */
 .contact-wrapper {
@@ -172,20 +130,9 @@ body {
   max-width: 600px;
   width: 100%;
 }
-.contact-card h1 {
-  margin-bottom: 1rem;
-  color: #1e3a8a;
-}
-.contact-card p {
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  color: #444;
-}
-.contact-form label {
-  font-weight: 600;
-  margin-top: 1rem;
-  display: block;
-}
+.contact-card h1 { margin-bottom: 1rem; color: #1e3a8a; }
+.contact-card p { margin-bottom: 2rem; font-size: 1rem; color: #444; }
+.contact-form label { font-weight: 600; margin-top: 1rem; display: block; }
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -204,27 +151,55 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-.contact-form button:hover {
-  background: #2563eb;
-}
+.contact-form button:hover { background: #2563eb; }
 
-/* FOOTER */
+/* FOOTER (global, not in footer.html!) */
 footer {
   flex-shrink: 0;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background: #111827;
   color: white;
   z-index: 100;
   width: 100%;
+  font-size: 0.9rem;
+}
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.footer-links {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #cfd8dc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer-links span {
+  color: #475569;
+  user-select: none;
 }
 
 /* RESPONSIVE LAYOUTS */
 .hamburger,
-.close-btn-icon {
-  display: none;
-}
+.close-btn-icon { display: none; }
 @media (max-width: 900px) {
+  .wrapper, .page-wrapper, footer {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show { left: 0; }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -243,21 +218,7 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper, .page-wrapper,
-  footer {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-  .sidebar {
-    left: -250px;
-    transition: left 0.3s;
-  }
-  .sidebar.show {
-    left: 0;
-  }
 }
-
-/* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
@@ -267,13 +228,8 @@ footer {
     margin-left: 250px;
   }
   .hamburger,
-  .close-btn-icon {
-    display: none !important;
-  }
+  .close-btn-icon { display: none !important; }
 }
-
 /* FLEX FIX FOR STICKY FOOTER */
 .wrapper main,
-.page-wrapper main {
-  flex: 1 0 auto;
-}
+.page-wrapper main { flex: 1 0 auto; }
