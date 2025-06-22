@@ -85,8 +85,9 @@ footer {
   padding: 1rem;
   background: #111827;
   color: white;
-  position: relative;
   z-index: 100;
+  width: 100%;
+  position: relative;
 }
 
 /* Contact page */
@@ -168,8 +169,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background: linear-gradient(to right, #34d399, #059669);
   color: white;
   text-decoration: none;
   padding: 0.8rem 1.5rem;
@@ -177,18 +176,27 @@ footer {
   border-radius: 12px;
   font-weight: 700;
   width: 100%;
-  font-size: 1rem;
+  text-align: center;
 }
 
-.sidebar-categories a:nth-child(2) {
+.sidebar-categories a:nth-child(1) {
   background: linear-gradient(to right, #6366f1, #3b82f6);
 }
 
-.sidebar-categories a:nth-child(3) {
+.sidebar-categories a:nth-child(2) {
   background: linear-gradient(to right, #f97316, #ef4444);
 }
 
-/* Hamburger and close button */
+.sidebar-categories a:nth-child(3) {
+  background: linear-gradient(to right, #10b981, #059669);
+}
+
+/* Ensure all other sidebar items also get the same Excel style */
+.sidebar-categories a:nth-child(n+4) {
+  background: linear-gradient(to right, #10b981, #059669);
+}
+
+/* Hamburger and close */
 .hamburger, .close-btn-icon {
   display: none;
 }
@@ -222,15 +230,15 @@ footer {
 }
 
 @media (min-width: 901px) {
+  .hamburger,
+  .close-btn-icon {
+    display: none !important;
+  }
+
   header,
   main,
   #footer-placeholder,
   footer {
     margin-left: 250px;
-  }
-
-  .hamburger,
-  .close-btn-icon {
-    display: none !important;
   }
 }
