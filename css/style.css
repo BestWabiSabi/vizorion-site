@@ -1,12 +1,6 @@
 /* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   font-family: 'Arial', sans-serif;
   background: #f9fafb;
@@ -19,7 +13,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 250px;          /* <-- Sidebar offset on desktop */
+  margin-left: 250px; /* Sidebar offset for desktop */
 }
 
 /* SIDEBAR */
@@ -126,21 +120,13 @@ body {
 }
 
 /* EXCEL PAGE CARD */
+.excel-content,
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.excel-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 3.5rem 2rem 2rem 2rem;
-  background: none;
-  transition: margin 0.3s;
 }
 .excel-card {
   background: #fff;
@@ -215,8 +201,8 @@ main {
   background: #2563eb;
 }
 
-/* FOOTER */
-footer {
+/* FOOTER: perfectly aligned with header/sidebar */
+footer, #footer-placeholder {
   flex-shrink: 0;
   text-align: center;
   padding: 1rem;
@@ -238,7 +224,7 @@ footer {
 }
 @media (max-width: 900px) {
   .wrapper, .page-wrapper,
-  footer {
+  footer, #footer-placeholder {
     margin-left: 0 !important;
     width: 100% !important;
   }
@@ -269,12 +255,10 @@ footer {
   }
 }
 @media (min-width: 901px) {
-  .wrapper, .page-wrapper {
-    margin-left: 250px;
-  }
-  footer {
+  .wrapper, .page-wrapper { margin-left: 250px; }
+  footer, #footer-placeholder {
     width: calc(100% - 250px);
-    margin-left: 250px;
+    margin-left: 0;
   }
   .hamburger,
   .close-btn-icon {
