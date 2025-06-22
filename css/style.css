@@ -5,10 +5,21 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   background: #f9fafb;
   color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content Wrapper */
+.page-wrapper {
+  flex: 1;
 }
 
 /* Navbar */
@@ -87,8 +98,8 @@ footer {
   padding: 1rem;
   background: #111827;
   color: white;
-  position: relative;
   z-index: 100;
+  width: 100%;
 }
 
 /* Contact Page */
@@ -181,7 +192,6 @@ footer {
   text-align: center;
 }
 
-/* Remove forced overrides */
 .sidebar-categories a:nth-child(1),
 .sidebar-categories a:nth-child(2),
 .sidebar-categories a:nth-child(3) {
@@ -189,7 +199,8 @@ footer {
 }
 
 /* Hamburger and close */
-.hamburger, .close-btn-icon {
+.hamburger,
+.close-btn-icon {
   display: none;
 }
 
@@ -232,6 +243,7 @@ footer {
   header,
   main,
   #footer-placeholder,
+  .page-wrapper,
   footer {
     margin-left: 250px;
   }
