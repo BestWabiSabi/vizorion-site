@@ -1,6 +1,12 @@
 /* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
 body {
   font-family: 'Arial', sans-serif;
   background: #f9fafb;
@@ -13,7 +19,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 250px; /* Sidebar offset for desktop */
+  margin-left: 250px;  /* Sidebar offset on desktop */
 }
 
 /* SIDEBAR */
@@ -50,8 +56,6 @@ body {
 .sidebar-categories a:hover {
   filter: brightness(1.1);
 }
-
-/* Remove forced coloring on first items */
 .sidebar-categories a:nth-child(1),
 .sidebar-categories a:nth-child(2),
 .sidebar-categories a:nth-child(3) {
@@ -120,13 +124,21 @@ body {
 }
 
 /* EXCEL PAGE CARD */
-.excel-content,
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.excel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3.5rem 2rem 2rem 2rem;
+  background: none;
+  transition: margin 0.3s;
 }
 .excel-card {
   background: #fff;
@@ -201,7 +213,7 @@ main {
   background: #2563eb;
 }
 
-/* FOOTER: perfectly aligned with header/sidebar */
+/* FOOTER */
 footer, #footer-placeholder {
   flex-shrink: 0;
   text-align: center;
@@ -224,7 +236,8 @@ footer, #footer-placeholder {
 }
 @media (max-width: 900px) {
   .wrapper, .page-wrapper,
-  footer, #footer-placeholder {
+  footer,
+  #footer-placeholder {
     margin-left: 0 !important;
     width: 100% !important;
   }
@@ -254,11 +267,15 @@ footer, #footer-placeholder {
     z-index: 2100;
   }
 }
+/* DESKTOP: Sidebar offset for wrapper AND footer */
 @media (min-width: 901px) {
-  .wrapper, .page-wrapper { margin-left: 250px; }
-  footer, #footer-placeholder {
+  .wrapper, .page-wrapper {
+    margin-left: 250px;
+  }
+  footer,
+  #footer-placeholder {
     width: calc(100% - 250px);
-    margin-left: 0;
+    margin-left: 250px;
   }
   .hamburger,
   .close-btn-icon {
