@@ -234,3 +234,8 @@ footer {
     margin-left: 250px;
   }
 }
+@media (min-width: 901px) {
+  footer {
+    margin-left: 250px;
+  }
+}
