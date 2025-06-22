@@ -15,7 +15,7 @@ body {
 }
 
 /* Wrapper for all page content except sidebar */
-.wrapper {
+.wrapper, .page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -126,6 +126,16 @@ body {
 }
 
 /* EXCEL PAGE CARD */
+.excel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* <-- horizontally center the card */
+  margin-top: 75px;
+  padding: 3.5rem 2rem 2rem 2rem;
+  min-height: 90vh;
+  background: none;
+  transition: margin 0.3s;
+}
 .excel-card {
   background: #fff;
   border-radius: 18px;
@@ -233,7 +243,7 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper,
+  .wrapper, .page-wrapper,
   footer {
     margin-left: 0 !important;
     width: 100% !important;
@@ -249,7 +259,7 @@ footer {
 
 /* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
-  .wrapper {
+  .wrapper, .page-wrapper {
     margin-left: 250px;
   }
   footer {
