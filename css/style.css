@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-left: 250px;          /* <-- Sidebar offset on desktop */
 }
 
 /* SIDEBAR */
@@ -125,13 +126,19 @@ body {
 }
 
 /* EXCEL PAGE CARD */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .excel-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 75px;
+  width: 100%;
   padding: 3.5rem 2rem 2rem 2rem;
-  min-height: 90vh;
   background: none;
   transition: margin 0.3s;
 }
@@ -217,6 +224,11 @@ footer {
   color: white;
   z-index: 100;
   width: 100%;
+  margin-left: 0;
+}
+.wrapper > #footer-placeholder,
+.page-wrapper > #footer-placeholder {
+  margin-top: auto;
 }
 
 /* RESPONSIVE LAYOUTS */
@@ -225,6 +237,18 @@ footer {
   display: none;
 }
 @media (max-width: 900px) {
+  .wrapper, .page-wrapper,
+  footer {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show {
+    left: 0;
+  }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -243,21 +267,7 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper, .page-wrapper,
-  footer {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-  .sidebar {
-    left: -250px;
-    transition: left 0.3s;
-  }
-  .sidebar.show {
-    left: 0;
-  }
 }
-
-/* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
@@ -270,10 +280,4 @@ footer {
   .close-btn-icon {
     display: none !important;
   }
-}
-
-/* FLEX FIX FOR STICKY FOOTER */
-.wrapper main,
-.page-wrapper main {
-  flex: 1 0 auto;
 }
