@@ -85,9 +85,12 @@ footer {
   padding: 1rem;
   background: #111827;
   color: white;
-  z-index: 100;
-  width: 100%;
   position: relative;
+  z-index: 100;
+}
+
+body.sidebar-visible footer {
+  margin-left: 250px;
 }
 
 /* Contact page */
@@ -169,7 +172,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   text-decoration: none;
   padding: 0.8rem 1.5rem;
   margin: 0.5rem 0;
@@ -177,23 +179,26 @@ footer {
   font-weight: 700;
   width: 100%;
   text-align: center;
+  color: white;
 }
 
-.sidebar-categories a:nth-child(1) {
+.sidebar-categories a.excel {
+  background: linear-gradient(to right, #34d399, #059669);
+}
+.sidebar-categories a.looker {
   background: linear-gradient(to right, #6366f1, #3b82f6);
 }
-
-.sidebar-categories a:nth-child(2) {
+.sidebar-categories a.sql {
   background: linear-gradient(to right, #f97316, #ef4444);
 }
-
-.sidebar-categories a:nth-child(3) {
-  background: linear-gradient(to right, #10b981, #059669);
+.sidebar-categories a.welcome {
+  background: linear-gradient(to right, #6366f1, #3b82f6);
 }
-
-/* Ensure all other sidebar items also get the same Excel style */
-.sidebar-categories a:nth-child(n+4) {
-  background: linear-gradient(to right, #10b981, #059669);
+.sidebar-categories a.if-formula {
+  background: linear-gradient(to right, #f97316, #ef4444);
+}
+.sidebar-categories a.green {
+  background: linear-gradient(to right, #34d399, #059669);
 }
 
 /* Hamburger and close */
@@ -224,7 +229,8 @@ footer {
 
   header,
   main,
-  #footer-placeholder {
+  #footer-placeholder,
+  footer {
     margin-left: 0 !important;
   }
 }
@@ -235,10 +241,10 @@ footer {
     display: none !important;
   }
 
-  header,
-  main,
-  #footer-placeholder,
-  footer {
+  body.sidebar-visible header,
+  body.sidebar-visible main,
+  body.sidebar-visible #footer-placeholder,
+  body.sidebar-visible footer {
     margin-left: 250px;
   }
 }
