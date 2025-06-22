@@ -243,12 +243,12 @@ footer {
   header,
   main,
   #footer-placeholder,
-  .page-wrapper,
-  footer {
+  .page-wrapper {
     margin-left: 250px;
   }
 
   footer {
+    margin-left: 250px;
     width: calc(100% - 250px);
   }
 }
