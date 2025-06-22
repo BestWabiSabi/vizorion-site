@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <!-- Google Tag Manager -->
   <script>
@@ -13,62 +15,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Excel Practice – Vizorion</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      background: #f4f5f4;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-    }
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    main {
-      flex: 1;
-    }
-    .excel-content {
-      margin-top: 75px;
-      padding: 3.5rem 2rem 2rem 2rem;
-      min-height: 90vh;
-      background: none;
-      transition: margin 0.3s;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.2rem 2.5rem;
-      max-width: 640px;
-      width: 100%;
-      margin: 0 auto 2rem auto;
-      transition: box-shadow 0.2s;
-    }
-    .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-    }
-    .excel-card p {
-      color: #23313b;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
-    @media (max-width: 600px) {
-      .excel-card {
-        padding: 1rem 0.6rem;
-      }
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 0.5rem;
-      }
-    }
-  </style>
 </head>
+<body>
+  <!-- Overlay and Sidebar -->
+  <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
+  <div id="sidebar-placeholder"></div>
+
+  <div class="wrapper">
+    <header>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">Vizorion</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="excel-content">
+      <div class="excel-card" id="welcome">
+        <h1>Welcome to Excel at Vizorion!</h1>
+        <p>
+          To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.<br><br>
+          <b>Please select a formula on the left to get started.</b><br>
+          Good luck!
+        </p>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Sidebar and Footer Script -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const isOpen = sidebar.classList.toggle("show");
+      overlay.style.display = isOpen ? "block" : "none";
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Load sidebar
+      fetch('excel-sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          const sidebar = document.getElementById('sidebar-placeholder');
+          sidebar.innerHTML = html;
+          sidebar.classList.add('sidebar');
+
+          // Highlight current page
+          const path = window.location.pathname.split('/').pop();
+          const links = sidebar.querySelectorAll('a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === path) {
+              link.classList.add('active');
+            }
+          });
+        });
+
+      // Handle overlay click
+      document.getElementById('sidebarOverlay').addEventListener('click', () => {
+        document.getElementById('sidebar-placeholder').classList.remove('show');
+        document.getElementById('sidebarOverlay').style.display = 'none';
+      });
+
+      // Load footer
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    });
+  </script>
+</body>
+</html>
