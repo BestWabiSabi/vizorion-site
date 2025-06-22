@@ -196,10 +196,13 @@
         padding: 0.6rem 0.5rem;
       }
     }
-    header,
-main,
-#footer-placeholder {
-  margin-left: 210px; /* Match your .excel-sidebar width */
+    /* Apply sidebar offset only on wide screens */
+@media (min-width: 901px) {
+  header,
+  main,
+  #footer-placeholder {
+    margin-left: 210px;
+  }
 }
   </style>
 </head>
