@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
 }
 
-/* Wrapper for all page content except sidebar */
+/* Main Wrapper for content (except sidebar) */
 .wrapper, .page-wrapper {
   min-height: 100vh;
   display: flex;
@@ -36,7 +36,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 .sidebar-categories a {
   display: flex;
   justify-content: center;
@@ -129,7 +128,7 @@ body {
 .excel-content {
   display: flex;
   flex-direction: column;
-  align-items: center;        /* <-- horizontally center the card */
+  align-items: center;
   margin-top: 75px;
   padding: 3.5rem 2rem 2rem 2rem;
   min-height: 90vh;
@@ -211,6 +210,7 @@ body {
 
 /* FOOTER */
 footer {
+  flex-shrink: 0;
   text-align: center;
   padding: 1rem;
   background: #111827;
@@ -270,4 +270,10 @@ footer {
   .close-btn-icon {
     display: none !important;
   }
+}
+
+/* FLEX FIX FOR STICKY FOOTER */
+.wrapper main,
+.page-wrapper main {
+  flex: 1 0 auto;
 }
