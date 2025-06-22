@@ -203,6 +203,7 @@ footer {
   display: none;
 }
 
+/* Mobile only */
 @media (max-width: 900px) {
   .sidebar-categories {
     flex-direction: column;
@@ -231,7 +232,6 @@ footer {
     color: white;
   }
 
-  /* On mobile, content is not pushed */
   header,
   main,
   #footer-placeholder {
@@ -239,7 +239,7 @@ footer {
   }
 }
 
-/* ---------- Push layout only on wide screens ---------- */
+/* Desktop layout */
 @media (min-width: 901px) {
   .sidebar {
     left: 0;
@@ -259,7 +259,19 @@ footer {
   .close-btn {
     display: none !important;
   }
+
+  .sidebar .close-btn-icon {
+    display: none !important;
+  }
 }
+
+/* Mobile close button override */
+@media (max-width: 900px) {
+  .sidebar .close-btn-icon {
+    display: block !important;
+  }
+}
+
 .close-btn-icon {
   background: none;
   border: none;
@@ -269,24 +281,4 @@ footer {
   right: 10px;
   color: white;
   z-index: 2100;
-  display: none; /* Hidden by default */
-}
-
-@media (max-width: 900px) {
-  .close-btn-icon {
-    display: block; /* Only show on mobile */
-  }
-}
-/* Force hiding close icon on large screens */
-@media (min-width: 901px) {
-  .sidebar .close-btn-icon {
-    display: none !important;
-  }
-}
-
-/* Show close icon only on mobile */
-@media (max-width: 900px) {
-  .sidebar .close-btn-icon {
-    display: block !important;
-  }
 }
