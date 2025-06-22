@@ -14,20 +14,13 @@ body {
   min-height: 100vh;
 }
 
-/* Main Wrapper for content (except sidebar) */
-.wrapper, .page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 /* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
-  height: 100%;
+  height: 100vh;
   background: #2c3e91;
   padding: 1rem 0.5rem;
   overflow-y: auto;
@@ -59,6 +52,14 @@ body {
 .sidebar-categories a:nth-child(2),
 .sidebar-categories a:nth-child(3) {
   background: linear-gradient(to right, #34d399, #059669);
+}
+
+/* CONTENT WRAPPER for pages */
+.wrapper, .page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
 }
 
 /* NAVBAR */
@@ -95,7 +96,14 @@ body {
   border-radius: 4px;
 }
 
-/* HERO (Landing) */
+/* MAIN CONTENT: */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Padding left removed, as margin-left on .wrapper handles sidebar space */
+}
 .hero {
   padding: 4rem 2rem;
   background: linear-gradient(to right, #4f46e5, #6366f1);
@@ -122,18 +130,17 @@ body {
   background: #2563eb;
 }
 
-/* EXCEL PAGE */
-main {
-  flex: 1;
+/* EXCEL CARD CENTERED */
+.excel-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 75px;
-  /* Pushes content below the navbar */
+  margin-top: 75px;
+  padding: 3.5rem 2rem 2rem 2rem;
+  min-height: 90vh;
+  background: none;
+  transition: margin 0.3s;
 }
-
-/* Center Excel card and keep left align with main content */
 .excel-card {
   background: #fff;
   border-radius: 18px;
@@ -141,7 +148,7 @@ main {
   padding: 2.2rem 2.5rem;
   max-width: 640px;
   width: 100%;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto;
   transition: box-shadow 0.2s;
 }
 .excel-card h1 {
@@ -215,7 +222,13 @@ footer {
   color: white;
   z-index: 100;
   width: 100%;
-  margin-top: auto;
+  margin-left: 0;
+  flex-shrink: 0;
+  /* Don't set fixed position */
+}
+.wrapper > #footer-placeholder,
+.page-wrapper > #footer-placeholder {
+  margin-top: auto; /* Push footer to bottom */
 }
 
 /* RESPONSIVE LAYOUTS */
@@ -224,6 +237,13 @@ footer {
   display: none;
 }
 @media (max-width: 900px) {
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show {
+    left: 0;
+  }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -242,21 +262,15 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper, .page-wrapper,
+  .wrapper, .page-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
   footer {
     margin-left: 0 !important;
     width: 100% !important;
   }
-  .sidebar {
-    left: -250px;
-    transition: left 0.3s;
-  }
-  .sidebar.show {
-    left: 0;
-  }
 }
-
-/* === PUSH WRAPPER AND FOOTER ON DESKTOP === */
 @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
