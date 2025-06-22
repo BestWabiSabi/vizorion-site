@@ -1,3 +1,4 @@
+/* --- RESET & BASE --- */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,7 @@ body {
   color: #333;
 }
 
+/* --- NAVBAR --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -46,6 +48,7 @@ body {
   border-radius: 4px;
 }
 
+/* --- HERO SECTION --- */
 .hero {
   padding: 4rem 2rem;
   background: linear-gradient(to right, #4f46e5, #6366f1);
@@ -76,14 +79,48 @@ body {
   background: #2563eb;
 }
 
+/* --- FOOTER --- */
 footer {
   text-align: center;
   padding: 1rem;
   background: #111827;
   color: white;
+  width: 100%;
+  margin-left: 0 !important;
 }
 
-/* ---------- CONTACT PAGE STYLING ---------- */
+/* --- CATEGORY BUTTONS ON MAIN PAGE (e.g., Excel, SQL) --- */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #218c5c;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:nth-child(2) {
+  background-color: #3b82f6;
+}
+
+.sidebar a:nth-child(3) {
+  background-color: #f97316;
+}
+
+.sidebar a:hover {
+  opacity: 0.9;
+}
+
+/* --- CONTACT PAGE STYLING --- */
 .contact-wrapper {
   display: flex;
   justify-content: center;
@@ -145,7 +182,7 @@ footer {
   background: #2563eb;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* --- SIDEBAR (for Excel pages) --- */
 .sidebar {
   position: fixed;
   top: 0;
@@ -188,7 +225,7 @@ footer {
   font-weight: 600;
   font-size: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  text-align: left;
+  text-align: center;
   transition: background 0.15s;
   white-space: normal;
 }
@@ -197,13 +234,12 @@ footer {
   background: #16a34a;
 }
 
-/* ---------- Hamburger + Close Button ---------- */
+/* --- Hamburger + Close Buttons --- */
 .hamburger,
 .close-btn {
   display: none;
 }
 
-/* Mobile only */
 @media (max-width: 900px) {
   .sidebar-categories {
     flex-direction: column;
@@ -222,7 +258,8 @@ footer {
     margin-left: 1rem;
   }
 
-  .close-btn {
+  .close-btn,
+  .close-btn-icon {
     display: block;
     font-size: 1.6rem;
     cursor: pointer;
@@ -239,7 +276,6 @@ footer {
   }
 }
 
-/* Desktop layout */
 @media (min-width: 901px) {
   .sidebar {
     left: 0;
@@ -247,7 +283,8 @@ footer {
 
   header,
   main,
-  #footer-placeholder {
+  #footer-placeholder,
+  footer {
     margin-left: 250px;
   }
 
@@ -256,29 +293,8 @@ footer {
   }
 
   .hamburger,
-  .close-btn {
+  .close-btn,
+  .close-btn-icon {
     display: none !important;
   }
-
-  .sidebar .close-btn-icon {
-    display: none !important;
-  }
-}
-
-/* Mobile close button override */
-@media (max-width: 900px) {
-  .sidebar .close-btn-icon {
-    display: block !important;
-  }
-}
-
-.close-btn-icon {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  z-index: 2100;
 }
