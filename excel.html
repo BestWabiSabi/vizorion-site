@@ -35,7 +35,20 @@
         </p>
       </div>
     </main>
-    <div id="footer-placeholder"></div>
+    <footer>
+  <div class="footer-inner">
+    <p>© 2025 Vizorion. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="terms.html">Terms</a>
+      <span>|</span>
+      <a href="privacy.html">Privacy</a>
+      <span>|</span>
+      <a href="disclaimer.html">Disclaimer</a>
+      <span>|</span>
+      <a href="cookie-policy.html">Cookies</a>
+    </div>
+  </div>
+</footer>
   </div>
 
   <!-- Sidebar and Footer Script -->
@@ -71,12 +84,7 @@
         document.getElementById('sidebarOverlay').style.display = 'none';
       });
 
-      // Load footer
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        });
+  
     });
   </script>
 </body>
