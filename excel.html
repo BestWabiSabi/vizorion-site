@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="https://vizorion.com/images/favicon.ico" />
+  <meta property="og:title" content="Excel Practice – Vizorion" />
+  <meta property="og:description" content="Practice Excel formulas, dashboards, and Pivot Tables with real downloadable files." />
+  <title>Excel Practice – Vizorion</title>
+  <meta name="description" content="Practice Excel formulas and dashboards at Vizorion with real data cases and hands-on tools.">
+  <link rel="canonical" href="https://vizorion.com/excel-v2.html">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Excel Practice – Vizorion</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Tag Manager and Cookie scripts omitted for brevity but can be copied from your index.html if needed -->
+
+  <style>
+    /* You can add page-specific styles here if needed */
+  </style>
 </head>
 <body>
-  <!-- Sidebar stays OUTSIDE the wrapper (fixed position) -->
+  <!-- Google Tag Manager (noscript) etc. as in index.html if needed -->
+
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
-  <div id="sidebar-placeholder" class="sidebar"></div>
+  <div class="sidebar" id="sidebar"></div>
+  
+  <header>
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">Vizorion</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Everything else INSIDE the wrapper -->
-  <div class="wrapper">
-    <header>
-      <span class="hamburger" onclick="toggleSidebar()">☰</span>
-      <nav class="navbar">
-        <div class="logo"><a href="index.html">Vizorion</a></div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="downloads.html">Downloads</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div class="excel-card" id="welcome">
-        <h1>Welcome to Excel at Vizorion!</h1>
-        <p>
-          To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.<br><br>
-          <b>Please select a formula on the left to get started.</b><br>
-          Good luck!
-        </p>
-      </div>
-    </main>
-    <div id="footer-placeholder"></div>
-  </div>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Excel at Vizorion</h1>
+      <p>
+        To support you on your journey, we’ve created a dedicated practice sheet for each major Excel formula.<br><br>
+        <b>Please select a formula on the left to get started.</b><br>
+        Good luck!
+      </p>
+    </section>
+    <!-- You can add more Excel content sections here if needed -->
+  </main>
 
-  <!-- Sidebar and Footer Script -->
+  <div id="footer-placeholder"></div>
+
   <script>
     function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar-placeholder");
+      const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("sidebarOverlay");
       const isOpen = sidebar.classList.toggle("show");
       overlay.style.display = isOpen ? "block" : "none";
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Load sidebar
+    // Load Excel sidebar (full formulas) and footer, enable overlay close
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load Excel sidebar
       fetch('excel-sidebar.html')
         .then(res => res.text())
         .then(html => {
-          const sidebar = document.getElementById('sidebar-placeholder');
-          sidebar.innerHTML = html;
-          // Do NOT add .sidebar here, already present!
-          // Highlight current page
-          const path = window.location.pathname.split('/').pop();
-          const links = sidebar.querySelectorAll('a');
-          links.forEach(link => {
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
+          document.getElementById('sidebar').innerHTML = html;
         });
 
-      // Handle overlay click
-      document.getElementById('sidebarOverlay').addEventListener('click', () => {
-        document.getElementById('sidebar-placeholder').classList.remove('show');
-        document.getElementById('sidebarOverlay').style.display = 'none';
+      // Sidebar overlay click closes sidebar
+      document.getElementById('sidebarOverlay').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.remove('show');
+        this.style.display = 'none';
       });
 
       // Load footer
