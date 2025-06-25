@@ -238,16 +238,15 @@ footer {
     z-index: 2100;
   }
 }
-@media (min-width: 901px) {
+  @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
   }
-  footer {
-    width: calc(100% - 250px);
-    margin-left: 250px;
-  }
+
   .hamburger,
-  .close-btn-icon { display: none !important; }
+  .close-btn-icon {
+    display: none !important;
+  }
 }
 /* FLEX FIX FOR STICKY FOOTER */
 .wrapper main,
