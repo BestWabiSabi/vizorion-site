@@ -1,5 +1,4 @@
-
-<html, body {
+html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -45,15 +44,10 @@ body {
   background: #2c3e91;
   padding: 1rem 0.5rem;
   overflow-y: auto;
-  z-index: 2000;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateX(-250px);
-  transition: transform 0.3s ease;
-}
-.sidebar.show {
-  transform: translateX(0);
 }
 .sidebar-categories a {
   display: flex;
@@ -220,6 +214,11 @@ footer {
     margin-left: 0 !important;
     width: 100% !important;
   }
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s;
+  }
+  .sidebar.show { left: 0; }
   .hamburger {
     display: block;
     font-size: 1.6rem;
@@ -238,36 +237,42 @@ footer {
     border: none;
     z-index: 2100;
   }
-  .wrapper {
-    padding-top: 70px;
-  }
 }
-@media (min-width: 901px) {
+  @media (min-width: 901px) {
   .wrapper, .page-wrapper {
     margin-left: 250px;
   }
+
   .hamburger,
   .close-btn-icon {
     display: none !important;
   }
 }
-
 /* FLEX FIX FOR STICKY FOOTER */
 .wrapper main,
-.page-wrapper main {
-  flex: 1 0 auto;
+.page-wrapper main { flex: 1 0 auto; }
+
+#sidebarOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* changed from 100vw */
+  height: 100vh;
+  background: rgba(0,0,0,0.15);
+  z-index: 1500;
 }
 
-/* Iframe responsiveness */
-iframe {
-  max-width: 100%;
+html, body {
+  overflow-x: hidden;
 }
 
 /* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
-  max-width: 100%;
 }
+
+/* Ensure full-width behavior */
 .wrapper,
 main,
 header,
@@ -276,9 +281,24 @@ footer {
   overflow-x: hidden;
 }
 
+/* Fix header overlapping sidebar */
+.sidebar {
+  z-index: 2000;
+}
 header {
-  position: relative;
-  z-index: 1500;
-  width: 100%;
-  background-color: #1e3a8a;
+  z-index: 1000;
+}
+
+/* Mobile nav fix */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Iframe responsiveness */
+iframe {
+  max-width: 100%;
 }
