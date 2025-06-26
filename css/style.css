@@ -266,3 +266,39 @@ footer {
 html, body {
   overflow-x: hidden;
 }
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure full-width behavior */
+.wrapper,
+main,
+header,
+footer {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Fix header overlapping sidebar */
+.sidebar {
+  z-index: 2000;
+}
+header {
+  z-index: 1000;
+}
+
+/* Mobile nav fix */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Iframe responsiveness */
+iframe {
+  max-width: 100%;
+}
