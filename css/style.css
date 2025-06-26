@@ -34,7 +34,7 @@ main {
 /* SIDEBAR FIX */
 .sidebar {
   position: fixed;
-  top: 60px;
+  top: 58px;
   bottom: 64px;
   left: 0;
   width: 250px;
