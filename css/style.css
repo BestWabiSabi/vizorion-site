@@ -92,12 +92,10 @@ header {
 
 /* EXCEL PAGE CARD */
 .excel-content {
+  margin-left: 250px; /* reserve space for sidebar */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 75px;
+  justify-content: center;
   padding: 3.5rem 2rem 2rem 2rem;
-  min-height: 90vh;
 }
 .excel-card {
   background: #fff;
