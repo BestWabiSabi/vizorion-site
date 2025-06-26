@@ -62,10 +62,11 @@ main {
 
 /* SIDEBAR FIX */
 .sidebar {
-  position: relative; /* ✅ Now scrolls with page */
+  position: fixed;
+  top: 64px;
+  bottom: 64px;
   left: 0;
   width: 250px;
-  min-height: calc(100vh - 128px); /* ✅ Ensures it stretches full height minus header & footer */
   background: #2c3e91;
   padding: 1rem 0.5rem;
   overflow-y: auto;
