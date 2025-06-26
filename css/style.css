@@ -179,7 +179,8 @@ footer {
   }
 }
 @media (min-width: 901px) {
-  .wrapper, .page-wrapper {
+  body.sidebar-active .wrapper,
+  body.sidebar-active .page-wrapper {
     margin-left: 250px;
   }
   .hamburger, .close-btn-icon {
