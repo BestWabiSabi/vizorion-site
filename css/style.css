@@ -15,40 +15,11 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER FIXED */
-header {
-  width: 100%;
-  background: #1e3a8a;
-  padding: 1rem 0;
-  z-index: 3000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 64px;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-.logo a { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 1rem; }
-.nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem;
-}
-.nav-links li a.active,
-.nav-links li a:hover { background: #3b82f6; border-radius: 4px; }
-
-/* WRAPPER / PAGE-WRAPPER FIX */
+/* MAIN WRAPPER */
 .wrapper, .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-top: 64px; /* push down for fixed header */
 }
 
 /* MAIN SECTION */
@@ -74,6 +45,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: calc(100vh - 128px);
 }
 .sidebar-categories a {
   display: flex;
@@ -93,11 +65,37 @@ main {
 .sidebar-categories a.active,
 .sidebar-categories a:hover { filter: brightness(1.1); }
 
+/* HEADER FIX */
+header {
+  width: 100%;
+  background: #1e3a8a;
+  padding: 1rem 0;
+  z-index: 1000;
+  position: relative;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.logo a { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin-left: 1rem; }
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.nav-links li a.active,
+.nav-links li a:hover { background: #3b82f6; border-radius: 4px; }
+
 /* EXCEL PAGE CARD */
 .excel-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 75px;
   padding: 3.5rem 2rem 2rem 2rem;
   min-height: 90vh;
 }
@@ -123,6 +121,7 @@ footer {
   z-index: 100;
   width: 100%;
   font-size: 0.9rem;
+  height: 64px;
 }
 .footer-inner {
   max-width: 1000px;
