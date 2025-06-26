@@ -251,3 +251,7 @@ footer {
 /* FLEX FIX FOR STICKY FOOTER */
 .wrapper main,
 .page-wrapper main { flex: 1 0 auto; }
+
+html, body {
+  overflow-x: hidden;
+}
