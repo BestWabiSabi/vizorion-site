@@ -252,6 +252,17 @@ footer {
 .wrapper main,
 .page-wrapper main { flex: 1 0 auto; }
 
+#sidebarOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* changed from 100vw */
+  height: 100vh;
+  background: rgba(0,0,0,0.15);
+  z-index: 1500;
+}
+
 html, body {
   overflow-x: hidden;
 }
