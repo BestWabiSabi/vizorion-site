@@ -181,7 +181,7 @@ main {
 .button {
   background: #f59e0b;
   color: #f9fafb;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem; /* Increased for 48x48px tap target */
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -280,7 +280,7 @@ footer {
     margin-left: 0 !important;
     width: 100% !important;
     max-width: 100vw !important;
-    padding: 1rem !important;
+    padding: 2rem !important; /* Increased from 1rem */
     border-radius: 0 !important;
   }
   .hamburger {
@@ -293,13 +293,25 @@ footer {
     left: 0;
   }
   .hero {
-    padding: 5rem 1rem;
+    padding: 5rem 2rem; /* Adjusted for mobile */
   }
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduced from 3rem */
+    margin-bottom: 1rem;
   }
   .hero p {
-    font-size: 1rem;
+    font-size: 1rem; /* Reduced from 1.3rem */
+    margin-bottom: 2rem;
+  }
+  .button {
+    padding: 1rem 2rem; /* Consistent tap target size */
+  }
+  .features {
+    padding: 2rem 1rem; /* Reduced padding for mobile */
+  }
+  .feature-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    gap: 1.5rem; /* Reduced gap for mobile */
   }
 }
 @media (max-width: 600px) {
