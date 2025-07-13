@@ -1,5 +1,10 @@
 /* Base Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100vw; /* Prevent horizontal overflow */
+}
 
 /* Prevent horizontal scroll */
 html, body {
@@ -20,15 +25,19 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
 }
 
 /* MAIN SECTION */
 main {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
 }
 
 /* SIDEBAR FIX */
@@ -63,7 +72,9 @@ main {
   transition: background 0.15s;
 }
 .sidebar-categories a.active,
-.sidebar-categories a:hover { filter: brightness(1.1); }
+.sidebar-categories a:hover {
+  filter: brightness(1.1);
+}
 
 /* HEADER FIX */
 header {
@@ -79,23 +90,37 @@ header {
   align-items: center;
   padding: 0 2rem;
 }
-.logo a { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 1rem; }
+.logo a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+.nav-links li {
+  margin-left: 1rem;
+}
 .nav-links li a {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem;
 }
 .nav-links li a.active,
-.nav-links li a:hover { background: #3b82f6; border-radius: 4px; }
+.nav-links li a:hover {
+  background: #3b82f6;
+  border-radius: 4px;
+}
 
 /* EXCEL PAGE CARD */
 .excel-content {
-  margin-left: 250px; /* reserve space for sidebar */
+  margin-left: 250px; /* Reserve space for sidebar */
   display: flex;
   justify-content: center;
   padding: 3.5rem 2rem 2rem 2rem;
+  width: calc(100% - 250px);
 }
 .excel-card {
   background: #fff;
@@ -106,8 +131,16 @@ header {
   width: 100%;
   margin: 0 auto 2rem auto;
 }
-.excel-card h1 { margin-top: 0; font-weight: 800; color: #183042; }
-.excel-card p { color: #23313b; font-size: 1.15rem; line-height: 1.7; }
+.excel-card h1 {
+  margin-top: 0;
+  font-weight: 800;
+  color: #183042;
+}
+.excel-card p {
+  color: #23313b;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
 
 /* FOOTER */
 footer {
@@ -119,7 +152,6 @@ footer {
   z-index: 100;
   width: 100%;
   font-size: 0.9rem;
-  height: 64px;
 }
 .footer-inner {
   max-width: 1000px;
@@ -145,8 +177,9 @@ footer {
 }
 
 /* RESPONSIVE LAYOUT */
-.hamburger,
-.close-btn-icon { display: none; }
+.hamburger, .close-btn-icon {
+  display: none;
+}
 
 @media (max-width: 900px) {
   .wrapper, .page-wrapper, footer {
@@ -157,13 +190,30 @@ footer {
     left: -250px;
     transition: left 0.3s;
   }
-  .sidebar.show { left: 0; }
+  .sidebar.show {
+    left: 0;
+  }
+  .sidebar.show::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+  }
+  .excel-content {
+    margin-left: 0 !important;
+    padding: 2rem 1rem;
+    width: 100%;
+  }
   .hamburger {
     display: block;
     font-size: 1.6rem;
     cursor: pointer;
     padding: 0.5rem;
-    color: #1e293b;
+    color: #fff;
   }
   .close-btn-icon {
     display: block;
@@ -177,6 +227,35 @@ footer {
     z-index: 2100;
   }
 }
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  .excel-card h1 {
+    font-size: 1.5rem;
+  }
+  .excel-card p {
+    font-size: 1rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    background: #1e3a8a;
+    padding: 1rem;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+
 @media (min-width: 901px) {
   body.sidebar-active .wrapper,
   body.sidebar-active .page-wrapper {
@@ -187,7 +266,8 @@ footer {
   }
 }
 
-/* Iframe responsiveness */
-iframe {
+/* Iframe and Image Responsiveness */
+iframe, img {
   max-width: 100%;
+  height: auto;
 }
