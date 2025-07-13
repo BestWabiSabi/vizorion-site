@@ -39,17 +39,12 @@ header {
 }
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Align nav links to the right */
   align-items: center;
   padding: 0 2rem;
-  max-width: calc(100% - 260px);
-  margin-left: 260px;
 }
-.logo a {
-  color: #f9fafb;
-  font-size: 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
+.logo {
+  display: none; /* Removed from header, moved to sidebar */
 }
 .nav-links {
   list-style: none;
@@ -72,11 +67,11 @@ header {
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0;
-  left: -250px;
+  top: 2rem; /* Start after header (approx. 2rem height) */
+  left: 0;
   width: 250px;
-  height: 100%;
-  background: rgba(30,58,138,0.90); /* Reverted from purple */
+  height: calc(100% - 2rem); /* Adjust height to exclude header */
+  background: rgba(30,58,138,0.90);
   backdrop-filter: blur(3px);
   color: #f9fafb;
   padding: 1rem;
@@ -87,6 +82,12 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.sidebar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 .sidebar.show {
   left: 0;
@@ -100,7 +101,7 @@ header {
   height: 100%;
   background: rgba(0,0,0,0.15);
   z-index: 1500;
-  cursor: pointer; /* Make overlay clickable to dismiss */
+  cursor: pointer;
 }
 .category-buttons,
 .sidebar-categories {
@@ -108,7 +109,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
-  margin: 2.2rem 0 2rem;
+  margin: 0 0 2rem;
   width: 100%;
 }
 .category {
@@ -151,7 +152,7 @@ header {
   background: none;
   border: none;
   z-index: 2100;
-  cursor: pointer; /* Make close button clickable */
+  cursor: pointer;
 }
 
 /* Main Content */
@@ -160,8 +161,8 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 260px;
-  max-width: calc(100% - 260px);
+  margin-left: 250px; /* Align with sidebar width */
+  padding-top: 2rem; /* Offset for header height */
 }
 .hero {
   background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -229,7 +230,7 @@ main {
 .excel-content {
   padding: 4rem 2rem;
   max-width: 1000px;
-  margin: 0 auto 260px; /* Adjusted to align with sidebar */
+  margin: 0 auto;
 }
 .excel-card {
   background: #fff;
@@ -293,9 +294,8 @@ footer {
   .sidebar {
     left: 0;
   }
-  header, main, footer {
-    margin-left: 260px;
-    max-width: calc(100% - 260px);
+  main {
+    margin-left: 250px;
   }
   .hamburger, .close-btn-icon, #sidebarOverlay {
     display: none !important;
@@ -312,17 +312,11 @@ footer {
   .navbar {
     padding: 0 1rem;
   }
-  .logo {
-    order: 1;
-  }
-  .logo a {
-    font-size: 1.2rem;
-  }
   .hamburger {
     display: block;
-    padding: 0.75rem;
   }
   .sidebar {
+    top: 2rem; /* Consistent with desktop */
     left: -250px;
   }
   .sidebar.show {
