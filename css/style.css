@@ -386,8 +386,8 @@ body, html {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
   background: transparent;
-  color: #1e40af;
-  background: white;
+  color: white;
+  background: none;
   padding: 0.6rem 1rem;
   border-radius: 10px;
   display: inline-block;
