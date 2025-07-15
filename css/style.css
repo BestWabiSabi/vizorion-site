@@ -1,195 +1,130 @@
-/* Base Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Prevent horizontal scroll */
-html, body {
-  overflow-x: hidden;
-  height: 100%;
-}
-
-/* BODY */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Arial', sans-serif;
   background: #f9fafb;
   color: #333;
-  min-height: 100vh;
 }
-
-/* WRAPPERS */
-.wrapper, .page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin-left: 0;
-}
-
-/* MAIN SECTION */
-main {
-  flex: 1;
-  padding: 2rem 1rem;
-  display: block;
-}
-
-/* HEADER */
-header {
-  width: 100%;
-  background: #1e3a8a;
-  padding: 1rem 0;
-  z-index: 1000;
-  position: relative;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  background: #1e3a8a;
+  padding: 1rem 2rem;
 }
-
 .logo a {
   color: #fff;
   font-size: 1.5rem;
   text-decoration: none;
   font-weight: bold;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
 }
-
 .nav-links li {
   margin-left: 1rem;
 }
-
 .nav-links li a {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem;
-  border-radius: 4px;
 }
-
 .nav-links li a.active,
 .nav-links li a:hover {
   background: #3b82f6;
+  border-radius: 4px;
 }
-
-/* EXCEL CARD STYLE (optional, if used on other pages) */
-.excel-content {
-  display: flex;
-  justify-content: center;
-  padding: 3.5rem 2rem 2rem 2rem;
-  margin-left: 0;
+.hero {
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+  color: white;
+  text-align: center;
 }
-
-.excel-card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(70, 90, 120, 0.07);
-  padding: 2.2rem 2.5rem;
-  max-width: 950px;
-  width: 100%;
-  margin: 0 auto 2rem auto;
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
-
-.excel-card h1 {
-  font-weight: 800;
-  color: #183042;
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
 }
-
-.excel-card p {
-  color: #23313b;
-  font-size: 1.15rem;
-  line-height: 1.7;
+.button {
+  background: #3b82f6;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
 }
-
-/* FOOTER */
+.button:hover {
+  background: #2563eb;
+}
 footer {
   text-align: center;
-  padding: 1.5rem 2rem;
+  padding: 1rem;
   background: #111827;
   color: white;
-  font-size: 0.9rem;
+}
+
+/* ---------- CONTACT PAGE STYLING BELOW ---------- */
+
+.contact-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  background: #f9fafb;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 2rem 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 600px;
   width: 100%;
 }
 
-.footer-inner {
-  max-width: 1000px;
-  margin: 0 auto;
+.contact-card h1 {
+  margin-bottom: 1rem;
+  color: #1e3a8a;
 }
 
-.footer-links {
+.contact-card p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
   margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
-.footer-links a {
-  color: #cfd8dc;
-  text-decoration: none;
+.contact-form button {
+  margin-top: 1.5rem;
+  background: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-.footer-links span {
-  color: #475569;
-  user-select: none;
-}
-
-/* RESPONSIVE NAV */
-.hamburger,
-.close-btn-icon {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .wrapper, .page-wrapper, footer {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 1.6rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    color: #1e293b;
-  }
-
-  .close-btn-icon {
-    display: block;
-    font-size: 2rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-    background: none;
-    border: none;
-    z-index: 2100;
-  }
-}
-
-/* Iframe responsiveness */
-iframe {
-  max-width: 100%;
+.contact-form button:hover {
+  background: #2563eb;
 }
