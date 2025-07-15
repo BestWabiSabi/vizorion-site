@@ -34,8 +34,8 @@ main {
 /* SIDEBAR FIX */
 .sidebar {
   position: fixed;
-  top: 58px;
-  bottom: 64px;
+  top: 64px;
+  bottom: 0;
   left: 0;
   width: 250px;
   background: #2c3e91;
@@ -81,7 +81,6 @@ header {
 }
 .logo a { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
 .nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 1rem; }
 .nav-links li a {
   color: #fff;
   text-decoration: none;
@@ -150,7 +149,7 @@ footer {
 
 @media (max-width: 900px) {
   .wrapper, .page-wrapper, footer {
-    margin-left: 0 !important;
+    : 0 !important;
     width: 100% !important;
   }
   .sidebar {
@@ -178,8 +177,8 @@ footer {
   }
 }
 @media (min-width: 901px) {
-  body.sidebar-active .wrapper,
-  body.sidebar-active .page-wrapper {
+  main,
+  footer {
     margin-left: 250px;
   }
   .hamburger, .close-btn-icon {
