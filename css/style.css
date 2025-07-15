@@ -228,15 +228,13 @@ iframe {
 
 /* HERO SECTION */
 .hero {
-  padding: 1px 2rem 4rem;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  align-items: center;       /* vertical centering */
   justify-content: space-between;
-  padding: 4rem 2rem;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 64px); /* subtract navbar height if needed */
+  padding: 1px 2rem 2rem;
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  color: white;
-  min-height: 80vh;
 }
 
 .hero-left {
