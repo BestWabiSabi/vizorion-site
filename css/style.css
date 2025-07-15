@@ -222,3 +222,16 @@ iframe {
     justify-content: center;
   }
 }
+
+.feature {
+  text-decoration: none;
+}
+
+.feature h3,
+.feature p {
+  text-decoration: none;
+}
+
+.feature * {
+  text-decoration: none !important;
+}
