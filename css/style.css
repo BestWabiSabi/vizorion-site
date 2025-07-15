@@ -376,11 +376,6 @@ body, html {
   background: #f9fafb; /* or set to your preferred background */
 }
 
-.wrapper {
-  margin: 0;
-  padding: 0;
-}
-
 .hero-right h2 {
   text-align: center;
   font-size: 1.6rem;
