@@ -1,66 +1,141 @@
-<!-- force Netlify to reparse this file -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244"
-     crossorigin="anonymous"></script>
-
-  
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-<!-- End Google Tag Manager -->
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Contact Vizorion – Ask questions, send feedback or collaborate.">
   <title>Vizorion – Contact</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+
+  <!-- Google Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
+
+  <style>
+    main {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .contact-card h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #1e3a8a;
+    }
+
+    .contact-card p {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+
+    .contact-form button {
+      margin-top: 1.5rem;
+      background: #3b82f6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .contact-form button:hover {
+      background: #2563eb;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <header>
-    <nav class="navbar">
-      <div class="logo"><a href="index.html">Vizorion</a></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="downloads.html">Downloads</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <main class="contact-wrapper">
-    <div class="contact-card">
-      <h1>Contact Vizorion</h1>
-      <p>We're glad you're here! Fill out the form below and we'll get back to you shortly.</p>
-      <form name="contact" method="POST" data-netlify="true" action="thank-you.html" class="contact-form">
-        <input type="hidden" name="form-name" value="contact" />
+  <div class="wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">Vizorion</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+    <main>
+      <div class="contact-card">
+        <h1>Contact Vizorion</h1>
+        <p>We're glad you're here! Fill out the form below and we'll get back to you shortly.</p>
 
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <form name="contact" method="POST" data-netlify="true" action="thank-you.html" class="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
 
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="What's on your mind?" required></textarea>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
 
-        <button type="submit" class="button">Send Message</button>
-      </form>
-    </div>
-  </main>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-  <footer>
-    <p>© 2025 Vizorion. All rights reserved.</p>
-  </footer>
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="What's on your mind?" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Vizorion. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
