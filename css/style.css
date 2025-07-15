@@ -385,6 +385,7 @@ body, html {
   text-align: center;
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
+  background: transparent;
   color: #1e40af;
   background: white;
   padding: 0.6rem 1rem;
