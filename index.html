@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta property="og:image" content="https://vizorion.com/images/favicon.ico" />
-  <meta property="og:title" content="Downloads – Vizorion" />
-  <meta property="og:description" content="Practice Excel, dashboards, and Pivot Tables with real downloadable files." />
-
-  <title>Vizorion – Practice Excel, Looker Studio & Dashboards</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Vizorion is your hands-on hub to master Excel, Looker Studio, and dashboarding with real data cases.">
+  <title>Vizorion – Practice Excel, Looker Studio & Dashboards</title>
   <link rel="canonical" href="https://vizorion.com/">
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,209 +16,59 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
 
-  <!-- Start cookieyes banner -->
+  <!-- Cookie banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/28cf55518facfe044d8b6150/script.js"></script>
-  <!-- End cookieyes banner -->
 
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  <style>
-    header, main, footer, .hero, .features {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1000px;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-
-    .hero {
-      background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                  url('images/background.jpg') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 3rem 1.5rem;
-      border-radius: 12px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-
-    .button {
-      background: #3b82f6;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-
-    .button:hover {
-      background: #2563eb;
-    }
-
-    .features {
-      padding: 2.5rem 1rem;
-      text-align: center;
-    }
-
-    .features h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-
-    .feature h3 {
-      margin-bottom: 1rem;
-      color: #1e3a8a;
-    }
-
-    .feature p {
-      color: #444;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      header, main, footer, .hero, .features {
-        max-width: 100%;
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        border-radius: 0;
-      }
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1e3a8a;
-      padding: 1rem 2rem;
-      color: white;
-      border-radius: 12px;
-    }
-
-    .logo a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links li a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      background-color: #2563eb;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-      padding: 2rem 0;
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">Vizorion</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo"><a href="index.html">Vizorion</a></div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="downloads.html">Downloads</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <section class="hero">
+        <h1>Welcome to Vizorion</h1>
+        <p>Your modern hub for Excel, Looker Studio & Dashboard practice. Learn by doing, guided by real data cases and hands-on tools — for beginners, analysts & professionals.</p>
+        <a href="downloads.html" class="button">Explore Downloads</a>
+      </section>
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to Vizorion</h1>
-      <p>Your modern hub for Excel, Looker Studio & Dashboard practice. Learn by doing, guided by real data cases and hands-on tools — for beginners, analysts & professionals.</p>
-      <a href="downloads.html" class="button">Explore Downloads</a>
-    </section>
-
-    <section class="features">
-      <h2>Why Vizorion?</h2>
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>📊 Real-World Data</h3>
-          <p>All files are built from actual scenarios to help you gain skills that matter in the job market.</p>
+      <section class="features">
+        <h2>Why Vizorion?</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>📊 Real-World Data</h3>
+            <p>All files are built from actual scenarios to help you gain skills that matter in the job market.</p>
+          </div>
+          <div class="feature">
+            <h3>🎯 Learning by Doing</h3>
+            <p>Practice instead of passively reading. Engage with formulas, dashboards, and visuals hands-on.</p>
+          </div>
+          <div class="feature">
+            <h3>🚀 Free & Growing</h3>
+            <p>Our resource library is always expanding. Stay tuned for more data challenges and tools.</p>
+          </div>
         </div>
-        <div class="feature">
-          <h3>🎯 Learning by Doing</h3>
-          <p>Practice instead of passively reading. Engage with formulas, dashboards, and visuals hands-on.</p>
-        </div>
-        <div class="feature">
-          <h3>🚀 Free & Growing</h3>
-          <p>Our resource library is always expanding. Stay tuned for more data challenges and tools.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
-  <div id="footer-placeholder"></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        });
-    });
-  </script>
+  <footer class="site-footer">
+    <p>© 2025 Vizorion. All rights reserved.<br>
+      <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Disclaimer</a> | <a href="#">Cookies</a>
+    </p>
+  </footer>
 </body>
 </html>
