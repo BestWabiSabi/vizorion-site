@@ -176,16 +176,6 @@ footer {
     z-index: 2100;
   }
 }
-@media (min-width: 901px) {
-  main,
-  footer {
-    margin-left: 250px;
-  }
-  .hamburger, .close-btn-icon {
-    display: none !important;
-  }
-}
-
 /* Iframe responsiveness */
 iframe {
   max-width: 100%;
