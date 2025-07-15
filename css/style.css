@@ -180,3 +180,38 @@ footer {
 iframe {
   max-width: 100%;
 }
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .features {
+    padding: 2rem 1rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr; /* stack them vertically */
+  }
+
+  .feature {
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
