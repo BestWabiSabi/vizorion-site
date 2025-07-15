@@ -262,7 +262,7 @@ iframe {
   min-width: 300px;
   color: #1e3a8a;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: none;
   margin-top: 2rem;
 }
 
@@ -386,5 +386,5 @@ body, html {
   padding: 0.6rem 1rem;
   border-radius: 10px;
   display: inline-block;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: none;
 }
