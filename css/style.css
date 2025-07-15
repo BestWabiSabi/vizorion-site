@@ -381,3 +381,15 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
+.hero-right h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #1e40af;
+  background: white;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
