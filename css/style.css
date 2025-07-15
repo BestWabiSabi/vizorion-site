@@ -369,3 +369,15 @@ iframe {
   color: white;
   min-height: 80vh;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f9fafb; /* or set to your preferred background */
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
