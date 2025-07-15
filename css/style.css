@@ -260,7 +260,6 @@ iframe {
   flex: 1;
   padding: 2rem;
   min-width: 300px;
-  background: white;
   color: #1e3a8a;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
