@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta property="og:image" content="https://vizorion.com/images/favicon.ico" />
   <meta property="og:title" content="Downloads – Vizorion" />
   <meta property="og:description" content="Practice Excel, dashboards, and Pivot Tables with real downloadable files." />
@@ -35,8 +34,8 @@
 
   <style>
     header, main, footer, .hero, .features {
-      margin-left: auto !important;
-      margin-right: auto !important;
+      margin-left: auto;
+      margin-right: auto;
       max-width: 1000px;
       padding: 0 1rem;
       box-sizing: border-box;
@@ -47,7 +46,7 @@
                   url('images/background.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 8rem 2rem;
+      padding: 3rem 1.5rem;
       border-radius: 12px;
     }
 
@@ -78,7 +77,7 @@
     }
 
     .features {
-      padding: 4rem 2rem;
+      padding: 2.5rem 1rem;
       text-align: center;
     }
 
@@ -112,13 +111,13 @@
 
     @media (max-width: 768px) {
       header, main, footer, .hero, .features {
-        max-width: 100% !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        border-radius: 0 !important;
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 0;
       }
     }
 
@@ -158,6 +157,14 @@
     .nav-links li a:hover,
     .nav-links li a.active {
       background-color: #2563eb;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      padding: 2rem 0;
     }
   </style>
 </head>
