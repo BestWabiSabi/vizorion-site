@@ -1,24 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244"
-     crossorigin="anonymous"></script>
-  
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-<!-- End Google Tag Manager -->
-     
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="About Vizorion – Learn more about our mission and vision for the future of data education.">
   <title>Vizorion – About</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+
+  <!-- Google Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
+
   <style>
     .about-hero {
       position: relative;
@@ -36,6 +34,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 1rem;
     }
 
+    .about-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
     .about-wrapper {
       display: flex;
       justify-content: center;
@@ -50,6 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+      animation: fadeIn 0.6s ease-in-out;
     }
 
     .about-card p {
@@ -59,11 +65,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #333;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111827;
-      color: white;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
@@ -77,49 +81,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </style>
 </head>
+
 <body>
-     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <header>
-    <nav class="navbar">
-      <div class="logo"><a href="index.html">Vizorion</a></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="downloads.html">Downloads</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <section class="about-hero">
-    <h1>Our Vision for 2025 and Beyond</h1>
-    <p>Where learning meets data. Evolved, personalized, and always one step ahead.</p>
-  </section>
+  <div class="wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">Vizorion</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main class="about-wrapper">
-    <div class="about-card">
-      <p>
-        At Vizorion, we're redefining how individuals and teams upskill in Excel, data visualization, and dashboard storytelling.
-        We're not just offering downloads — we're crafting a world-class, interactive platform where anyone, from student to professional, can learn by doing.
-      </p>
-      <p>
-        Our 2025 vision is bold: a fully gamified, AI-personalized practice hub where progress adapts to your pace.
-        We're merging real-world business data cases with intuitive learning workflows — so you don't just learn functions, you learn to think like a data analyst.
-      </p>
-      <p>
-        With Vizorion, you'll soon have access to dynamic exercises, smart feedback, and a growing community of learners who challenge and support each other.
-      </p>
-      <p>
-        We're building for the future — and you're invited. 🚀
-      </p>
-    </div>
-  </main>
+    <section class="about-hero">
+      <h1>Our Vision for 2025 and Beyond</h1>
+      <p>Where learning meets data. Evolved, personalized, and always one step ahead.</p>
+    </section>
 
-  <footer>
-    <p>© 2025 Vizorion. All rights reserved.</p>
-  </footer>
+    <main class="about-wrapper">
+      <div class="about-card">
+        <p>
+          At Vizorion, we're redefining how individuals and teams upskill in Excel, data visualization, and dashboard storytelling.
+          We're not just offering downloads — we're crafting a world-class, interactive platform where anyone, from student to professional, can learn by doing.
+        </p>
+        <p>
+          Our 2025 vision is bold: a fully gamified, AI-personalized practice hub where progress adapts to your pace.
+          We're merging real-world business data cases with intuitive learning workflows — so you don't just learn functions, you learn to think like a data analyst.
+        </p>
+        <p>
+          With Vizorion, you'll soon have access to dynamic exercises, smart feedback, and a growing community of learners who challenge and support each other.
+        </p>
+        <p>
+          We're building for the future — and you're invited. 🚀
+        </p>
+      </div>
+    </main>
+
+    <!-- Shared footer via fetch -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        fetch('footer.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+          });
+      });
+    </script>
+  </div>
 </body>
 </html>
