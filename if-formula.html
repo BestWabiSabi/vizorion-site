@@ -7,28 +7,27 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IF Formula – Vizorion</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="sidebar-active">
+<body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Sidebar stays OUTSIDE the wrapper (fixed position) -->
+  <!-- Sidebar Overlay -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
   <div id="sidebar-placeholder" class="sidebar"></div>
 
-  <!-- Everything else INSIDE the wrapper -->
+  <!-- Main Wrapper -->
   <div class="wrapper">
     <header>
-      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <nav class="navbar">
         <div class="logo"><a href="index.html">Vizorion</a></div>
+        <span class="hamburger" onclick="toggleSidebar()">☰</span>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="downloads.html">Downloads</a></li>
@@ -37,6 +36,7 @@
         </ul>
       </nav>
     </header>
+
     <main>
       <div class="excel-card">
         <h1>IF Formula</h1>
@@ -57,23 +57,12 @@
         <iframe width="700" height="320" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQQcU6UvTFmcTq365KPsHsl7AadhNp_HT5Woi67Uot_P7i8?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!C1&wdInConfigurator=True&wdInConfigurator=True"></iframe>
       </div>
     </main>
-    <footer>
-      <div class="footer-inner">
-        <p>© 2025 Vizorion. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="terms.html">Terms</a>
-          <span>|</span>
-          <a href="privacy.html">Privacy</a>
-          <span>|</span>
-          <a href="disclaimer.html">Disclaimer</a>
-          <span>|</span>
-          <a href="cookie-policy.html">Cookies</a>
-        </div>
-      </div>
-    </footer>
+
+    <!-- Dynamic Footer -->
+    <div id="footer-placeholder"></div>
   </div>
 
-  <!-- Sidebar Script -->
+  <!-- Scripts -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar-placeholder");
@@ -83,6 +72,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      // Sidebar
       fetch('excel-sidebar.html')
         .then(res => res.text())
         .then(html => {
@@ -97,6 +87,14 @@
           });
         });
 
+      // Footer
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+      // Overlay click
       document.getElementById('sidebarOverlay').addEventListener('click', () => {
         document.getElementById('sidebar-placeholder').classList.remove('show');
         document.getElementById('sidebarOverlay').style.display = 'none';
