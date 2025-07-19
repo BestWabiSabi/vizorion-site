@@ -76,7 +76,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 2rem;
+  padding: 0;
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   color: white;
   min-height: calc(100vh - 64px); /* 64px = header */
