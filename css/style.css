@@ -303,3 +303,88 @@ footer {
     padding: 2rem;
   }
 }
+
+/* SIDEBAR CONTAINER */
+.sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 64px);
+  background: #1e3a8a;
+  color: white;
+  overflow-y: auto;
+  z-index: 1200;
+  padding: 1rem;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Inner structure (your excel-sidebar.html) */
+.sidebar-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-categories a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar-categories a:hover,
+.sidebar-categories a.active {
+  background: #3b82f6;
+}
+
+/* Close button */
+.close-btn-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    font-size: 1.6rem;
+    color: white;
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+
+  .wrapper {
+    margin-left: 0;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .wrapper {
+    margin-left: 260px;
+  }
+
+  main {
+    padding: 2rem;
+  }
+}
