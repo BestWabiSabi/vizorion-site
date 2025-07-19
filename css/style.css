@@ -236,3 +236,70 @@ footer {
     max-width: 100%;
   }
 }
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 64px; /* below header */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 64px);
+  background: #1e3a8a;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #3b82f6;
+}
+
+/* MOBILE SIDEBAR */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -260px;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .hamburger {
+    font-size: 1.6rem;
+    color: white;
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+
+  .wrapper main {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .wrapper {
+    margin-left: 250px;
+  }
+
+  main {
+    padding: 2rem;
+  }
+}
