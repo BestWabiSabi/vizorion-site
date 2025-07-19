@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Sidebar stays OUTSIDE the wrapper (fixed position) -->
+  <!-- Sidebar overlay -->
   <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
-  <div id="sidebar-placeholder" class="sidebar"></div>
 
-  <!-- Everything else INSIDE the wrapper -->
+  <!-- Sidebar container -->
+  <aside id="sidebar-placeholder" class="sidebar"></aside>
+
+  <!-- Wrapper for main content -->
   <div class="wrapper">
     <header>
       <span class="hamburger" onclick="toggleSidebar()">☰</span>
@@ -25,6 +27,7 @@
         </ul>
       </nav>
     </header>
+
     <main>
       <div class="excel-card" id="welcome">
         <h1>Welcome to Excel at Vizorion!</h1>
@@ -35,23 +38,11 @@
         </p>
       </div>
     </main>
-    <footer>
-  <div class="footer-inner">
-    <p>© 2025 Vizorion. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="terms.html">Terms</a>
-      <span>|</span>
-      <a href="privacy.html">Privacy</a>
-      <span>|</span>
-      <a href="disclaimer.html">Disclaimer</a>
-      <span>|</span>
-      <a href="cookie-policy.html">Cookies</a>
-    </div>
-  </div>
-</footer>
+
+    <div id="footer-placeholder"></div>
   </div>
 
-  <!-- Sidebar and Footer Script -->
+  <!-- Sidebar + Footer script -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar-placeholder");
@@ -61,14 +52,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      // Load sidebar
+      // Sidebar
       fetch('excel-sidebar.html')
         .then(res => res.text())
         .then(html => {
           const sidebar = document.getElementById('sidebar-placeholder');
           sidebar.innerHTML = html;
-          // Do NOT add .sidebar here, already present!
-          // Highlight current page
           const path = window.location.pathname.split('/').pop();
           const links = sidebar.querySelectorAll('a');
           links.forEach(link => {
@@ -78,13 +67,18 @@
           });
         });
 
-      // Handle overlay click
+      // Footer
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+      // Overlay click
       document.getElementById('sidebarOverlay').addEventListener('click', () => {
         document.getElementById('sidebar-placeholder').classList.remove('show');
         document.getElementById('sidebarOverlay').style.display = 'none';
       });
-
-  
     });
   </script>
 </body>
