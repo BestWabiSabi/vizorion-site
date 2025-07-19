@@ -305,7 +305,7 @@ footer {
   position: fixed;
   top: 64px;
   left: 0;
-  width: 260px;
+  width: 240px;
   height: calc(100vh - 64px);
   background: #1e3a8a;
   color: white;
