@@ -427,3 +427,8 @@ header {
 .hero-right {
   max-width: 500px;
 }
+
+/* TEMP FIX for homepage hero shifting */
+.wrapper {
+  margin-left: 0 !important;
+}
