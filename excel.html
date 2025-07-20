@@ -53,34 +53,35 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      // Sidebar
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          const sidebar = document.getElementById('sidebar-placeholder');
-          sidebar.innerHTML = html;
-          const path = window.location.pathname.split('/').pop();
-          const links = sidebar.querySelectorAll('a');
-          links.forEach(link => {
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
-        });
+  const sidebar = document.getElementById('sidebar-placeholder');
 
-      // Footer
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        });
+  fetch('excel-sidebar.html')
+    .then(res => res.text())
+    .then(html => {
+      sidebar.innerHTML = html;
 
-      // Overlay click
-      document.getElementById('sidebarOverlay').addEventListener('click', () => {
-        document.getElementById('sidebar-placeholder').classList.remove('show');
-        document.getElementById('sidebarOverlay').style.display = 'none';
+      const path = window.location.pathname.split('/').pop();
+      const links = sidebar.querySelectorAll('a');
+      links.forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
       });
     });
+
+  // Load footer
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer-placeholder').innerHTML = html;
+    });
+
+  // Hide sidebar overlay on click (only relevant for mobile)
+  document.getElementById('sidebarOverlay').addEventListener('click', () => {
+    sidebar.classList.remove('show');
+    document.getElementById('sidebarOverlay').style.display = 'none';
+  });
+});
   </script>
 </body>
 </html>
