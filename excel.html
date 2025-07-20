@@ -48,6 +48,7 @@
       const sidebar = document.getElementById("sidebar-placeholder");
       const overlay = document.getElementById("sidebarOverlay");
       const isOpen = sidebar.classList.toggle("show");
+      document.body.classList.toggle('sidebar-open', isOpen);
       overlay.style.display = isOpen ? "block" : "none";
     }
 
