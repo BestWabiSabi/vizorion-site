@@ -166,7 +166,7 @@ header {
 }
 
 @media (min-width: 768px) {
-  body {
+  body.with-sidebar {
     padding-left: 240px;
   }
 }
