@@ -311,3 +311,49 @@ footer {
   width: 0;
   background: transparent;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #1e3a8a;
+  color: white;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+/* Shift content below the header */
+.page-wrapper {
+  display: flex;
+  padding-top: 60px; /* match header height */
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1e3a8a;
+  color: white;
+  height: calc(100vh - 60px); /* subtract header height */
+  position: fixed;
+  top: 60px; /* just under the header */
+  left: 0;
+  overflow-y: auto;
+}
+
+/* Main Content */
+main {
+  margin-left: 250px;
+  padding: 2rem;
+  flex: 1;
+}
