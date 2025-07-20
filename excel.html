@@ -13,21 +13,22 @@
   <!-- Sidebar container -->
   <aside id="sidebar-placeholder" class="sidebar"></aside>
 
-  <!-- Wrapper for main content -->
-  <div class="wrapper">
-    <header>
-      <nav class="navbar">
-        <div class="logo"><a href="index.html">Vizorion</a></div>
-        <span class="hamburger" onclick="toggleSidebar()">☰</span>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="downloads.html">Downloads</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Header (fixed at top) -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="index.html">Vizorion</a></div>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
 
+  <!-- Layout structure -->
+  <div class="wrapper">
     <main>
       <div class="excel-card" id="welcome">
         <h1>Welcome to Excel at Vizorion!</h1>
@@ -38,11 +39,10 @@
         </p>
       </div>
     </main>
-
     <div id="footer-placeholder"></div>
   </div>
 
-  <!-- Sidebar + Footer script -->
+  <!-- Sidebar + Footer loading script -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar-placeholder");
@@ -53,35 +53,35 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-  const sidebar = document.getElementById('sidebar-placeholder');
+      const sidebar = document.getElementById('sidebar-placeholder');
 
-  fetch('excel-sidebar.html')
-    .then(res => res.text())
-    .then(html => {
-      sidebar.innerHTML = html;
+      fetch('excel-sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          sidebar.innerHTML = html;
 
-      const path = window.location.pathname.split('/').pop();
-      const links = sidebar.querySelectorAll('a');
-      links.forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
+          const path = window.location.pathname.split('/').pop();
+          const links = sidebar.querySelectorAll('a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === path) {
+              link.classList.add('active');
+            }
+          });
+        });
+
+      // Load footer
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+      // Hide sidebar overlay on mobile click
+      document.getElementById('sidebarOverlay').addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        document.getElementById('sidebarOverlay').style.display = 'none';
       });
     });
-
-  // Load footer
-  fetch('footer.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('footer-placeholder').innerHTML = html;
-    });
-
-  // Hide sidebar overlay on click (only relevant for mobile)
-  document.getElementById('sidebarOverlay').addEventListener('click', () => {
-    sidebar.classList.remove('show');
-    document.getElementById('sidebarOverlay').style.display = 'none';
-  });
-});
   </script>
 </body>
 </html>
