@@ -407,3 +407,23 @@ header {
   margin: 0 auto;
   gap: 2rem;
 }
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hero-left, .hero-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-right {
+  max-width: 500px;
+}
