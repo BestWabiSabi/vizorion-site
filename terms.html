@@ -606,6 +606,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       }, 250);
     });
+
+    // Load footer and sidebar
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+      setActiveLink();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
   </script>
 </body>
 </html>
