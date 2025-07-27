@@ -852,4 +852,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     // Close sidebar when clicking overlay
-    document.
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+      document.body.classList.remove('sidebar-open');
+      
+      hamburger.innerHTML = '☰';
+      hamburger.style.transform = 'rotate(0deg)';
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+
+    // Load footer and sidebar
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+      setActiveLink();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+
+    // Set active link based on current page
+    function setActiveLink() {
+      const path = window.location.pathname.split('/').pop();
+      const links = document.querySelectorAll('.sidebar a');
+      
+      links.forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Add loading state to sidebar links
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        this.classList.add('loading');
+        
+        // Remove loading state after navigation
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 500);
+      });
+    });
+
+    // Handle window resize for responsive behavior
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        // Close mobile sidebar on resize to desktop
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }, 250);
+    });
+  </script>
+</body>
+</html>
