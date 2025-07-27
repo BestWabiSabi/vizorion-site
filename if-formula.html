@@ -2,74 +2,831 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IF Formula – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <style>
+    /* --- ENHANCED VIZORION STYLES FOR IF FORMULA PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* HEADER - Matching your index.html exactly */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      color: white;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1200;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* SIDEBAR STYLES */
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(59, 130, 246, 0.1);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+      z-index: 800;
+      overflow-y: auto;
+      transform: translateX(-100%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar.show {
+      transform: translateX(0);
+    }
+
+    /* Sidebar overlay for mobile */
+    #sidebarOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 750;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    #sidebarOverlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sidebar content styling */
+    .sidebar-content {
+      padding: 2rem 0;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      padding: 0 1.5rem 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-title::before {
+      content: '📊';
+      font-size: 1.2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+
+    .sidebar a:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      transform: translateX(2px);
+    }
+
+    .sidebar a.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .sidebar a.active::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: calc(100vh - 60px - 64px);
+    }
+
+    /* IF Formula specific styles */
+    .excel-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .excel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .excel-card h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    /* Syntax box styling */
+    .syntax-box {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .syntax-box::before {
+      content: 'Syntax';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #3b82f6;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin: 2rem 0;
+    }
+
+    .content-section h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    .content-section b, .content-section strong {
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    /* Example code styling */
+    .code-example {
+      font-family: 'Courier New', monospace;
+      background: #f1f5f9;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: #0b4d2a;
+      font-weight: 500;
+      border-left: 4px solid #3b82f6;
+      margin: 1rem 0;
+      display: inline-block;
+    }
+
+    /* Task list styling */
+    .task-list {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .task-list h3 {
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .task-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .task-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    /* Iframe container */
+    .iframe-container {
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+    }
+
+    .iframe-container::before {
+      content: 'Practice Sheet';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      padding: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 50px;
+    }
+
+    /* Tips box */
+    .tip-box {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(16, 185, 129, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #10b981;
+      position: relative;
+    }
+
+    .tip-box::before {
+      content: '💡';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .tip-box p {
+      margin-left: 2rem;
+      color: #065f46;
+      font-weight: 500;
+    }
+
+    /* Desktop layout with sidebar */
+    @media (min-width: 1024px) {
+      .wrapper {
+        margin-left: 280px;
+      }
+
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 260px;
+      }
+
+      .excel-card {
+        padding: 2.5rem;
+      }
+
+      .excel-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      .excel-card {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .excel-card h1 {
+        font-size: 2rem;
+      }
+
+      .syntax-box {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+
+      .navbar {
+        padding: 0 1rem;
+      }
+
+      .iframe-container iframe {
+        height: 400px;
+      }
+    }
+
+    /* FOOTER STYLES - Matching your index.html */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111827;
+      color: white;
+      z-index: 100;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cfd8dc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: #475569;
+      user-select: none;
+    }
+
+    /* Focus styles for accessibility */
+    .sidebar a:focus,
+    .hamburger:focus,
+    .nav-links a:focus,
+    .logo a:focus {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .excel-card {
+        border: 2px solid #1e3a8a;
+      }
+      
+      .sidebar {
+        border-right: 2px solid #1e3a8a;
+      }
+    }
+
+    /* Smooth scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.5);
+    }
+  </style>
 </head>
-<body>
+<body class="with-sidebar">
+  
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <!-- Sidebar Overlay -->
-  <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.15); z-index:1500;"></div>
-  <div id="sidebar-placeholder" class="sidebar"></div>
-
-  <!-- Main Wrapper -->
-  <div class="wrapper">
-    <header>
-      <nav class="navbar">
-        <div class="logo"><a href="index.html">Vizorion</a></div>
-        <span class="hamburger" onclick="toggleSidebar()">☰</span>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="downloads.html">Downloads</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Sidebar overlay -->
+  <div id="sidebarOverlay"></div>
+  
+  <!-- Sidebar container -->
+  <aside id="sidebar-placeholder" class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul>
+          <li><a href="excel-welcome.html">Welcome</a></li>
         </ul>
-      </nav>
-    </header>
+      </div>
 
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html" class="active">IF Formula</a></li>
+          <li><a href="sum.html">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Advanced Functions</div>
+        <ul>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header (fixed at top) -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="index.html">Vizorion</a></div>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Layout structure -->
+  <div class="wrapper">
     <main>
       <div class="excel-card">
         <h1>IF Formula</h1>
+        
         <div class="syntax-box">
           =IF(<span style="color:#16a34a;">logical_test</span>, <span style="color:#0d9488;">value_if_true</span>, <span style="color:#dc2626;">value_if_false</span>)
         </div>
-        <p>
-          The <b>IF</b> formula lets you test a condition and return different values depending on whether the condition is <strong>TRUE</strong> or <strong>FALSE</strong>.<br>
-          <strong>Example:</strong><br>
-          <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">=IF(A1&gt;10, "Over 10", "10 or less")</span><br>
-          This checks if the value in <b>A1</b> is greater than 10. If yes, it returns <b>“Over 10”</b>, otherwise <b>“10 or less”</b>.
-        </p>
-        <ul>
-          <li><strong>Task:</strong> Use the embedded Excel sheet below. Fill in the <b>Bonus Eligible?</b> column using an <b>IF</b> formula based on <b>Sales</b> and <b>Target</b> values.</li>
-          <li>If <b>Sales</b> is greater than or equal to <b>Target</b>, the result should be <b>Yes</b>. Otherwise, <b>No</b>.</li>
-        </ul>
-        <p><strong>Tip:</strong> You can open the file in Excel Online to practice directly.</p>
+
+        <div class="content-section">
+          <p>
+            The <b>IF</b> formula is one of Excel's most powerful logical functions. It allows you to test a condition and return different values depending on whether the condition is <strong>TRUE</strong> or <strong>FALSE</strong>.
+          </p>
+          
+          <h2>How It Works</h2>
+          <p>
+            The IF function evaluates a logical test and returns one value if the condition is true, and another value if the condition is false. This makes it perfect for creating dynamic spreadsheets that respond to different scenarios.
+          </p>
+
+          <h2>Example</h2>
+          <div class="code-example">
+            =IF(A1>10, "Over 10", "10 or less")
+          </div>
+          <p>
+            This formula checks if the value in cell <b>A1</b> is greater than 10. If yes, it returns <b>"Over 10"</b>, otherwise it returns <b>"10 or less"</b>.
+          </p>
+
+          <h2>Common Use Cases</h2>
+          <p>
+            • <strong>Grade Assignment:</strong> <code>=IF(B2>=90, "A", "B")</code><br>
+            • <strong>Status Checking:</strong> <code>=IF(C2="", "Pending", "Complete")</code><br>
+            • <strong>Bonus Calculation:</strong> <code>=IF(D2>=E2, "Yes", "No")</code>
+          </p>
+        </div>
+
+        <div class="task-list">
+          <h3>🎯 Practice Task</h3>
+          <ul>
+            <li><strong>Objective:</strong> Use the embedded Excel sheet below to practice the IF formula</li>
+            <li><strong>Task:</strong> Fill in the <b>Bonus Eligible?</b> column using an <b>IF</b> formula</li>
+            <li><strong>Logic:</strong> If <b>Sales</b> is greater than or equal to <b>Target</b>, return <b>"Yes"</b>, otherwise return <b>"No"</b></li>
+            <li><strong>Formula Hint:</strong> <code>=IF(B2>=C2, "Yes", "No")</code></li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> You can open the file in Excel Online by clicking the Excel icon in the embedded sheet. This will give you full editing capabilities to practice the formula!</p>
+        </div>
+
         <div class="iframe-container">
- <div class="iframe-wrapper">
-<div class="iframe-container">
-  <iframe
-    src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQQcU6UvTFmcTq365KPsHsl7AadhNp_HT5Woi67Uot_P7i8?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!C1&wdInConfigurator=True&wdInConfigurator=True"
-    allowfullscreen
-    loading="lazy"
-    frameborder="0">
-  </iframe>
-</div>
-</div>
-</div>
+          <iframe
+            src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQQcU6UvTFmcTq365KPsHsl7AadhNp_HT5Woi67Uot_P7i8?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!C1&wdInConfigurator=True&wdInConfigurator=True"
+            allowfullscreen
+            loading="lazy"
+            frameborder="0">
+          </iframe>
+        </div>
+
+        <div class="content-section">
+          <h2>Next Steps</h2>
+          <p>
+            Once you've mastered the basic IF formula, try exploring nested IF statements and combining IF with other functions like AND and OR for more complex logical tests. Check out the <strong>Logic Functions</strong> section in the sidebar for advanced techniques!
+          </p>
+        </div>
       </div>
     </main>
-
-    <!-- Dynamic Footer -->
     <div id="footer-placeholder"></div>
   </div>
 
@@ -78,39 +835,21 @@
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar-placeholder");
       const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
       const isOpen = sidebar.classList.toggle("show");
-      overlay.style.display = isOpen ? "block" : "none";
+      overlay.classList.toggle("show", isOpen);
+      document.body.classList.toggle('sidebar-open', isOpen);
+      
+      // Animate hamburger icon
+      if (isOpen) {
+        hamburger.innerHTML = '✕';
+        hamburger.style.transform = 'rotate(180deg)';
+      } else {
+        hamburger.innerHTML = '☰';
+        hamburger.style.transform = 'rotate(0deg)';
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Sidebar
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          const sidebar = document.getElementById('sidebar-placeholder');
-          sidebar.innerHTML = html;
-          const path = window.location.pathname.split('/').pop();
-          const links = sidebar.querySelectorAll('a');
-          links.forEach(link => {
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
-        });
-
-      // Footer
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        });
-
-      // Overlay click
-      document.getElementById('sidebarOverlay').addEventListener('click', () => {
-        document.getElementById('sidebar-placeholder').classList.remove('show');
-        document.getElementById('sidebarOverlay').style.display = 'none';
-      });
-    });
-  </script>
-</body>
-</html>
+    // Close sidebar when clicking overlay
+    document.
