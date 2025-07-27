@@ -1,82 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+
+  <!-- Google Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="About Vizorion – Learn more about our mission and vision for the future of data education.">
   <title>Vizorion – About</title>
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-
-  <!-- Google Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
   <style>
+    /* --- ENHANCED VIZORION STYLES FOR ABOUT PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* HEADER - Matching your if-formula.html exactly */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      color: white;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1200;
+      display: none;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* AD PLACEMENT AREAS - HIDDEN BY DEFAULT */
+    .ad-container {
+      display: none; /* Hidden until you're ready to add ads */
+      margin: 1.5rem 0;
+      text-align: center;
+      background: rgba(249, 250, 251, 0.8);
+      border: 1px dashed rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      min-height: 100px;
+      position: relative;
+    }
+
+    .ad-container::before {
+      content: 'Advertisement Space';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(75, 85, 99, 0.5);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Top Banner Ad - Desktop/Tablet */
+    .ad-top-banner {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 0 auto 2rem;
+    }
+
+    /* In-content Ad - All devices */
+    .ad-in-content {
+      width: 100%;
+      max-width: 320px;
+      height: 250px;
+      margin: 3rem auto;
+    }
+
+    /* Bottom Banner Ad - All devices */
+    .ad-bottom-banner {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 3rem auto 0;
+    }
+
+    /* Mobile Ad adjustments */
+    @media (max-width: 768px) {
+      .ad-top-banner,
+      .ad-bottom-banner {
+        max-width: 320px;
+        height: 50px;
+      }
+
+      .ad-in-content {
+        max-width: 300px;
+        height: 250px;
+      }
+    }
+
+    /* HERO SECTION */
     .about-hero {
       position: relative;
-      background: linear-gradient(to right, rgba(30,58,138,0.85), rgba(99,102,241,0.85)),
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(139, 92, 246, 0.7) 100%),
                   url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
-      padding: 6rem 2rem;
+      background-attachment: fixed;
+      padding: 8rem 2rem 6rem;
       color: white;
       text-align: center;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 70%),
+                  radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+      animation: heroGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroGlow {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out;
     }
 
     .about-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      line-height: 1.1;
     }
 
     .about-hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 1.3rem;
       line-height: 1.6;
+      opacity: 0.95;
+      font-weight: 400;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
-    .about-wrapper {
-      display: flex;
-      justify-content: center;
-      padding: 4rem 1rem;
-      background: #f4f6fa;
-    }
-
-    .about-card {
-      background: #ffffff;
-      padding: 2.5rem;
-      max-width: 900px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-      animation: fadeIn 0.6s ease-in-out;
-    }
-
-    .about-card p {
-      font-size: 1.125rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      padding: 4rem 2rem;
+      min-height: calc(100vh - 60px - 64px);
+    }
+
+    .about-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+      margin-bottom: 2rem;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .about-card p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Vision sections */
+    .vision-section {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+      margin-bottom: 2rem;
+    }
+
+    .vision-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    .vision-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .vision-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Feature highlights */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-item {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.03));
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-item h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #6b7280;
+      margin-bottom: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out 0.9s both;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    .cta-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #1e3a8a, #8b5cf6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      color: #4b5563;
+      margin-bottom: 0;
+    }
+
+    .rocket-emoji {
+      font-size: 3rem;
+      display: inline-block;
+      animation: rocketFloat 3s ease-in-out infinite;
+      margin-left: 1rem;
+    }
+
+    @keyframes rocketFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
-      .about-hero h1 {
-        font-size: 2rem;
+      .hamburger {
+        display: block;
       }
 
-      .about-card {
+      .nav-links {
+        display: none;
+      }
+
+      .about-hero {
+        padding: 6rem 1.5rem 4rem;
+        background-attachment: scroll;
+      }
+
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-hero p {
+        font-size: 1.1rem;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+
+      .about-card,
+      .vision-section,
+      .cta-section {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-item {
         padding: 1.5rem;
+      }
+
+      .navbar {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-hero h1 {
+        font-size: 3rem;
+      }
+
+      .about-card,
+      .vision-section,
+      .cta-section {
+        padding: 2.5rem;
+      }
+    }
+
+    /* FOOTER STYLES - Matching your if-formula.html */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111827;
+      color: white;
+      z-index: 100;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cfd8dc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: #475569;
+      user-select: none;
+    }
+
+    /* Focus styles for accessibility */
+    .hamburger:focus,
+    .nav-links a:focus,
+    .logo a:focus {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .about-card,
+      .vision-section,
+      .cta-section {
+        border: 2px solid #1e3a8a;
       }
     }
   </style>
@@ -86,56 +620,203 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <div class="wrapper">
+    <!-- Header (fixed at top) -->
     <header>
-      <nav class="navbar">
+      <div class="navbar">
         <div class="logo"><a href="index.html">Vizorion</a></div>
+        <span class="hamburger" onclick="toggleMobileMenu()">☰</span>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="downloads.html">Downloads</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
+      </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="about-hero">
-      <h1>Our Vision for 2025 and Beyond</h1>
-      <p>Where learning meets data. Evolved, personalized, and always one step ahead.</p>
+      <div class="hero-content">
+        <h1>Our Vision for 2025 and Beyond</h1>
+        <p>Where learning meets data. Evolved, personalized, and always one step ahead.</p>
+      </div>
     </section>
 
-    <main class="about-wrapper">
-      <div class="about-card">
-        <p>
-          At Vizorion, we're redefining how individuals and teams upskill in Excel, data visualization, and dashboard storytelling.
-          We're not just offering downloads — we're crafting a world-class, interactive platform where anyone, from student to professional, can learn by doing.
-        </p>
-        <p>
-          Our 2025 vision is bold: a fully gamified, AI-personalized practice hub where progress adapts to your pace.
-          We're merging real-world business data cases with intuitive learning workflows — so you don't just learn functions, you learn to think like a data analyst.
-        </p>
-        <p>
-          With Vizorion, you'll soon have access to dynamic exercises, smart feedback, and a growing community of learners who challenge and support each other.
-        </p>
-        <p>
-          We're building for the future — and you're invited. 🚀
-        </p>
+    <!-- Main Content -->
+    <main>
+      <div class="about-wrapper">
+        <!-- Top Banner Ad Placement -->
+        <div class="ad-container ad-top-banner">
+          <!-- Your top banner ad code will go here -->
+        </div>
+
+        <!-- Main About Card -->
+        <div class="about-card">
+          <p>
+            At <strong>Vizorion</strong>, we're redefining how individuals and teams upskill in Excel, data visualization, and dashboard storytelling. We're not just offering downloads — we're crafting a world-class, interactive platform where anyone, from student to professional, can learn by doing.
+          </p>
+          <p>
+            Our <strong>2025 vision</strong> is bold: a fully gamified, AI-personalized practice hub where progress adapts to your pace. We're merging real-world business data cases with intuitive learning workflows — so you don't just learn functions, you learn to think like a data analyst.
+          </p>
+        </div>
+
+        <!-- In-content Ad Placement -->
+        <div class="ad-container ad-in-content">
+          <!-- Your in-content ad code will go here -->
+        </div>
+
+        <!-- Vision Section -->
+        <div class="vision-section">
+          <h2>🚀 What We're Building</h2>
+          <p>
+            With Vizorion, you'll soon have access to dynamic exercises, smart feedback, and a growing community of learners who challenge and support each other. Our platform will adapt to your learning style, providing personalized challenges that grow with your expertise.
+          </p>
+          
+          <!-- Feature Grid -->
+          <div class="feature-grid">
+            <div class="feature-item">
+              <span class="feature-icon">🎮</span>
+              <h3>Gamified Learning</h3>
+              <p>Earn points, unlock achievements, and compete with peers as you master Excel functions and data visualization techniques.</p>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-icon">🤖</span>
+              <h3>AI-Powered Personalization</h3>
+              <p>Our intelligent system adapts to your learning pace and style, providing customized exercises and feedback.</p>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-icon">📊</span>
+              <h3>Real-World Data Cases</h3>
+              <p>Practice with authentic business scenarios and datasets that mirror what you'll encounter in professional environments.</p>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-icon">👥</span>
+              <h3>Community Learning</h3>
+              <p>Connect with fellow learners, share insights, and collaborate on data projects in our supportive community.</p>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-icon">📈</span>
+              <h3>Progress Tracking</h3>
+              <p>Monitor your skill development with detailed analytics and personalized learning path recommendations.</p>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-icon">🏆</span>
+              <h3>Industry Recognition</h3>
+              <p>Earn certificates and badges that showcase your data skills to employers and professional networks.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+          <h2>We're building for the future — and you're invited</h2>
+          <p>Join us on this exciting journey as we revolutionize data education and empower the next generation of data professionals.</p>
+          <span class="rocket-emoji">🚀</span>
+        </div>
+
+        <!-- Bottom Banner Ad Placement -->
+        <div class="ad-container ad-bottom-banner">
+          <!-- Your bottom banner ad code will go here -->
+        </div>
       </div>
     </main>
 
-    <!-- Shared footer via fetch -->
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        fetch('footer.html')
-          .then(res => res.text())
-          .then(html => {
-            document.getElementById('footer-placeholder').innerHTML = html;
-          });
-      });
-    </script>
   </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMobileMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        hamburger.innerHTML = '☰';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '60px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
+        navLinks.style.padding = '1rem';
+        navLinks.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        hamburger.innerHTML = '✕';
+      }
+    }
+
+    // Load footer
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      const navbar = document.querySelector('.navbar');
+      
+      if (!navbar.contains(e.target) && navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        hamburger.innerHTML = '☰';
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      
+      if (window.innerWidth > 768) {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'row';
+        navLinks.style.position = 'static';
+        navLinks.style.background = 'transparent';
+        navLinks.style.padding = '0';
+        navLinks.style.boxShadow = 'none';
+        hamburger.innerHTML = '☰';
+      } else {
+        navLinks.style.display = 'none';
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
