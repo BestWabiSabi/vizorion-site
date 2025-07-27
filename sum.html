@@ -858,3 +858,147 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><strong>Multiple Ranges:</strong> Try <code>=SUM(A1:A3, C1:C3)</code> to combine different ranges</li>
             <li><strong>Mixed Formula:</strong> Experiment with <code>=SUM(A1, B2:B4, 50)</code> for various argument types</li>
             <li><strong>Real-world Application:</strong> Calculate totals for sales, expenses, or inventory data</li>
+
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> You can open the file in Excel Online by clicking the Excel icon in the embedded sheet. This will give you full editing capabilities to practice the formula!</p>
+        </div>
+
+        <div class="iframe-container">
+          <iframe
+            src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQT9SRIjtHVuSYbwN1NJLW4tAfh3NCJNYDPYU7IhUMJ_sF4?em=2&AllowTyping=True&ActiveCell='Test%20Sheet'!A2&wdInConfigurator=True&wdInConfigurator=True"
+            allowfullscreen
+            loading="lazy"
+            frameborder="0">
+          </iframe>
+        </div>
+
+        <div class="content-section">
+          <h2>Next Steps</h2>
+          <p>
+            Once you've mastered the basic IF formula, try exploring nested IF statements and combining IF with other functions like AND and OR for more complex logical tests. Check out the <strong>Logic Functions</strong> section in the sidebar for advanced techniques!
+          </p>
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      const isOpen = sidebar.classList.toggle("show");
+      overlay.classList.toggle("show", isOpen);
+      document.body.classList.toggle('sidebar-open', isOpen);
+      
+      // Animate hamburger icon
+      if (isOpen) {
+        hamburger.innerHTML = '✕';
+        hamburger.style.transform = 'rotate(180deg)';
+      } else {
+        hamburger.innerHTML = '☰';
+        hamburger.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Close sidebar when clicking overlay
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+      document.body.classList.remove('sidebar-open');
+      
+      hamburger.innerHTML = '☰';
+      hamburger.style.transform = 'rotate(0deg)';
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+
+    // Load footer and sidebar
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+      setActiveLink();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+
+    // Set active link based on current page
+    function setActiveLink() {
+      const path = window.location.pathname.split('/').pop();
+      const links = document.querySelectorAll('.sidebar a');
+      
+      links.forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Add loading state to sidebar links
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        this.classList.add('loading');
+        
+        // Remove loading state after navigation
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 500);
+      });
+    });
+
+    // Handle window resize for responsive behavior
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        // Close mobile sidebar on resize to desktop
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }, 250);
+    });
+  </script>
+</body>
+</html>
