@@ -2,306 +2,868 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
-
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SUM Formula – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
   <style>
+    /* --- ENHANCED VIZORION STYLES FOR SUM FORMULA PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
     body {
-      background: #f4f5f4;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* HEADER - Matching your index.html exactly */
     header {
-      background: #224ba0;
-      color: #fff;
-      width: 100vw;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
+
     .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
+      padding: 0 1.5rem;
+      color: white;
     }
+
     .logo a {
-      color: #fff;
-      font-size: 1.7rem;
+      color: white;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1200;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
     .nav-links {
       display: flex;
-      gap: 1.3rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.18s;
+
+    .nav-links li {
+      margin-left: 2rem;
     }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
     .nav-links a:hover,
     .nav-links a.active {
-      background: #375ac3;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* Sidebar styles */
-    #sidebar-placeholder {
+    /* SIDEBAR STYLES */
+    .sidebar {
       position: fixed;
-      top: 60px; /* height of header */
+      top: 60px;
       left: 0;
-      width: 240px;
-      min-height: 100vh;
-      background: #173f2e;
-      z-index: 10;
-      border-right: 1px solid #e2e8f0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(59, 130, 246, 0.1);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+      z-index: 800;
       overflow-y: auto;
-      max-height: 100vh;
-    }
-    .excel-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 2rem 1rem 1rem 1rem;
-      color: #fff;
-    }
-    .excel-sidebar a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      background: #218c5c;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      transition: background 0.15s;
-      font-size: 1.08rem;
-      letter-spacing: 0.03em;
-      box-shadow: 0 2px 6px rgba(20, 50, 40, 0.08);
-      text-align: left;
-      border: none;
-      outline: none;
-      display: block;
-    }
-    .excel-sidebar a:hover, .excel-sidebar a:focus {
-      background: #16a34a;
-    }
-    .excel-sidebar a.active {
-      background: #fff;
-      color: #173f2e;
-      font-weight: bold;
-      border: 2px solid #218c5c;
+      transform: translateX(-100%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Content styling */
-    .excel-content {
-      margin-left: 260px;
-      margin-top: 5px;
-      padding: 3.5rem 2rem 2rem 2rem;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+    .sidebar.show {
+      transform: translateX(0);
     }
-    .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.5rem 2.7rem 2.7rem 2.7rem;
-      max-width: 990px;
-      width: 100%;
-      margin: 0 auto;
-      min-height: 410px;
+
+    /* Sidebar overlay for mobile */
+    #sidebarOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 750;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    #sidebarOverlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sidebar content styling */
+    .sidebar-content {
+      padding: 2rem 0;
+    }
+
+    .sidebar-section {
       margin-bottom: 2rem;
     }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      padding: 0 1.5rem 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-title::before {
+      content: '📊';
+      font-size: 1.2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+
+    .sidebar a:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      transform: translateX(2px);
+    }
+
+    .sidebar a.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .sidebar a.active::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: calc(100vh - 60px - 64px);
+    }
+
+    /* SUM Formula specific styles */
+    .excel-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .excel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #10b981, #f59e0b);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
     }
-    .excel-card .syntax-box {
-      background: #e6faf0;
-      border-left: 6px solid #16a34a;
-      padding: 1rem 1.2rem;
-      margin: 1.1rem 0 2.1rem 0;
-      font-family: 'Fira Mono', 'Consolas', monospace;
-      font-size: 1.08rem;
-      color: #0b4d2a;
+
+    /* Syntax box styling */
+    .syntax-box {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+      position: relative;
+      color: #047857;
+    }
+
+    .syntax-box::before {
+      content: 'Syntax';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #10b981;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin: 2rem 0;
+    }
+
+    .content-section h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    .content-section b, .content-section strong {
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    /* Example code styling */
+    .code-example {
+      font-family: 'Courier New', monospace;
+      background: #f1f5f9;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
-      word-break: break-all;
-      box-shadow: 0 2px 12px rgba(34,197,94,0.07);
+      color: #047857;
+      font-weight: 500;
+      border-left: 4px solid #10b981;
+      margin: 1rem 0;
+      display: inline-block;
     }
-    .excel-card ul {
-      margin-top: 0.8rem;
-      margin-bottom: 1.2rem;
-      padding-left: 1.2rem;
+
+    /* Examples grid */
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
-    .excel-card li {
-      font-size: 1.08rem;
-      margin-bottom: 0.3rem;
+
+    .example-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.1);
     }
-    .excel-card iframe {
-      margin-top: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid #eee;
-      box-shadow: 0 2px 10px rgba(40,80,100,0.05);
-      background: #fafafa;
+
+    .example-card h3 {
+      color: #047857;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
     }
-    @media (max-width: 900px) {
-      #sidebar-placeholder {
-        position: static;
-        width: 100vw;
-        min-height: unset;
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
-        max-height: 220px;
+
+    .example-card .code-example {
+      background: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      margin: 0.5rem 0;
+      border-left: none;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    /* Task list styling */
+    .task-list {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #10b981;
+    }
+
+    .task-list h3 {
+      color: #047857;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .task-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .task-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    /* Iframe container */
+    .iframe-container {
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      position: relative;
+    }
+
+    .iframe-container::before {
+      content: 'Practice Sheet';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+      margin-top: 50px;
+    }
+
+    /* Tips box */
+    .tip-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #f59e0b;
+      position: relative;
+    }
+
+    .tip-box::before {
+      content: '💡';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .tip-box p {
+      margin-left: 2rem;
+      color: #92400e;
+      font-weight: 500;
+    }
+
+    /* Desktop layout with sidebar */
+    @media (min-width: 1024px) {
+      .wrapper {
+        margin-left: 280px;
       }
-      .excel-sidebar {
-        flex-direction: row;
-        gap: 0.2rem;
+
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 260px;
+      }
+
+      .excel-card {
+        padding: 2.5rem;
+      }
+
+      .excel-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      .excel-card {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .excel-card h1 {
+        font-size: 2rem;
+      }
+
+      .syntax-box {
+        font-size: 1rem;
         padding: 1rem;
       }
-      .excel-content {
-        margin: 0;
-        padding: 1.2rem 0.4rem 2rem 0.4rem;
+
+      .navbar {
+        padding: 0 1rem;
       }
-      .excel-card {
-        border-radius: 12px;
-        padding: 1.2rem 1rem;
-        min-height: 250px;
+
+      .iframe-container iframe {
+        height: 300px;
+      }
+
+      .examples-grid {
+        grid-template-columns: 1fr;
       }
     }
-    @media (max-width: 600px) {
+
+    /* FOOTER STYLES - Matching your index.html */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111827;
+      color: white;
+      z-index: 100;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cfd8dc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: #475569;
+      user-select: none;
+    }
+
+    /* Focus styles for accessibility */
+    .sidebar a:focus,
+    .hamburger:focus,
+    .nav-links a:focus,
+    .logo a:focus {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
       .excel-card {
-        padding: 1rem 0.6rem;
+        border: 2px solid #1e3a8a;
       }
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 0.5rem;
+      
+      .sidebar {
+        border-right: 2px solid #1e3a8a;
       }
-      .ad-box {
-  margin: 1.5rem 0;
-  text-align: center;
-  background: #fff;
-  padding: 0.8rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-}
+    }
+
+    /* Smooth scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.5);
     }
   </style>
 </head>
-<body>
+<body class="with-sidebar">
+  
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Sidebar overlay -->
+  <div id="sidebarOverlay"></div>
+  
+  <!-- Sidebar container -->
+  <aside id="sidebar-placeholder" class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul>
+          <li><a href="excel-welcome.html">Welcome</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html">IF Formula</a></li>
+          <li><a href="sum.html" class="active">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Advanced Functions</div>
+        <ul>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header (fixed at top) -->
   <header>
-    <nav class="navbar">
+    <div class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="downloads.html">Downloads</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <div id="sidebar-placeholder"></div>
-  <main class="excel-content">
-  <div class="excel-card">
-    <h1>SUM Formula</h1>
-    <div class="syntax-box">
-      =SUM(<span style="color:#0d9488;">number1</span>, [<span style="color:#eab308;">number2</span>], ...)
-    </div>
-    <p>
-      The <b>SUM</b> function adds numbers together. You can sum individual numbers, cell references, ranges, or a combination of all.
-    </p>
-    <ul>
-      <li><b>Syntax:</b>
-        <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-          =SUM(number1, [number2], ...)  
-          /number1: The first number or range to add.  
-          /[number2]: (Optional) Additional numbers or ranges to include in the sum.
-        </span>
-      </li>
-      <li>
-        <b>Example:</b>
-        <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-          =SUM(A1:A5)
-        </span>
-        <br>
-        This adds the values in cells A1 through A5 and returns the total.
-        <br>
-        You can also use:
-        <br>
-        <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-          =SUM(10, 20, 30)
-        </span>
-        to add constant numbers directly.
-      </li>
-    </ul>
+  <!-- Layout structure -->
+  <div class="wrapper">
+    <main>
+      <div class="excel-card">
+        <h1>SUM Formula</h1>
+        
+        <div class="syntax-box">
+          =SUM(<span style="color:#0d9488;">number1</span>, [<span style="color:#eab308;">number2</span>], ...)
+        </div>
 
-    <!-- Ad Placement: Above Task -->
-    <div id="content-ad-placeholder"></div>
+        <div class="content-section">
+          <p>
+            The <b>SUM</b> function is one of Excel's most fundamental and widely-used functions. It adds numbers together and can handle individual numbers, cell references, ranges, or any combination of these elements.
+          </p>
+          
+          <h2>How It Works</h2>
+          <p>
+            SUM accepts multiple arguments and adds them all together. You can include individual cell references, ranges of cells, or even constant numbers directly in the formula. Excel automatically ignores text values and empty cells when calculating the sum.
+          </p>
+        </div>
 
-    <hr style="margin: 2rem 0 1.5rem 0;">
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>📊 Basic Range</h3>
+            <div class="code-example">=SUM(A1:A5)</div>
+            <p>Adds all values from cell A1 through A5</p>
+          </div>
 
-    <ul>
-      <li><b>Task:</b> Use the embedded Excel sheet to calculate totals using the <b>SUM</b> function.</li>
-      <li>Try summing single ranges, multiple ranges, and direct numbers.</li>
-    </ul>
-    <p>
-      Hint: You can also combine ranges like <code>=SUM(A1:A3, B1:B3)</code>.
-    </p>
-    <iframe width="600" height="300" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQT9SRIjtHVuSYbwN1NJLW4tAfh3NCJNYDPYU7IhUMJ_sF4?em=2&AllowTyping=True&ActiveCell='Test%20Sheet'!A2&wdInConfigurator=True&wdInConfigurator=True"></iframe>
-  </div>
-</main>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Load the sidebar
-    fetch('excel-sidebar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('sidebar-placeholder').innerHTML = html;
+          <div class="example-card">
+            <h3>🔢 Direct Numbers</h3>
+            <div class="code-example">=SUM(10, 20, 30)</div>
+            <p>Adds the constant numbers 10, 20, and 30</p>
+          </div>
 
-        // Highlight the current link in the sidebar
-        var path = window.location.pathname.split('/').pop();
-        var links = document.querySelectorAll('.excel-sidebar a');
-        links.forEach(function(link){
-          if (link.getAttribute('href') === path) {
-            link.classList.add('active');
-          }
-        });
-      });
+          <div class="example-card">
+            <h3>🔄 Multiple Ranges</h3>
+            <div class="code-example">=SUM(A1:A3, B1:B3)</div>
+            <p>Combines ranges A1:A3 and B1:B3 in a single sum</p>
+          </div>
 
-    // Load the ad content
-    fetch('content-ad.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('content-ad-placeholder').innerHTML = html;
-      });
-  });
-</script>
-</body>
-</html>
+          <div class="example-card">
+            <h3>🎯 Mixed Arguments</h3>
+            <div class="code-example">=SUM(A1, B2:B5, 100)</div>
+            <p>Combines cell A1, range B2:B5, and the number 100</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Parameters Explained</h2>
+          <p>
+            • <strong>number1:</strong> The first number, cell reference, or range to add (required)<br>
+            • <strong>[number2]:</strong> Optional additional numbers, cell references, or ranges<br>
+            • You can include up to 255 arguments in a single SUM formula
+          </p>
+        </div>
+
+        <div class="task-list">
+          <h3>🎯 Practice Tasks</h3>
+          <ul>
+            <li><strong>Basic Sum:</strong> Use <code>=SUM(A1:A5)</code> to add a simple range</li>
+            <li><strong>Multiple Ranges:</strong> Try <code>=SUM(A1:A3, C1:C3)</code> to combine different ranges</li>
+            <li><strong>Mixed Formula:</strong> Experiment with <code>=SUM(A1, B2:B4, 50)</code> for various argument types</li>
+            <li><strong>Real-world Application:</strong> Calculate totals for sales, expenses, or inventory data</li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> Use keyboard shortcuts! Select your range and press <strong>Alt + =</strong> (Windows) or <strong>⌘ + Shift + T</strong> (Mac) to automatically insert a SUM formula.</p>
+        </div>
+
+        <div class="iframe-container">
+          <iframe
