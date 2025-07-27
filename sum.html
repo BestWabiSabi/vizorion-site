@@ -685,7 +685,101 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="sidebarOverlay"></div>
   
   <!-- Sidebar container -->
-  <div id="sidebar-placeholder" class="sidebar"></div>
+  <aside id="sidebar-placeholder" class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul>
+          <li><a href="excel-welcome.html">Welcome</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html">IF Formula</a></li>
+          <li><a href="sum.html" class="active">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Advanced Functions</div>
+        <ul>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
 
   <!-- Header (fixed at top) -->
   <header>
@@ -764,165 +858,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><strong>Multiple Ranges:</strong> Try <code>=SUM(A1:A3, C1:C3)</code> to combine different ranges</li>
             <li><strong>Mixed Formula:</strong> Experiment with <code>=SUM(A1, B2:B4, 50)</code> for various argument types</li>
             <li><strong>Real-world Application:</strong> Calculate totals for sales, expenses, or inventory data</li>
-          </ul>
-        </div>
-
-        <div class="tip-box">
-          <p><strong>Pro Tip:</strong> Use keyboard shortcuts! Select your range and press <strong>Alt + =</strong> (Windows) or <strong>⌘ + Shift + T</strong> (Mac) to automatically insert a SUM formula.</p>
-        </div>
-
-        <div class="iframe-container">
-          <iframe
-            src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQT9SRIjtHVuSYbwN1NJLW4tAfh3NCJNYDPYU7IhUMJ_sF4?em=2&AllowTyping=True&ActiveCell='Test%20Sheet'!A2&wdInConfigurator=True&wdInConfigurator=True"
-            allowfullscreen
-            loading="lazy"
-            frameborder="0">
-          </iframe>
-        </div>
-
-        <div class="content-section">
-          <h2>Next Steps</h2>
-          <p>
-            Once you've mastered the basic SUM function, explore conditional summing with <strong>SUMIF</strong> and <strong>SUMIFS</strong> functions. These allow you to sum values based on specific criteria, making your spreadsheets even more powerful!
-          </p>
-        </div>
-      </div>
-    </main>
-    <div id="footer-placeholder"></div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar-placeholder");
-      const overlay = document.getElementById("sidebarOverlay");
-      const hamburger = document.querySelector('.hamburger');
-      
-      const isOpen = sidebar.classList.toggle("show");
-      overlay.classList.toggle("show", isOpen);
-      document.body.classList.toggle('sidebar-open', isOpen);
-      
-      // Animate hamburger icon
-      if (isOpen) {
-        hamburger.innerHTML = '✕';
-        hamburger.style.transform = 'rotate(180deg)';
-      } else {
-        hamburger.innerHTML = '☰';
-        hamburger.style.transform = 'rotate(0deg)';
-      }
-    }
-
-    // Close sidebar when clicking overlay
-    document.getElementById('sidebarOverlay').addEventListener('click', () => {
-      const sidebar = document.getElementById("sidebar-placeholder");
-      const overlay = document.getElementById("sidebarOverlay");
-      const hamburger = document.querySelector('.hamburger');
-      
-      sidebar.classList.remove('show');
-      overlay.classList.remove('show');
-      document.body.classList.remove('sidebar-open');
-      
-      hamburger.innerHTML = '☰';
-      hamburger.style.transform = 'rotate(0deg)';
-    });
-
-    // Close sidebar on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const sidebar = document.getElementById("sidebar-placeholder");
-        const overlay = document.getElementById("sidebarOverlay");
-        const hamburger = document.querySelector('.hamburger');
-        
-        if (sidebar.classList.contains('show')) {
-          sidebar.classList.remove('show');
-          overlay.classList.remove('show');
-          document.body.classList.remove('sidebar-open');
-          
-          hamburger.innerHTML = '☰';
-          hamburger.style.transform = 'rotate(0deg)';
-        }
-      }
-    });
-
-    // Load footer and sidebar
-    document.addEventListener('DOMContentLoaded', function () {
-      loadSidebar();
-      loadFooter();
-    });
-
-    async function loadSidebar() {
-      try {
-        const response = await fetch('excel-sidebar.html');
-        if (response.ok) {
-          const html = await response.text();
-          const sidebar = document.getElementById('sidebar-placeholder');
-          sidebar.innerHTML = html;
-          setActiveLink();
-        } else {
-          console.warn('Sidebar could not be loaded');
-        }
-      } catch (error) {
-        console.warn('Sidebar loading failed:', error);
-      }
-    }
-
-    async function loadFooter() {
-      try {
-        const response = await fetch('footer.html');
-        if (response.ok) {
-          const html = await response.text();
-          document.getElementById('footer-placeholder').innerHTML = html;
-        } else {
-          console.warn('Footer could not be loaded');
-        }
-      } catch (error) {
-        console.warn('Footer loading failed:', error);
-      }
-    }
-
-    // Set active link based on current page
-    function setActiveLink() {
-      const path = window.location.pathname.split('/').pop();
-      const links = document.querySelectorAll('.sidebar a');
-      
-      links.forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    // Add loading state to sidebar links
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        this.classList.add('loading');
-        
-        // Remove loading state after navigation
-        setTimeout(() => {
-          this.classList.remove('loading');
-        }, 500);
-      });
-    });
-
-    // Handle window resize for responsive behavior
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        const sidebar = document.getElementById("sidebar-placeholder");
-        const overlay = document.getElementById("sidebarOverlay");
-        const hamburger = document.querySelector('.hamburger');
-        
-        // Close mobile sidebar on resize to desktop
-        if (window.innerWidth >= 1024) {
-          sidebar.classList.remove('show');
-          overlay.classList.remove('show');
-          document.body.classList.remove('sidebar-open');
-          hamburger.innerHTML = '☰';
-          hamburger.style.transform = 'rotate(0deg)';
-        }
-      }, 250);
-    });
-  </script>
-</body>
-</html>
