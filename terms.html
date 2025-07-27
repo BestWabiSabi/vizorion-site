@@ -2,147 +2,785 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
-
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terms of Use – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
   <style>
+    /* --- ENHANCED VIZORION STYLES FOR TERMS PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
     body {
-      background: #f4f5f4;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* HEADER - Matching your if-formula.html exactly */
     header {
-      background: #224ba0;
-      color: #fff;
-      width: 100vw;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
+
     .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
+      padding: 0 1.5rem;
+      color: white;
     }
+
     .logo a {
-      color: #fff;
-      font-size: 1.7rem;
+      color: white;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1200;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
     .nav-links {
       display: flex;
-      gap: 1.3rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.18s;
+
+    .nav-links li {
+      margin-left: 2rem;
     }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
     .nav-links a:hover,
     .nav-links a.active {
-      background: #375ac3;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .excel-content {
-      margin: 60px auto;
-      padding: 3.5rem 2rem;
-      max-width: 960px;
+
+    /* SIDEBAR STYLES */
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(59, 130, 246, 0.1);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+      z-index: 800;
+      overflow-y: auto;
+      transform: translateX(-100%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    .sidebar.show {
+      transform: translateX(0);
+    }
+
+    /* Sidebar overlay for mobile */
+    #sidebarOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 750;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    #sidebarOverlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sidebar content styling */
+    .sidebar-content {
+      padding: 2rem 0;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      padding: 0 1.5rem 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-title::before {
+      content: '📊';
+      font-size: 1.2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+
+    .sidebar a:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      transform: translateX(2px);
+    }
+
+    .sidebar a.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .sidebar a.active::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: calc(100vh - 60px - 64px);
+    }
+
+    /* Terms Card Styles */
     .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.2rem 2.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
     }
+
+    .excel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-    }
-    .excel-card h2 {
-      color: #224ba0;
-      margin-top: 2rem;
-    }
-    .excel-card p {
-      color: #23313b;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .excel-card ul {
-      padding-left: 1.5rem;
-    }
-    footer {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-align: center;
-      padding: 1rem;
+      margin-top: 0;
+    }
+
+    .excel-card h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .excel-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    .excel-card ul {
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .excel-card li {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    .excel-card a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .excel-card a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Desktop layout with sidebar */
+    @media (min-width: 1024px) {
+      .wrapper {
+        margin-left: 280px;
+      }
+
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 260px;
+      }
+
+      .excel-card {
+        padding: 2.5rem;
+      }
+
+      .excel-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      .excel-card {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .excel-card h1 {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        padding: 0 1rem;
+      }
+    }
+
+    /* FOOTER STYLES - Matching your if-formula.html */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
       background: #111827;
       color: white;
-      margin-top: 4rem;
+      z-index: 100;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cfd8dc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: #475569;
+      user-select: none;
+    }
+
+    /* Focus styles for accessibility */
+    .sidebar a:focus,
+    .hamburger:focus,
+    .nav-links a:focus,
+    .logo a:focus {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .excel-card {
+        border: 2px solid #1e3a8a;
+      }
+      
+      .sidebar {
+        border-right: 2px solid #1e3a8a;
+      }
+    }
+
+    /* Smooth scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.5);
     }
   </style>
 </head>
-<body>
+<body class="with-sidebar">
+  
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Sidebar overlay -->
+  <div id="sidebarOverlay"></div>
+  
+  <!-- Sidebar container -->
+  <aside id="sidebar-placeholder" class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul>
+          <li><a href="excel-welcome.html">Welcome</a></li>
+        </ul>
+      </div>
 
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html">IF Formula</a></li>
+          <li><a href="sum.html">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Advanced Functions</div>
+        <ul>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header (fixed at top) -->
   <header>
-    <nav class="navbar">
+    <div class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="downloads.html">Downloads</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <main class="excel-content">
-    <div class="excel-card">
-      <h1>Terms of Use</h1>
-      <p>Welcome to Vizorion! By accessing or using this website (vizorion.com), you agree to comply with and be bound by the following Terms of Use.</p>
+  <!-- Layout structure -->
+  <div class="wrapper">
+    <main class="excel-content">
+      <div class="excel-card">
+        <h1>Terms of Use</h1>
+        <p>Welcome to Vizorion! By accessing or using this website (vizorion.com), you agree to comply with and be bound by the following Terms of Use.</p>
 
-      <h2>1. Educational Purpose Only</h2>
-      <p>All downloadable files, content, and resources provided on Vizorion are for learning and educational purposes only. We do not guarantee accuracy, applicability, or fitness for any particular purpose.</p>
+        <h2>1. Educational Purpose Only</h2>
+        <p>All downloadable files, content, and resources provided on Vizorion are for learning and educational purposes only. We do not guarantee accuracy, applicability, or fitness for any particular purpose.</p>
 
-      <h2>2. Personal Responsibility</h2>
-      <p>Any action you take upon the information on this website is strictly at your own risk. Vizorion is not liable for any losses or damages in connection with the use of our files or content.</p>
+        <h2>2. Personal Responsibility</h2>
+        <p>Any action you take upon the information on this website is strictly at your own risk. Vizorion is not liable for any losses or damages in connection with the use of our files or content.</p>
 
-      <h2>3. Intellectual Property</h2>
-      <p>All materials are the property of Vizorion unless otherwise stated. You may not reproduce, distribute, or republish any material without explicit permission.</p>
+        <h2>3. Intellectual Property</h2>
+        <p>All materials are the property of Vizorion unless otherwise stated. You may not reproduce, distribute, or republish any material without explicit permission.</p>
 
-      <h2>4. External Links</h2>
-      <p>Vizorion may include links to third-party websites. We do not endorse or take responsibility for the content or policies of these sites.</p>
+        <h2>4. External Links</h2>
+        <p>Vizorion may include links to third-party websites. We do not endorse or take responsibility for the content or policies of these sites.</p>
 
-      <h2>5. Modifications</h2>
-      <p>We reserve the right to update or change these terms at any time without notice. Continued use of the site means you accept these changes.</p>
+        <h2>5. Modifications</h2>
+        <p>We reserve the right to update or change these terms at any time without notice. Continued use of the site means you accept these changes.</p>
 
-      <h2>6. Contact</h2>
-      <p>If you have any questions about these Terms of Use, please visit our <a href="contact.html">Contact</a> page.</p>
-    </div>
-  </main>
+        <h2>6. Contact</h2>
+        <p>If you have any questions about these Terms of Use, please visit our <a href="contact.html">Contact</a> page.</p>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
 
-  <footer>
-    <p>© 2025 Vizorion. All rights reserved.</p>
-  </footer>
+  <!-- Scripts -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      const isOpen = sidebar.classList.toggle("show");
+      overlay.classList.toggle("show", isOpen);
+      document.body.classList.toggle('sidebar-open', isOpen);
+      
+      // Animate hamburger icon
+      if (isOpen) {
+        hamburger.innerHTML = '✕';
+        hamburger.style.transform = 'rotate(180deg)';
+      } else {
+        hamburger.innerHTML = '☰';
+        hamburger.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Close sidebar when clicking overlay
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+      document.body.classList.remove('sidebar-open');
+      
+      hamburger.innerHTML = '☰';
+      hamburger.style.transform = 'rotate(0deg)';
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+
+    // Load footer and sidebar
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+      setActiveLink();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+
+    // Set active link based on current page
+    function setActiveLink() {
+      const path = window.location.pathname.split('/').pop();
+      const links = document.querySelectorAll('.sidebar a');
+      
+      links.forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Add loading state to sidebar links
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        this.classList.add('loading');
+        
+        // Remove loading state after navigation
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 500);
+      });
+    });
+
+    // Handle window resize for responsive behavior
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        // Close mobile sidebar on resize to desktop
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }, 250);
+    });
+  </script>
 </body>
 </html>
