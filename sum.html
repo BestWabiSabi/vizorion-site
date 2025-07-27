@@ -442,72 +442,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: bold;
     }
 
-    /* Interactive Practice Section */
-    .practice-section {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(16, 185, 129, 0.03));
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 3rem 0;
-      border: 2px solid rgba(99, 102, 241, 0.1);
-      position: relative;
-    }
-
-    .practice-section::before {
-      content: '🎯 Interactive Practice';
-      position: absolute;
-      top: -12px;
-      left: 20px;
-      background: linear-gradient(135deg, #6366f1, #10b981);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .practice-section h3 {
-      color: #1e3a8a;
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .practice-section ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 1.5rem;
-    }
-
-    .practice-section li {
-      padding: 0.5rem 0;
-      color: #4b5563;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    .practice-section li b {
-      color: #1e3a8a;
-      font-weight: 600;
-    }
-
-    .practice-section code {
-      background: rgba(16, 185, 129, 0.1);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      color: #047857;
-      font-weight: 500;
-    }
-
-    .practice-section p {
-      color: #6b7280;
-      font-style: italic;
-      margin-top: 1rem;
-    }
-
     /* Iframe container */
     .iframe-container {
-      margin: 2rem 0 0 0;
+      margin: 2rem 0;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -515,10 +452,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       position: relative;
     }
 
+    .iframe-container::before {
+      content: 'Practice Sheet';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 10;
+    }
+
     .iframe-container iframe {
       width: 100%;
-      height: 300px;
+      height: 350px;
       border: none;
+      margin-top: 50px;
     }
 
     /* Tips box */
@@ -630,10 +582,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       .examples-grid {
         grid-template-columns: 1fr;
-      }
-
-      .practice-section {
-        padding: 1.5rem;
       }
     }
 
@@ -888,4 +836,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="example-card">
-            <h3>
+            <h3>🎯 Mixed Arguments</h3>
+            <div class="code-example">=SUM(A1, B2:B5, 100)</div>
+            <p>Combines cell A1, range B2:B5, and the number 100</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Parameters Explained</h2>
+          <p>
+            • <strong>number1:</strong> The first number, cell reference, or range to add (required)<br>
+            • <strong>[number2]:</strong> Optional additional numbers, cell references, or ranges<br>
+            • You can include up to 255 arguments in a single SUM formula
+          </p>
+        </div>
+
+        <div class="task-list">
+          <h3>🎯 Practice Tasks</h3>
+          <ul>
+            <li><strong>Basic Sum:</strong> Use <code>=SUM(A1:A5)</code> to add a simple range</li>
+            <li><strong>Multiple Ranges:</strong> Try <code>=SUM(A1:A3, C1:C3)</code> to combine different ranges</li>
+            <li><strong>Mixed Formula:</strong> Experiment with <code>=SUM(A1, B2:B4, 50)</code> for various argument types</li>
+            <li><strong>Real-world Application:</strong> Calculate totals for sales, expenses, or inventory data</li>
