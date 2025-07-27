@@ -2,276 +2,1120 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-  <!-- End Google Tag Manager -->
-
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VLOOKUP Formula – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
   <style>
+    /* --- ENHANCED VIZORION STYLES FOR VLOOKUP FORMULA PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
     body {
-      background: #f4f5f4;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* HEADER - Matching your if-formula.html exactly */
     header {
-      background: #224ba0;
-      color: #fff;
-      width: 100vw;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
+
     .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
+      padding: 0 1.5rem;
+      color: white;
     }
+
     .logo a {
-      color: #fff;
-      font-size: 1.7rem;
+      color: white;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1200;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
     .nav-links {
       display: flex;
-      gap: 1.3rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.18s;
+
+    .nav-links li {
+      margin-left: 2rem;
     }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
     .nav-links a:hover,
     .nav-links a.active {
-      background: #375ac3;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* Sidebar styles */
-    #sidebar-placeholder {
+    /* SIDEBAR STYLES */
+    .sidebar {
       position: fixed;
-      top: 60px; /* height of header */
+      top: 60px;
       left: 0;
-      width: 240px;
-      min-height: 100vh;
-      background: #173f2e;
-      z-index: 10;
-      border-right: 1px solid #e2e8f0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(59, 130, 246, 0.1);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+      z-index: 800;
       overflow-y: auto;
-      max-height: 100vh;
-    }
-    .excel-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 2rem 1rem 1rem 1rem;
-      color: #fff;
-    }
-    .excel-sidebar a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      background: #218c5c;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      transition: background 0.15s;
-      font-size: 1.08rem;
-      letter-spacing: 0.03em;
-      box-shadow: 0 2px 6px rgba(20, 50, 40, 0.08);
-      text-align: left;
-      border: none;
-      outline: none;
-      display: block;
-    }
-    .excel-sidebar a:hover, .excel-sidebar a:focus {
-      background: #16a34a;
-    }
-    .excel-sidebar a.active {
-      background: #fff;
-      color: #173f2e;
-      font-weight: bold;
-      border: 2px solid #218c5c;
+      transform: translateX(-100%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Content styling */
-    .excel-content {
-      margin-left: 260px;
-      margin-top: 5px;
-      padding: 3.5rem 2rem 2rem 2rem;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+    .sidebar.show {
+      transform: translateX(0);
     }
-    .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.5rem 2.7rem 2.7rem 2.7rem;
-      max-width: 990px;
-      width: 100%;
-      margin: 0 auto;
-      min-height: 410px;
+
+    /* Sidebar overlay for mobile */
+    #sidebarOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 750;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    #sidebarOverlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sidebar content styling */
+    .sidebar-content {
+      padding: 2rem 0;
+    }
+
+    .sidebar-section {
       margin-bottom: 2rem;
     }
-    .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      padding: 0 1.5rem 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .excel-card .syntax-box {
-      background: #e6faf0;
-      border-left: 6px solid #16a34a;
-      padding: 1rem 1.2rem;
-      margin: 1.1rem 0 2.1rem 0;
-      font-family: 'Fira Mono', 'Consolas', monospace;
-      font-size: 1.08rem;
-      color: #0b4d2a;
+
+    .sidebar-title::before {
+      content: '📊';
+      font-size: 1.2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+
+    .sidebar a:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      transform: translateX(2px);
+    }
+
+    .sidebar a.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+      color: #1e3a8a;
+      border-left-color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .sidebar a.active::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    /* AD PLACEMENT AREAS - HIDDEN BY DEFAULT */
+    .ad-container {
+      display: none; /* Hidden until you're ready to add ads */
+      margin: 1.5rem 0;
+      text-align: center;
+      background: rgba(249, 250, 251, 0.8);
+      border: 1px dashed rgba(59, 130, 246, 0.2);
       border-radius: 8px;
-      word-break: break-all;
-      box-shadow: 0 2px 12px rgba(34,197,94,0.07);
+      min-height: 100px;
+      position: relative;
     }
-    .excel-card ul {
-      margin-top: 0.8rem;
-      margin-bottom: 1.2rem;
-      padding-left: 1.2rem;
+
+    .ad-container::before {
+      content: 'Advertisement Space';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(75, 85, 99, 0.5);
+      font-size: 0.875rem;
+      font-weight: 500;
     }
-    .excel-card li {
-      font-size: 1.08rem;
-      margin-bottom: 0.3rem;
+
+    /* Top Banner Ad - Desktop/Tablet */
+    .ad-top-banner {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 0 auto 1.5rem;
     }
-    .excel-card iframe {
-      margin-top: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid #eee;
-      box-shadow: 0 2px 10px rgba(40,80,100,0.05);
-      background: #fafafa;
+
+    /* Sidebar Ad - Desktop only */
+    .ad-sidebar {
+      width: 250px;
+      height: 250px;
+      margin: 1rem auto;
+      position: sticky;
+      top: 1rem;
     }
-    @media (max-width: 900px) {
-      #sidebar-placeholder {
-        position: static;
-        width: 100vw;
-        min-height: unset;
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
-        max-height: 220px;
+
+    /* In-content Ad - All devices */
+    .ad-in-content {
+      width: 100%;
+      max-width: 320px;
+      height: 250px;
+      margin: 2rem auto;
+    }
+
+    /* Bottom Banner Ad - All devices */
+    .ad-bottom-banner {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 2rem auto 0;
+    }
+
+    /* Mobile Ad adjustments */
+    @media (max-width: 768px) {
+      .ad-top-banner,
+      .ad-bottom-banner {
+        max-width: 320px;
+        height: 50px;
       }
-      .excel-sidebar {
-        flex-direction: row;
-        gap: 0.2rem;
+
+      .ad-in-content {
+        max-width: 300px;
+        height: 250px;
+      }
+    }
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: calc(100vh - 60px - 64px);
+    }
+
+    /* VLOOKUP Formula specific styles */
+    .excel-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .excel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .excel-card h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    /* Syntax box styling */
+    .syntax-box {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .syntax-box::before {
+      content: 'Syntax';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #3b82f6;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin: 2rem 0;
+    }
+
+    .content-section h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    .content-section b, .content-section strong {
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    .content-section ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .content-section li {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Example code styling */
+    .code-example {
+      font-family: 'Courier New', monospace;
+      background: #f1f5f9;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: #0b4d2a;
+      font-weight: 500;
+      border-left: 4px solid #3b82f6;
+      margin: 1rem 0;
+      display: inline-block;
+    }
+
+    /* Task list styling */
+    .task-list {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .task-list h3 {
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .task-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .task-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    /* Iframe container */
+    .iframe-container {
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+    }
+
+    .iframe-container::before {
+      content: 'Practice Sheet';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      padding: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 50px;
+    }
+
+    /* Tips box */
+    .tip-box {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(16, 185, 129, 0.03));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #10b981;
+      position: relative;
+    }
+
+    .tip-box::before {
+      content: '💡';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .tip-box p {
+      margin-left: 2rem;
+      color: #065f46;
+      font-weight: 500;
+    }
+
+    /* Parameter descriptions */
+    .parameter-list {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(139, 92, 246, 0.02));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .parameter-list h3 {
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .parameter-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .parameter-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.05);
+    }
+
+    .parameter-list li:last-child {
+      border-bottom: none;
+    }
+
+    .parameter-name {
+      font-family: 'Courier New', monospace;
+      background: #f1f5f9;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      color: #1e3a8a;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    /* Desktop layout with sidebar */
+    @media (min-width: 1024px) {
+      .wrapper {
+        margin-left: 280px;
+      }
+
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+
+      /* Show sidebar ad on desktop */
+      .sidebar .ad-sidebar {
+        /* display: block; when ready to show ads */
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 260px;
+      }
+
+      .excel-card {
+        padding: 2.5rem;
+      }
+
+      .excel-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      .excel-card {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .excel-card h1 {
+        font-size: 2rem;
+      }
+
+      .syntax-box {
+        font-size: 1rem;
         padding: 1rem;
       }
-      .excel-content {
-        margin: 0;
-        padding: 1.2rem 0.4rem 2rem 0.4rem;
+
+      .navbar {
+        padding: 0 1rem;
       }
-      .excel-card {
-        border-radius: 12px;
-        padding: 1.2rem 1rem;
-        min-height: 250px;
+
+      .iframe-container iframe {
+        height: 400px;
       }
     }
-    @media (max-width: 600px) {
+
+    /* FOOTER STYLES - Matching your if-formula.html */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111827;
+      color: white;
+      z-index: 100;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cfd8dc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: #475569;
+      user-select: none;
+    }
+
+    /* Focus styles for accessibility */
+    .sidebar a:focus,
+    .hamburger:focus,
+    .nav-links a:focus,
+    .logo a:focus {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
       .excel-card {
-        padding: 1rem 0.6rem;
+        border: 2px solid #1e3a8a;
       }
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 0.5rem;
+      
+      .sidebar {
+        border-right: 2px solid #1e3a8a;
       }
+    }
+
+    /* Smooth scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.5);
     }
   </style>
 </head>
-<body>
+<body class="with-sidebar">
+  
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Sidebar overlay -->
+  <div id="sidebarOverlay"></div>
+  
+  <!-- Sidebar container -->
+  <aside id="sidebar-placeholder" class="sidebar">
+    <div class="sidebar-content">
+      <!-- Sidebar Ad Placement (Desktop) -->
+      <div class="ad-container ad-sidebar">
+        <!-- Your sidebar ad code will go here -->
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul>
+          <li><a href="excel-welcome.html">Welcome</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html">IF Formula</a></li>
+          <li><a href="sum.html">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html" class="active">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Advanced Functions</div>
+        <ul>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header (fixed at top) -->
   <header>
-    <nav class="navbar">
+    <div class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="downloads.html">Downloads</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <div id="sidebar-placeholder"></div>
-  <main class="excel-content">
-    <div class="excel-card">
-      <h1>VLOOKUP Formula</h1>
-      <div class="syntax-box">
-        =VLOOKUP(<span style="color:#16a34a;">lookup_value</span>, <span style="color:#0d9488;">table_array</span>, <span style="color:#eab308;">col_index_num</span>, [<span style="color:#dc2626;">range_lookup</span>])
+  <!-- Layout structure -->
+  <div class="wrapper">
+    <main>
+      <!-- Top Banner Ad Placement -->
+      <div class="ad-container ad-top-banner">
+        <!-- Your top banner ad code will go here -->
       </div>
-      <p>
-        The <b>VLOOKUP</b> function allows you to search for a value in the first column of a range or table and return a value in the same row from another column.
-      </p>
-      <ul>
-        <li><b>Syntax:</b>
-          <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
-            =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
-          </span>
-        </li>
-        <li>
-          <b>Example:</b>
-          <span style="font-family:'Fira Mono',monospace; background:#f1f5f9; padding:0.12em 0.55em; border-radius:5px; color:#0b4d2a;">
+
+      <div class="excel-card">
+        <h1>VLOOKUP Formula</h1>
+        
+        <div class="syntax-box">
+          =VLOOKUP(<span style="color:#16a34a;">lookup_value</span>, <span style="color:#0d9488;">table_array</span>, <span style="color:#eab308;">col_index_num</span>, [<span style="color:#dc2626;">range_lookup</span>])
+        </div>
+
+        <div class="content-section">
+          <p>
+            The <b>VLOOKUP</b> function allows you to search for a value in the first column of a range or table and return a value in the same row from another column. It's one of Excel's most powerful lookup functions.
+          </p>
+          
+          <h2>How It Works</h2>
+          <p>
+            VLOOKUP searches vertically (top to bottom) in the first column of your specified range to find your lookup value, then returns a corresponding value from a column you specify to the right.
+          </p>
+
+          <div class="parameter-list">
+            <h3>📋 Parameters Explained</h3>
+            <ul>
+              <li>
+                <span class="parameter-name">lookup_value</span>: The value you want to search for (e.g., "Apple", B2, or 12345)
+              </li>
+              <li>
+                <span class="parameter-name">table_array</span>: The range of cells containing your data (e.g., A2:D10)
+              </li>
+              <li>
+                <span class="parameter-name">col_index_num</span>: Which column number to return the value from (1 = first column, 2 = second column, etc.)
+              </li>
+              <li>
+                <span class="parameter-name">range_lookup</span>: TRUE for approximate match, FALSE for exact match (always use FALSE for most cases)
+              </li>
+            </ul>
+          </div>
+
+          <h2>Example</h2>
+          <div class="code-example">
             =VLOOKUP("Apple", A2:C10, 3, FALSE)
-          </span>
-          <br>
-          This finds <b>"Apple"</b> in the first column of <b>A2:C10</b> and returns the value from the 3rd column of that row.<br>
-          Use <span style="font-family:'Fira Mono',monospace; background:#e6e6e6; color:#183042; border-radius:4px; padding:0.06em 0.36em;">FALSE</span> for an exact match.
-        </li>
-      </ul>
-      <hr style="margin: 2rem 0 1.5rem 0;">
-      <ul>
-        <li><b>Task:</b> Try the embedded Excel Online sheet below.</li>
-        <li>Fill the <b>Product Name (VLOOKUP)</b> column by looking up the <b>Product Code</b> in the lookup table.</li>
-      </ul>
-      <p>
-        <b>Tip:</b> You can open the file in Excel Online for hands-on practice!
-      </p>
-      <iframe width="700" height="320" frameborder="0" scrolling="no"
-        src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQR_M-CfqVo5SIv8_eJBW_9PAUNcBzelt3EohAtb9G75FVA?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!B2&wdInConfigurator=True&wdInConfigurator=True"></iframe>
-    </div>
-  </main>
+          </div>
+          <p>
+            This formula searches for <b>"Apple"</b> in the first column of range <b>A2:C10</b>, and returns the value from the <b>3rd column</b> of the same row. The <b>FALSE</b> ensures an exact match.
+          </p>
+
+          <h2>Common Use Cases</h2>
+          <p>
+            • <strong>Product Lookup:</strong> <code>=VLOOKUP(B2, Products!A:D, 2, FALSE)</code><br>
+            • <strong>Price Lookup:</strong> <code>=VLOOKUP("SKU123", A:C, 3, FALSE)</code><br>
+            • <strong>Employee Data:</strong> <code>=VLOOKUP(ID, Staff!A:F, 4, FALSE)</code>
+          </p>
+        </div>
+
+        <!-- In-content Ad Placement -->
+        <div class="ad-container ad-in-content">
+          <!-- Your in-content ad code will go here -->
+        </div>
+
+        <div class="task-list">
+          <h3>🎯 Practice Task</h3>
+          <ul>
+            <li><strong>Objective:</strong> Use the embedded Excel sheet below to practice the VLOOKUP formula</li>
+            <li><strong>Task:</strong> Fill the <b>Product Name (VLOOKUP)</b> column by looking up the <b>Product Code</b> in the lookup table</li>
+            <li><strong>Logic:</strong> Find the Product Code in the lookup table and return the corresponding Product Name</li>
+            <li><strong>Formula Hint:</strong> <code>=VLOOKUP(A2, LookupTable, 2, FALSE)</code></li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> Always use FALSE for the range_lookup parameter unless you specifically need an approximate match. This ensures you get exact matches and avoid unexpected results!</p>
+        </div>
+
+        <div class="iframe-container">
+          <iframe
+            src="https://1drv.ms/x/c/579d4a0503c7d6b1/IQR_M-CfqVo5SIv8_eJBW_9PAUNcBzelt3EohAtb9G75FVA?em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Test%20Sheet'!B2&wdInConfigurator=True&wdInConfigurator=True"
+            allowfullscreen
+            loading="lazy"
+            frameborder="0">
+          </iframe>
+        </div>
+
+        <div class="content-section">
+          <h2>Common VLOOKUP Errors & Solutions</h2>
+          <p>
+            <strong>#N/A Error:</strong> The lookup value wasn't found. Check for typos or trailing spaces.<br>
+            <strong>#REF! Error:</strong> Your column index number is larger than the number of columns in your table.<br>
+            <strong>#VALUE! Error:</strong> Your column index number is less than 1.
+          </p>
+
+          <h2>Next Steps</h2>
+          <p>
+            Master VLOOKUP and then explore <strong>XLOOKUP</strong> (the modern replacement) and <strong>INDEX & MATCH</strong> for more flexible lookup solutions. Check out the other lookup functions in the sidebar!
+          </p>
+        </div>
+
+        <!-- Bottom Banner Ad Placement -->
+        <div class="ad-container ad-bottom-banner">
+          <!-- Your bottom banner ad code will go here -->
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('excel-sidebar.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('sidebar-placeholder').innerHTML = html;
-          // Highlight current link in sidebar
-          var path = window.location.pathname.split('/').pop();
-          var links = document.querySelectorAll('.excel-sidebar a');
-          links.forEach(function(link){
-            if (link.getAttribute('href') === path) {
-              link.classList.add('active');
-            }
-          });
-        });
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      const isOpen = sidebar.classList.toggle("show");
+      overlay.classList.toggle("show", isOpen);
+      document.body.classList.toggle('sidebar-open', isOpen);
+      
+      // Animate hamburger icon
+      if (isOpen) {
+        hamburger.innerHTML = '✕';
+        hamburger.style.transform = 'rotate(180deg)';
+      } else {
+        hamburger.innerHTML = '☰';
+        hamburger.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Close sidebar when clicking overlay
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      const sidebar = document.getElementById("sidebar-placeholder");
+      const overlay = document.getElementById("sidebarOverlay");
+      const hamburger = document.querySelector('.hamburger');
+      
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+      document.body.classList.remove('sidebar-open');
+      
+      hamburger.innerHTML = '☰';
+      hamburger.style.transform = 'rotate(0deg)';
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+
+    // Load footer and sidebar
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+      setActiveLink();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded');
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+
+    // Set active link based on current page
+    function setActiveLink() {
+      const path = window.location.pathname.split('/').pop();
+      const links = document.querySelectorAll('.sidebar a');
+      
+      links.forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Add loading state to sidebar links
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        this.classList.add('loading');
+        
+        // Remove loading state after navigation
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 500);
+      });
+    });
+
+    // Handle window resize for responsive behavior
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        const sidebar = document.getElementById("sidebar-placeholder");
+        const overlay = document.getElementById("sidebarOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        
+        // Close mobile sidebar on resize to desktop
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('sidebar-open');
+          hamburger.innerHTML = '☰';
+          hamburger.style.transform = 'rotate(0deg)';
+        }
+      }, 250);
     });
   </script>
 </body>
