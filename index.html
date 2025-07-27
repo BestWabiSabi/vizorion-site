@@ -496,6 +496,81 @@
       color: white;
     }
 
+    /* GOOGLE ADS PLACEHOLDERS */
+    .ad-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f8fafc;
+      border: 2px dashed #e2e8f0;
+      border-radius: 8px;
+      color: #64748b;
+      font-size: 0.9rem;
+      text-align: center;
+      min-height: 90px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Different ad sizes for different placements */
+    .ad-banner {
+      max-width: 728px;
+      height: 90px;
+    }
+
+    .ad-rectangle {
+      max-width: 336px;
+      height: 280px;
+    }
+
+    .ad-square {
+      max-width: 300px;
+      height: 250px;
+    }
+
+    .ad-mobile-banner {
+      max-width: 320px;
+      height: 50px;
+    }
+
+    .ad-responsive {
+      width: 100%;
+      min-height: 90px;
+    }
+
+    /* Hide ad placeholders in production */
+    .ad-container.live {
+      background: transparent;
+      border: none;
+      color: transparent;
+      padding: 0;
+    }
+
+    /* Mobile ad adjustments */
+    @media (max-width: 768px) {
+      .ad-banner {
+        display: none;
+      }
+      
+      .ad-mobile-banner {
+        display: block;
+      }
+
+      .ad-rectangle,
+      .ad-square {
+        max-width: 300px;
+        margin: 1rem auto;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .ad-mobile-banner {
+        display: none;
+      }
+    }
+
     /* Improved button styles for future use */
     .button {
       background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -540,6 +615,42 @@
     </header>
 
     <main>
+      <!-- Top Banner Ad (728x90 or responsive) -->
+      <div class="ad-container ad-banner ad-responsive">
+        <!-- Google AdSense Banner Ad -->
+        <div>Advertisement</div>
+        <!-- 
+        REPLACE WITH YOUR GOOGLE ADSENSE CODE:
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6154950265384244"
+             data-ad-slot="YOUR_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+      </div>
+
+      <!-- Mobile Banner Ad (320x50) -->
+      <div class="ad-container ad-mobile-banner">
+        <!-- Google AdSense Mobile Banner -->
+        <div>Mobile Ad</div>
+        <!-- 
+        REPLACE WITH YOUR GOOGLE ADSENSE CODE:
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6154950265384244"
+             data-ad-slot="YOUR_MOBILE_SLOT_ID"
+             data-ad-format="banner"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+      </div>
+
       <section class="hero">
         <div class="hero-left">
           <h1>Welcome to Vizorion</h1>
@@ -567,6 +678,23 @@
           </div>
         </div>
       </section>
+
+      <!-- Content Area Ad (300x250 Rectangle) -->
+      <div class="ad-container ad-square">
+        <!-- Google AdSense Rectangle Ad -->
+        <div>Content Ad</div>
+        <!-- 
+        REPLACE WITH YOUR GOOGLE ADSENSE CODE:
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6154950265384244"
+             data-ad-slot="YOUR_CONTENT_SLOT_ID"
+             data-ad-format="rectangle"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+      </div>
     </main>
 
     <div id="footer-placeholder"></div>
