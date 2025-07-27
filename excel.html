@@ -512,29 +512,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <aside id="sidebar-placeholder" class="sidebar">
     <div class="sidebar-content">
       <div class="sidebar-section">
-        <div class="sidebar-title">Excel Formulas</div>
+        <div class="sidebar-title">Getting Started</div>
         <ul>
-          <li><a href="excel-vlookup.html">VLOOKUP</a></li>
-          <li><a href="excel-hlookup.html">HLOOKUP</a></li>
-          <li><a href="excel-index-match.html">INDEX MATCH</a></li>
-          <li><a href="excel-sumif.html">SUMIF & SUMIFS</a></li>
-          <li><a href="excel-countif.html">COUNTIF & COUNTIFS</a></li>
-          <li><a href="excel-averageif.html">AVERAGEIF & AVERAGEIFS</a></li>
-          <li><a href="excel-pivot-tables.html">Pivot Tables</a></li>
-          <li><a href="excel-conditional-formatting.html">Conditional Formatting</a></li>
-          <li><a href="excel-data-validation.html">Data Validation</a></li>
-          <li><a href="excel-charts.html">Charts & Graphs</a></li>
+          <li><a href="excel-welcome.html">Welcome</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basic Functions</div>
+        <ul>
+          <li><a href="if-formula.html">IF Formula</a></li>
+          <li><a href="sum.html">SUM</a></li>
+          <li><a href="count.html">COUNT</a></li>
+          <li><a href="counta.html">COUNTA</a></li>
+          <li><a href="average.html">AVERAGE</a></li>
+          <li><a href="min.html">MIN</a></li>
+          <li><a href="max.html">MAX</a></li>
         </ul>
       </div>
       
       <div class="sidebar-section">
+        <div class="sidebar-title">Lookup Functions</div>
+        <ul>
+          <li><a href="vlookup.html">VLOOKUP</a></li>
+          <li><a href="hlookup.html">HLOOKUP</a></li>
+          <li><a href="xlookup.html">XLOOKUP</a></li>
+          <li><a href="index-match.html">INDEX & MATCH</a></li>
+          <li><a href="match.html">MATCH</a></li>
+          <li><a href="lookup.html">LOOKUP</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Conditional Functions</div>
+        <ul>
+          <li><a href="sumif.html">SUMIF</a></li>
+          <li><a href="sumifs.html">SUMIFS</a></li>
+          <li><a href="countif.html">COUNTIF</a></li>
+          <li><a href="countifs.html">COUNTIFS</a></li>
+          <li><a href="averageif.html">AVERAGEIF</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Text Functions</div>
+        <ul>
+          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
+          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
+          <li><a href="text.html">TEXT</a></li>
+          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & Time</div>
+        <ul>
+          <li><a href="today.html">TODAY & NOW</a></li>
+          <li><a href="date.html">DATE & TIME</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Logic Functions</div>
+        <ul>
+          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
+          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
         <div class="sidebar-title">Advanced Functions</div>
         <ul>
-          <li><a href="excel-xlookup.html">XLOOKUP</a></li>
-          <li><a href="excel-power-query.html">Power Query</a></li>
-          <li><a href="excel-macros.html">Macros & VBA</a></li>
-          <li><a href="excel-array-formulas.html">Array Formulas</a></li>
-          <li><a href="excel-dynamic-arrays.html">Dynamic Arrays</a></li>
+          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
+          <li><a href="transpose.html">TRANSPOSE</a></li>
+          <li><a href="choose.html">CHOOSE</a></li>
+          <li><a href="offset.html">OFFSET</a></li>
+          <li><a href="indirect.html">INDIRECT</a></li>
+          <li><a href="row-column.html">ROW, COLUMN</a></li>
+          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
+          <li><a href="subtotal.html">SUBTOTAL</a></li>
+          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tools & Features</div>
+        <ul>
+          <li><a href="formatting.html">Conditional Formatting</a></li>
+          <li><a href="pivot-tables.html">Pivot Tables</a></li>
         </ul>
       </div>
     </div>
@@ -622,7 +687,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
 
-    // Load footer on page load
+    // Load footer and set active links
     document.addEventListener('DOMContentLoaded', function () {
       loadFooter();
       setActiveLink();
