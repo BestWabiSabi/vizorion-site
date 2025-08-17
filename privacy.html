@@ -8,104 +8,276 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
   <!-- End Google Tag Manager -->
-
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy – Vizorion</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
   <style>
+    /* --- STYLES FOR PRIVACY PAGE --- */
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      height: 100%;
+    }
+
     body {
-      background: #f4f5f4;
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      min-height: 100vh;
+      padding-top: 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* HEADER */
     header {
-      background: #224ba0;
-      color: #fff;
-      width: 100vw;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
+
     .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
+      padding: 0 1.5rem;
+      color: white;
     }
+
     .logo a {
-      color: #fff;
-      font-size: 1.7rem;
+      color: white;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
     .nav-links {
       display: flex;
-      gap: 1.3rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.18s;
+
+    .nav-links li {
+      margin-left: 2rem;
     }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
     .nav-links a:hover,
     .nav-links a.active {
-      background: #375ac3;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .excel-content {
-      margin: 60px auto;
-      padding: 3.5rem 2rem;
-      max-width: 960px;
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 2rem;
+      min-height: calc(100vh - 60px - 64px);
     }
+
+    /* Privacy Card Styles */
     .excel-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(70,90,120,0.07);
-      padding: 2.2rem 2.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
     }
+
+    .excel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     .excel-card h1 {
-      margin-top: 0;
-      font-weight: 800;
-      color: #183042;
-    }
-    .excel-card h2, .excel-card h3 {
-      color: #224ba0;
-      margin-top: 2rem;
-    }
-    .excel-card p {
-      color: #23313b;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .excel-card ul {
-      padding-left: 1.5rem;
-    }
-    footer {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-align: center;
-      padding: 1rem;
+      margin-top: 0;
+    }
+
+    .excel-card h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .excel-card h3 {
+      color: #1e3a8a;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .excel-card p,
+    .excel-card li {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    .excel-card ul { padding-left: 2rem; margin-bottom: 1.5rem; }
+
+    .excel-card a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .excel-card a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Last updated styling */
+    .last-updated {
+      font-style: italic;
+      color: #6b7280;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* FOOTER STYLES */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
       background: #111827;
       color: white;
-      margin-top: 4rem;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
+    }
+
+    .footer-inner { max-width: 1000px; margin: 0 auto; }
+
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: #cfd8dc; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-links span { color: #475569; user-select: none; }
+
+    /* Accessibility */
+    .nav-links a:focus,
+    .logo a:focus { outline: 2px solid #fbbf24; outline-offset: 2px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* High contrast */
+    @media (prefers-contrast: high) {
+      .excel-card { border: 2px solid #1e3a8a; }
     }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- Header -->
   <header>
-    <nav class="navbar">
+    <div class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -113,47 +285,68 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <main class="excel-content">
-    <div class="excel-card">
-      <h1>Privacy Policy</h1>
-      <p>Last updated: June 2025</p>
+  <!-- Main layout -->
+  <div class="wrapper">
+    <main class="excel-content">
+      <div class="excel-card">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: June 2025</p>
 
-      <p>At Vizorion, accessible from <a href="https://vizorion.com">vizorion.com</a>, we value your privacy. This Privacy Policy explains what information we collect and how we use it.</p>
+        <p>At Vizorion, accessible from <a href="https://vizorion.com">vizorion.com</a>, we value your privacy. This Privacy Policy explains what information we collect and how we use it.</p>
 
-      <h3>1. No Personal Data Collection</h3>
-      <p>Vizorion does not require you to register, sign in, or provide any personal data to access our content. We do not knowingly collect any personally identifiable information.</p>
+        <h2>1. No Personal Data Collection</h2>
+        <p>Vizorion does not require you to register, sign in, or provide any personal data to access our content. We do not knowingly collect any personally identifiable information.</p>
 
-      <h3>2. Cookies</h3>
-      <p>We use third-party services (like Google AdSense and CookieYes) which may store cookies in your browser to enhance user experience or serve personalized ads. For full details, please review our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+        <h2>2. Cookies</h2>
+        <p>We use third-party services (like Google AdSense and CookieYes) which may store cookies in your browser to enhance user experience or serve personalized ads. For full details, please review our <a href="cookie-policy.html">Cookie Policy</a>.</p>
 
-      <h3>3. Google Services</h3>
-      <ul>
-        <li><strong>Google AdSense:</strong> Ads on Vizorion may be personalized based on your browsing behavior. For more details, visit <a href="https://policies.google.com/technologies/ads">Google’s advertising policies</a>.</li>
-        <li><strong>Google Tag Manager:</strong> We use this tool to track website analytics anonymously to improve content quality and performance.</li>
-      </ul>
+        <h2>3. Google Services</h2>
+        <ul>
+          <li><strong>Google AdSense:</strong> Ads on Vizorion may be personalized based on your browsing behavior. For more details, visit <a href="https://policies.google.com/technologies/ads">Google's advertising policies</a>.</li>
+          <li><strong>Google Tag Manager:</strong> We use this tool to track website analytics anonymously to improve content quality and performance.</li>
+        </ul>
 
-      <h3>4. External Links</h3>
-      <p>Our site may contain links to external websites. Vizorion is not responsible for the privacy practices of these third-party sites.</p>
+        <h2>4. External Links</h2>
+        <p>Our site may contain links to external websites. Vizorion is not responsible for the privacy practices of these third-party sites.</p>
 
-      <h3>5. Data Security</h3>
-      <p>We do not store any user information on our servers. All analytics and ad services are handled securely via third-party providers.</p>
+        <h2>5. Data Security</h2>
+        <p>We do not store any user information on our servers. All analytics and ad services are handled securely via third-party providers.</p>
 
-      <h3>6. Children’s Information</h3>
-      <p>Vizorion does not knowingly collect any data from children under the age of 13.</p>
+        <h2>6. Children's Information</h2>
+        <p>Vizorion does not knowingly collect any data from children under the age of 13.</p>
 
-      <h3>7. Your Consent</h3>
-      <p>By using our website, you consent to our Privacy Policy.</p>
+        <h2>7. Your Consent</h2>
+        <p>By using our website, you consent to our Privacy Policy.</p>
 
-      <h3>8. Contact Us</h3>
-      <p>If you have questions or concerns about this policy, please visit our <a href="contact.html">Contact</a> page.</p>
-    </div>
-  </main>
+        <h2>8. Contact Us</h2>
+        <p>If you have questions or concerns about this policy, please visit our <a href="contact.html">Contact</a> page.</p>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
 
-  <footer>
-    <p>© 2025 Vizorion. All rights reserved.</p>
-  </footer>
+  <!-- Footer loader -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFooter();
+    });
+
+    async function loadFooter() {
+      try {
+        const response = await fetch('footer.html');
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById('footer-placeholder').innerHTML = html;
+        } else {
+          console.warn('Footer could not be loaded:', response.status);
+        }
+      } catch (error) {
+        console.warn('Footer loading failed:', error);
+      }
+    }
+  </script>
 </body>
 </html>
