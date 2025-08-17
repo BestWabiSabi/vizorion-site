@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZSNTX');</script>
+  <!-- End Google Tag Manager -->
 
   <!-- Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6154950265384244" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
   <style>
-    /* --- ENHANCED VIZORION STYLES FOR CONTACT PAGE --- */
+    /* --- STYLES FOR CONTACT PAGE --- */
 
     /* Base Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,10 +58,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       flex-direction: column;
       min-height: calc(100vh - 60px);
-      transition: margin-left 0.3s ease;
     }
 
-    /* HEADER - Matching your if-formula.html exactly */
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -98,18 +97,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transform: scale(1.05);
     }
 
-    .hamburger {
-      font-size: 1.8rem;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 1200;
-    }
-
-    .hamburger:hover {
-      transform: scale(1.1);
-    }
-
     .nav-links {
       display: flex;
       list-style: none;
@@ -140,127 +127,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* SIDEBAR STYLES */
-    .sidebar {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 280px;
-      height: calc(100vh - 60px);
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      border-right: 1px solid rgba(59, 130, 246, 0.1);
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
-      z-index: 800;
-      overflow-y: auto;
-      transform: translateX(-100%);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .sidebar.show {
-      transform: translateX(0);
-    }
-
-    /* Sidebar overlay for mobile */
-    #sidebarOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 750;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(2px);
-    }
-
-    #sidebarOverlay.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Sidebar content styling */
-    .sidebar-content {
-      padding: 2rem 0;
-    }
-
-    .sidebar-section {
-      margin-bottom: 2rem;
-    }
-
-    .sidebar-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1e3a8a;
-      padding: 0 1.5rem 1rem;
-      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .sidebar-title::before {
-      content: '📊';
-      font-size: 1.2rem;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar li {
-      margin: 0;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 0.75rem 1.5rem;
-      color: #4b5563;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-      position: relative;
-    }
-
-    .sidebar a:hover {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
-      color: #1e3a8a;
-      border-left-color: #3b82f6;
-      transform: translateX(2px);
-    }
-
-    .sidebar a.active {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
-      color: #1e3a8a;
-      border-left-color: #3b82f6;
-      font-weight: 600;
-    }
-
-    .sidebar a.active::after {
-      content: '';
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      background: #3b82f6;
-      border-radius: 50%;
-    }
-
     /* Main content area */
     main {
       flex: 1;
       padding: 2rem;
-      margin-left: 0;
-      transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       min-height: calc(100vh - 60px - 64px);
     }
 
@@ -311,11 +181,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-align: center;
+      margin-top: 0;
     }
 
     .contact-card p {
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #4b5563;
       margin-bottom: 2rem;
       text-align: center;
@@ -404,61 +275,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transform: translateY(0);
     }
 
-    /* Desktop layout with sidebar */
-    @media (min-width: 1024px) {
-      .wrapper {
-        margin-left: 280px;
-      }
-
-      .sidebar {
-        transform: translateX(0);
-      }
-
-      .hamburger {
-        display: none;
-      }
-
-      main {
-        margin-left: 0;
-      }
+    /* FOOTER STYLES */
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111827;
+      color: white;
+      width: 100%;
+      font-size: 0.9rem;
+      height: 64px;
+      margin-top: auto;
     }
 
-    /* Tablet adjustments */
-    @media (min-width: 769px) and (max-width: 1023px) {
-      .hamburger {
-        display: block;
-      }
+    .footer-inner { max-width: 1000px; margin: 0 auto; }
 
-      .nav-links {
-        display: none;
-      }
-
-      .sidebar {
-        width: 260px;
-      }
-
-      .contact-card {
-        padding: 2.5rem;
-      }
-
-      .contact-card h1 {
-        font-size: 2.2rem;
-      }
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    /* Mobile adjustments */
+    .footer-links a { color: #cfd8dc; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-links span { color: #475569; user-select: none; }
+
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .sidebar {
-        width: 100%;
-        max-width: 320px;
+      .navbar {
+        padding: 0 1rem;
       }
 
       main {
@@ -474,59 +321,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         font-size: 2rem;
       }
 
-      .navbar {
-        padding: 0 1rem;
-      }
-
       .contact-form button {
         padding: 0.875rem 1.5rem;
       }
+
+      .nav-links li {
+        margin-left: 1rem;
+      }
+
+      .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
     }
 
-    /* FOOTER STYLES - Matching your if-formula.html */
-    footer {
-      flex-shrink: 0;
-      text-align: center;
-      padding: 1rem 2rem;
-      background: #111827;
-      color: white;
-      z-index: 100;
-      width: 100%;
-      font-size: 0.9rem;
-      height: 64px;
-      margin-top: auto;
-    }
-
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #cfd8dc;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-links span {
-      color: #475569;
-      user-select: none;
-    }
-
-    /* Focus styles for accessibility */
-    .sidebar a:focus,
-    .hamburger:focus,
+    /* Accessibility */
     .nav-links a:focus,
     .logo a:focus,
     .contact-form input:focus,
@@ -536,157 +345,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       outline-offset: 2px;
     }
 
-    /* Reduced motion support */
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
 
-    /* High contrast mode support */
+    /* High contrast */
     @media (prefers-contrast: high) {
-      .contact-card {
-        border: 2px solid #1e3a8a;
-      }
-      
-      .sidebar {
-        border-right: 2px solid #1e3a8a;
-      }
-    }
-
-    /* Smooth scrollbar for sidebar */
-    .sidebar::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-      background: rgba(59, 130, 246, 0.3);
-      border-radius: 3px;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-      background: rgba(59, 130, 246, 0.5);
+      .contact-card { border: 2px solid #1e3a8a; }
     }
   </style>
 </head>
-<body class="with-sidebar">
-  
+<body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-  <!-- Sidebar overlay -->
-  <div id="sidebarOverlay"></div>
-  
-  <!-- Sidebar container -->
-  <aside id="sidebar-placeholder" class="sidebar">
-    <div class="sidebar-content">
-      <div class="sidebar-section">
-        <div class="sidebar-title">Getting Started</div>
-        <ul>
-          <li><a href="excel-welcome.html">Welcome</a></li>
-        </ul>
-      </div>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZSNTX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-      <div class="sidebar-section">
-        <div class="sidebar-title">Basic Functions</div>
-        <ul>
-          <li><a href="if-formula.html">IF Formula</a></li>
-          <li><a href="sum.html">SUM</a></li>
-          <li><a href="count.html">COUNT</a></li>
-          <li><a href="counta.html">COUNTA</a></li>
-          <li><a href="average.html">AVERAGE</a></li>
-          <li><a href="min.html">MIN</a></li>
-          <li><a href="max.html">MAX</a></li>
-        </ul>
-      </div>
-      
-      <div class="sidebar-section">
-        <div class="sidebar-title">Lookup Functions</div>
-        <ul>
-          <li><a href="vlookup.html">VLOOKUP</a></li>
-          <li><a href="hlookup.html">HLOOKUP</a></li>
-          <li><a href="xlookup.html">XLOOKUP</a></li>
-          <li><a href="index-match.html">INDEX & MATCH</a></li>
-          <li><a href="match.html">MATCH</a></li>
-          <li><a href="lookup.html">LOOKUP</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Conditional Functions</div>
-        <ul>
-          <li><a href="sumif.html">SUMIF</a></li>
-          <li><a href="sumifs.html">SUMIFS</a></li>
-          <li><a href="countif.html">COUNTIF</a></li>
-          <li><a href="countifs.html">COUNTIFS</a></li>
-          <li><a href="averageif.html">AVERAGEIF</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Text Functions</div>
-        <ul>
-          <li><a href="left-right-mid.html">LEFT, RIGHT, MID</a></li>
-          <li><a href="concatenate.html">CONCATENATE & TEXTJOIN</a></li>
-          <li><a href="text.html">TEXT</a></li>
-          <li><a href="trim-clean.html">TRIM & CLEAN</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Date & Time</div>
-        <ul>
-          <li><a href="today.html">TODAY & NOW</a></li>
-          <li><a href="date.html">DATE & TIME</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Logic Functions</div>
-        <ul>
-          <li><a href="and-or-not.html">AND, OR, NOT</a></li>
-          <li><a href="iserror-isblank.html">ISERROR, ISBLANK</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Advanced Functions</div>
-        <ul>
-          <li><a href="unique-sort-filter.html">UNIQUE, SORT, FILTER</a></li>
-          <li><a href="transpose.html">TRANSPOSE</a></li>
-          <li><a href="choose.html">CHOOSE</a></li>
-          <li><a href="offset.html">OFFSET</a></li>
-          <li><a href="indirect.html">INDIRECT</a></li>
-          <li><a href="row-column.html">ROW, COLUMN</a></li>
-          <li><a href="rand-randbetween.html">RAND, RANDBETWEEN</a></li>
-          <li><a href="subtotal.html">SUBTOTAL</a></li>
-          <li><a href="sumproduct.html">SUMPRODUCT</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-title">Tools & Features</div>
-        <ul>
-          <li><a href="formatting.html">Conditional Formatting</a></li>
-          <li><a href="pivot-tables.html">Pivot Tables</a></li>
-        </ul>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Header (fixed at top) -->
+  <!-- Header -->
   <header>
     <div class="navbar">
       <div class="logo"><a href="index.html">Vizorion</a></div>
-      <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="downloads.html">Downloads</a></li>
@@ -696,7 +373,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <!-- Layout structure -->
+  <!-- Main layout -->
   <div class="wrapper">
     <main>
       <div class="contact-card">
@@ -722,63 +399,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="footer-placeholder"></div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Footer loader -->
   <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar-placeholder");
-      const overlay = document.getElementById("sidebarOverlay");
-      const hamburger = document.querySelector('.hamburger');
-      
-      const isOpen = sidebar.classList.toggle("show");
-      overlay.classList.toggle("show", isOpen);
-      document.body.classList.toggle('sidebar-open', isOpen);
-      
-      // Animate hamburger icon
-      if (isOpen) {
-        hamburger.innerHTML = '✕';
-        hamburger.style.transform = 'rotate(180deg)';
-      } else {
-        hamburger.innerHTML = '☰';
-        hamburger.style.transform = 'rotate(0deg)';
-      }
-    }
-
-    // Close sidebar when clicking overlay
-    document.getElementById('sidebarOverlay').addEventListener('click', () => {
-      const sidebar = document.getElementById("sidebar-placeholder");
-      const overlay = document.getElementById("sidebarOverlay");
-      const hamburger = document.querySelector('.hamburger');
-      
-      sidebar.classList.remove('show');
-      overlay.classList.remove('show');
-      document.body.classList.remove('sidebar-open');
-      
-      hamburger.innerHTML = '☰';
-      hamburger.style.transform = 'rotate(0deg)';
-    });
-
-    // Close sidebar on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const sidebar = document.getElementById("sidebar-placeholder");
-        const overlay = document.getElementById("sidebarOverlay");
-        const hamburger = document.querySelector('.hamburger');
-        
-        if (sidebar.classList.contains('show')) {
-          sidebar.classList.remove('show');
-          overlay.classList.remove('show');
-          document.body.classList.remove('sidebar-open');
-          
-          hamburger.innerHTML = '☰';
-          hamburger.style.transform = 'rotate(0deg)';
-        }
-      }
-    });
-
-    // Load footer and sidebar
     document.addEventListener('DOMContentLoaded', function () {
       loadFooter();
-      setActiveLink();
     });
 
     async function loadFooter() {
@@ -788,56 +412,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           const html = await response.text();
           document.getElementById('footer-placeholder').innerHTML = html;
         } else {
-          console.warn('Footer could not be loaded');
+          console.warn('Footer could not be loaded:', response.status);
         }
       } catch (error) {
         console.warn('Footer loading failed:', error);
       }
     }
-
-    // Set active link based on current page
-    function setActiveLink() {
-      const path = window.location.pathname.split('/').pop();
-      const links = document.querySelectorAll('.sidebar a');
-      
-      links.forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    // Add loading state to sidebar links
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        this.classList.add('loading');
-        
-        // Remove loading state after navigation
-        setTimeout(() => {
-          this.classList.remove('loading');
-        }, 500);
-      });
-    });
-
-    // Handle window resize for responsive behavior
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        const sidebar = document.getElementById("sidebar-placeholder");
-        const overlay = document.getElementById("sidebarOverlay");
-        const hamburger = document.querySelector('.hamburger');
-        
-        // Close mobile sidebar on resize to desktop
-        if (window.innerWidth >= 1024) {
-          sidebar.classList.remove('show');
-          overlay.classList.remove('show');
-          document.body.classList.remove('sidebar-open');
-          hamburger.innerHTML = '☰';
-          hamburger.style.transform = 'rotate(0deg)';
-        }
-      }, 250);
-    });
   </script>
 </body>
 </html>
